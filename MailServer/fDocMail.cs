@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MailServer
 {
-    public partial class Form1 : Form
+    public partial class fDocMail : Form
     {
-        public Form1()
+        public fDocMail()
         {
             InitializeComponent();
         }
