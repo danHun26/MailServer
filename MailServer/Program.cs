@@ -16,7 +16,7 @@ namespace MailServer
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new fGuiMail());
+            Application.Run(new fDangNhap());
         }
     }
 }
