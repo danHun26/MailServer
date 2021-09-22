@@ -16,5 +16,17 @@ namespace MailServer
         {
             InitializeComponent();
         }
+
+        //gửi thư
+        private void btnSend_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //chọn tập tin đính kèm
+        private void btnBrowser_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
