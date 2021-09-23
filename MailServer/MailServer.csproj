@@ -150,10 +150,12 @@
     <Content Include="icon\job-offer.png" />
     <Content Include="icon\justify.png" />
     <Content Include="icon\login.ico" />
+    <Content Include="icon\padlock.png" />
     <Content Include="icon\paper-plane.png" />
     <Content Include="icon\send %281%29.ico" />
     <Content Include="icon\send.ico" />
     <Content Include="icon\underlined-text.png" />
+    <Content Include="icon\user.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
