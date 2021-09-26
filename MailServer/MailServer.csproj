@@ -87,6 +87,9 @@
     <EmbeddedResource Include="fDangNhap.resx">
       <DependentUpon>fDangNhap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="fDocMail.resx">
+      <DependentUpon>fDocMail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fGuiMail.resx">
       <DependentUpon>fGuiMail.cs</DependentUpon>
     </EmbeddedResource>
