@@ -33,5 +33,16 @@ namespace MailServer.Properties {
                 return ((string)(this["XAY_DUNG_MAIL_SERVERConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ADMIN\\QUANKHANG;Initial Catalog=XAY_DUNG_MAIL_SERVER;Integrated Secur" +
+            "ity=True")]
+        public string XAY_DUNG_MAIL_SERVERConnectionString1 {
+            get {
+                return ((string)(this["XAY_DUNG_MAIL_SERVERConnectionString1"]));
+            }
+        }
     }
 }
