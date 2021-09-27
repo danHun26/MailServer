@@ -381,6 +381,7 @@ namespace MailServer
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "fSendMail";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
