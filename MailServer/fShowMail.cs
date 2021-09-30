@@ -16,5 +16,10 @@ namespace MailServer
         {
             InitializeComponent();
         }
+
+        private void panel1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("hello");
+        }
     }
 }

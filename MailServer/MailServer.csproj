@@ -158,7 +158,9 @@
     <Content Include="icon\back.png" />
     <Content Include="icon\bold-text-option.png" />
     <Content Include="icon\close.png" />
+    <Content Include="icon\draft %282%29.png" />
     <Content Include="icon\email.png" />
+    <Content Include="icon\emailShow.png" />
     <Content Include="icon\icons8-close-window-16.png" />
     <Content Include="icon\icons8-delete-16.png" />
     <Content Include="icon\icons8-email-16.png" />
@@ -168,12 +170,16 @@
     <Content Include="icon\job-offer.png" />
     <Content Include="icon\justify.png" />
     <Content Include="icon\login.ico" />
+    <Content Include="icon\mailbox.png" />
     <Content Include="icon\padlock.png" />
     <Content Include="icon\paper-plane.png" />
     <Content Include="icon\restore.png" />
     <Content Include="icon\RP.png" />
     <Content Include="icon\send %281%29.ico" />
     <Content Include="icon\send.ico" />
+    <Content Include="icon\star %281%29.png" />
+    <Content Include="icon\star %282%29.png" />
+    <Content Include="icon\trash.png" />
     <Content Include="icon\underlined-text.png" />
     <Content Include="icon\user.png" />
   </ItemGroup>
