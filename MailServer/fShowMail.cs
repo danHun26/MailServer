@@ -17,19 +17,20 @@ namespace MailServer
             InitializeComponent();
         }
 
-        private void panel1_Click(object sender, EventArgs e)
+
+        private void btnNewMail_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("hello");
-        }
+            try
+            {
+                fSendMail fsm = new fSendMail();
+                fsm.ShowDialog();
+            }
+            catch (Exception)
+            {
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-
+                MessageBox.Show("Đã có lỗi xảy ra vui lòng liên hệ nhà phát triển.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
         }
     }
 }

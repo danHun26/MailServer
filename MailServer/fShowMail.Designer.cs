@@ -154,7 +154,6 @@ namespace MailServer
             this.btnReplyAll.TabIndex = 5;
             this.btnReplyAll.Text = "Reply All Mail";
             this.btnReplyAll.UseVisualStyleBackColor = true;
-            this.btnReplyAll.Click += new System.EventHandler(this.button5_Click);
             // 
             // btnReplyMail
             // 
@@ -191,7 +190,6 @@ namespace MailServer
             this.btnDeleteMail.TabIndex = 2;
             this.btnDeleteMail.Text = "Delete Mail";
             this.btnDeleteMail.UseVisualStyleBackColor = true;
-            this.btnDeleteMail.Click += new System.EventHandler(this.button2_Click);
             // 
             // btnNewMail
             // 
@@ -204,6 +202,7 @@ namespace MailServer
             this.btnNewMail.TabIndex = 1;
             this.btnNewMail.Text = "New Mail";
             this.btnNewMail.UseVisualStyleBackColor = true;
+            this.btnNewMail.Click += new System.EventHandler(this.btnNewMail_Click);
             // 
             // tabSend
             // 
