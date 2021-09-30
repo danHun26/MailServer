@@ -83,7 +83,6 @@ namespace MailServer
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.tabControl1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1084, 86);
@@ -359,9 +358,9 @@ namespace MailServer
             this.panel2.Controls.Add(this.cmbEmail);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel2.Location = new System.Drawing.Point(0, 86);
+            this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(261, 475);
+            this.panel2.Size = new System.Drawing.Size(261, 561);
             this.panel2.TabIndex = 1;
             // 
             // btnGarbage
@@ -466,7 +465,7 @@ namespace MailServer
             this.cmbEmail.ItemHeight = 43;
             this.cmbEmail.Items.AddRange(new object[] {
             "minhhuanpbt26@gmail.com"});
-            this.cmbEmail.Location = new System.Drawing.Point(0, 424);
+            this.cmbEmail.Location = new System.Drawing.Point(0, 510);
             this.cmbEmail.MaxDropDownItems = 4;
             this.cmbEmail.MouseState = MaterialSkin.MouseState.OUT;
             this.cmbEmail.Name = "cmbEmail";
@@ -479,9 +478,9 @@ namespace MailServer
             this.panel3.Controls.Add(this.rtxtBodyMail);
             this.panel3.Controls.Add(this.panel5);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(550, 86);
+            this.panel3.Location = new System.Drawing.Point(550, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(534, 475);
+            this.panel3.Size = new System.Drawing.Size(534, 561);
             this.panel3.TabIndex = 3;
             // 
             // rtxtBodyMail
@@ -490,7 +489,7 @@ namespace MailServer
             this.rtxtBodyMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtxtBodyMail.Location = new System.Drawing.Point(0, 0);
             this.rtxtBodyMail.Name = "rtxtBodyMail";
-            this.rtxtBodyMail.Size = new System.Drawing.Size(534, 401);
+            this.rtxtBodyMail.Size = new System.Drawing.Size(534, 487);
             this.rtxtBodyMail.TabIndex = 15;
             this.rtxtBodyMail.Text = "";
             // 
@@ -498,7 +497,7 @@ namespace MailServer
             // 
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(0, 401);
+            this.panel5.Location = new System.Drawing.Point(0, 487);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(534, 74);
             this.panel5.TabIndex = 4;
@@ -508,9 +507,9 @@ namespace MailServer
             this.panel4.AutoScroll = true;
             this.panel4.Controls.Add(this.dgvListMail);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(261, 86);
+            this.panel4.Location = new System.Drawing.Point(261, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(289, 475);
+            this.panel4.Size = new System.Drawing.Size(289, 561);
             this.panel4.TabIndex = 2;
             // 
             // dgvListMail
@@ -524,7 +523,7 @@ namespace MailServer
             this.dgvListMail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvListMail.Location = new System.Drawing.Point(0, 0);
             this.dgvListMail.Name = "dgvListMail";
-            this.dgvListMail.Size = new System.Drawing.Size(289, 475);
+            this.dgvListMail.Size = new System.Drawing.Size(289, 561);
             this.dgvListMail.TabIndex = 14;
             // 
             // drvTo
