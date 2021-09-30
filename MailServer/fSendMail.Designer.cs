@@ -106,7 +106,7 @@ namespace MailServer
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(3, 6);
+            this.label3.Location = new System.Drawing.Point(4, 6);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(56, 16);
             this.label3.TabIndex = 1;
@@ -136,7 +136,7 @@ namespace MailServer
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(31, 6);
+            this.label2.Location = new System.Drawing.Point(4, 5);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(28, 16);
             this.label2.TabIndex = 1;
@@ -178,7 +178,7 @@ namespace MailServer
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(18, 6);
+            this.label1.Location = new System.Drawing.Point(4, 6);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(42, 16);
             this.label1.TabIndex = 0;
@@ -333,10 +333,10 @@ namespace MailServer
             // txtIdentification
             // 
             this.txtIdentification.Enabled = false;
-            this.txtIdentification.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdentification.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIdentification.Location = new System.Drawing.Point(606, 7);
             this.txtIdentification.Name = "txtIdentification";
-            this.txtIdentification.Size = new System.Drawing.Size(167, 22);
+            this.txtIdentification.Size = new System.Drawing.Size(167, 20);
             this.txtIdentification.TabIndex = 1;
             this.txtIdentification.Text = "File kèm: ";
             // 
