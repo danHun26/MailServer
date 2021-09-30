@@ -67,6 +67,7 @@ namespace MailServer
             this.drvTo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.drvSubject = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.drvContent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtpMail = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabHome.SuspendLayout();
@@ -212,7 +213,7 @@ namespace MailServer
             this.tabSend.Controls.Add(this.btnSendReceive);
             this.tabSend.Location = new System.Drawing.Point(4, 22);
             this.tabSend.Name = "tabSend";
-            this.tabSend.Size = new System.Drawing.Size(1072, 56);
+            this.tabSend.Size = new System.Drawing.Size(1073, 56);
             this.tabSend.TabIndex = 1;
             this.tabSend.Text = "Send/Receive";
             this.tabSend.UseVisualStyleBackColor = true;
@@ -272,7 +273,7 @@ namespace MailServer
             this.tabAccount.Controls.Add(this.btnEdit);
             this.tabAccount.Location = new System.Drawing.Point(4, 22);
             this.tabAccount.Name = "tabAccount";
-            this.tabAccount.Size = new System.Drawing.Size(1072, 56);
+            this.tabAccount.Size = new System.Drawing.Size(1073, 56);
             this.tabAccount.TabIndex = 3;
             this.tabAccount.Text = "Account";
             this.tabAccount.UseVisualStyleBackColor = true;
@@ -319,7 +320,7 @@ namespace MailServer
             this.tabHelp.Controls.Add(this.btnReport);
             this.tabHelp.Location = new System.Drawing.Point(4, 22);
             this.tabHelp.Name = "tabHelp";
-            this.tabHelp.Size = new System.Drawing.Size(1072, 56);
+            this.tabHelp.Size = new System.Drawing.Size(1073, 56);
             this.tabHelp.TabIndex = 2;
             this.tabHelp.Text = "Help";
             this.tabHelp.UseVisualStyleBackColor = true;
@@ -476,6 +477,7 @@ namespace MailServer
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.dtpMail);
             this.panel3.Controls.Add(this.rtxtBodyMail);
             this.panel3.Controls.Add(this.panel5);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
@@ -490,6 +492,7 @@ namespace MailServer
             this.rtxtBodyMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtxtBodyMail.Location = new System.Drawing.Point(0, 0);
             this.rtxtBodyMail.Name = "rtxtBodyMail";
+            this.rtxtBodyMail.ReadOnly = true;
             this.rtxtBodyMail.Size = new System.Drawing.Size(534, 401);
             this.rtxtBodyMail.TabIndex = 15;
             this.rtxtBodyMail.Text = "";
@@ -529,24 +532,30 @@ namespace MailServer
             // 
             // drvTo
             // 
-            this.drvTo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.drvTo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.drvTo.HeaderText = "To";
             this.drvTo.Name = "drvTo";
-            this.drvTo.Width = 81;
             // 
             // drvSubject
             // 
-            this.drvSubject.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.drvSubject.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.drvSubject.HeaderText = "Subject";
             this.drvSubject.Name = "drvSubject";
-            this.drvSubject.Width = 83;
             // 
             // drvContent
             // 
-            this.drvContent.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.drvContent.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.drvContent.HeaderText = "Content";
             this.drvContent.Name = "drvContent";
-            this.drvContent.Width = 82;
+            // 
+            // dtpMail
+            // 
+            this.dtpMail.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dtpMail.Enabled = false;
+            this.dtpMail.Location = new System.Drawing.Point(0, 0);
+            this.dtpMail.Name = "dtpMail";
+            this.dtpMail.Size = new System.Drawing.Size(534, 20);
+            this.dtpMail.TabIndex = 16;
             // 
             // fShowMail
             // 
@@ -560,7 +569,7 @@ namespace MailServer
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "fShowMail";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Inbox";
+            this.Text = "Mailbox";
             this.panel1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabHome.ResumeLayout(false);
@@ -587,12 +596,8 @@ namespace MailServer
         private System.Windows.Forms.Button btnStarred;
         private System.Windows.Forms.Button btnAllMail;
         private System.Windows.Forms.Button btnInbox;
-        private System.Windows.Forms.DataGridView dgvListMail;
         private System.Windows.Forms.RichTextBox rtxtBodyMail;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn drvTo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn drvSubject;
-        private System.Windows.Forms.DataGridViewTextBoxColumn drvContent;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabHome;
         private System.Windows.Forms.TabPage tabSend;
@@ -614,5 +619,10 @@ namespace MailServer
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnContact;
         private System.Windows.Forms.Button btnReport;
+        private System.Windows.Forms.DataGridView dgvListMail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn drvTo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn drvSubject;
+        private System.Windows.Forms.DataGridViewTextBoxColumn drvContent;
+        private System.Windows.Forms.DateTimePicker dtpMail;
     }
 }
