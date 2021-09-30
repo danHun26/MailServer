@@ -157,6 +157,8 @@
     <Content Include="icon\align %282%29.png" />
     <Content Include="icon\align.png" />
     <Content Include="icon\back.png" />
+    <Content Include="icon\bgmail.ico" />
+    <Content Include="icon\bgmail.png" />
     <Content Include="icon\bold-text-option.png" />
     <Content Include="icon\call.png" />
     <Content Include="icon\cancel.png" />

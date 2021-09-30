@@ -33,10 +33,25 @@ namespace MailServer
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabHome = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
+            this.btnForward = new System.Windows.Forms.Button();
+            this.btnReplyAll = new System.Windows.Forms.Button();
+            this.btnReplyMail = new System.Windows.Forms.Button();
+            this.btnArchiveMail = new System.Windows.Forms.Button();
+            this.btnDeleteMail = new System.Windows.Forms.Button();
+            this.btnNewMail = new System.Windows.Forms.Button();
             this.tabSend = new System.Windows.Forms.TabPage();
+            this.btnUpdateFolder = new System.Windows.Forms.Button();
+            this.btnSendAll = new System.Windows.Forms.Button();
+            this.btnCancelAll = new System.Windows.Forms.Button();
+            this.btnSendReceive = new System.Windows.Forms.Button();
             this.tabAccount = new System.Windows.Forms.TabPage();
+            this.btnLogOut = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
             this.tabHelp = new System.Windows.Forms.TabPage();
+            this.btnContact = new System.Windows.Forms.Button();
+            this.btnReport = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnGarbage = new System.Windows.Forms.Button();
             this.btnDrafts = new System.Windows.Forms.Button();
@@ -45,28 +60,13 @@ namespace MailServer
             this.btnInbox = new System.Windows.Forms.Button();
             this.cmbEmail = new MaterialSkin.Controls.MaterialComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.rtxtBodyMail = new System.Windows.Forms.RichTextBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvListMail = new System.Windows.Forms.DataGridView();
             this.drvTo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.drvSubject = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.drvContent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
-            this.button15 = new System.Windows.Forms.Button();
-            this.button16 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabHome.SuspendLayout();
@@ -76,7 +76,7 @@ namespace MailServer
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListMail)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -100,17 +100,17 @@ namespace MailServer
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1080, 82);
-            this.tabControl1.TabIndex = 0;
+            this.tabControl1.TabIndex = 1;
             // 
             // tabHome
             // 
-            this.tabHome.Controls.Add(this.button7);
-            this.tabHome.Controls.Add(this.button6);
-            this.tabHome.Controls.Add(this.button5);
-            this.tabHome.Controls.Add(this.button4);
-            this.tabHome.Controls.Add(this.button3);
-            this.tabHome.Controls.Add(this.button2);
-            this.tabHome.Controls.Add(this.button1);
+            this.tabHome.Controls.Add(this.btnBack);
+            this.tabHome.Controls.Add(this.btnForward);
+            this.tabHome.Controls.Add(this.btnReplyAll);
+            this.tabHome.Controls.Add(this.btnReplyMail);
+            this.tabHome.Controls.Add(this.btnArchiveMail);
+            this.tabHome.Controls.Add(this.btnDeleteMail);
+            this.tabHome.Controls.Add(this.btnNewMail);
             this.tabHome.Location = new System.Drawing.Point(4, 22);
             this.tabHome.Name = "tabHome";
             this.tabHome.Size = new System.Drawing.Size(1072, 56);
@@ -118,24 +118,98 @@ namespace MailServer
             this.tabHome.Text = "Home";
             this.tabHome.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnBack
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(6, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(140, 50);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "New Mail";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.Image = ((System.Drawing.Image)(resources.GetObject("btnBack.Image")));
+            this.btnBack.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBack.Location = new System.Drawing.Point(942, 3);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(124, 50);
+            this.btnBack.TabIndex = 7;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = true;
+            // 
+            // btnForward
+            // 
+            this.btnForward.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnForward.Image = ((System.Drawing.Image)(resources.GetObject("btnForward.Image")));
+            this.btnForward.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnForward.Location = new System.Drawing.Point(805, 3);
+            this.btnForward.Name = "btnForward";
+            this.btnForward.Size = new System.Drawing.Size(131, 50);
+            this.btnForward.TabIndex = 6;
+            this.btnForward.Text = "Forward";
+            this.btnForward.UseVisualStyleBackColor = true;
+            // 
+            // btnReplyAll
+            // 
+            this.btnReplyAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReplyAll.Image = ((System.Drawing.Image)(resources.GetObject("btnReplyAll.Image")));
+            this.btnReplyAll.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReplyAll.Location = new System.Drawing.Point(631, 3);
+            this.btnReplyAll.Name = "btnReplyAll";
+            this.btnReplyAll.Size = new System.Drawing.Size(168, 50);
+            this.btnReplyAll.TabIndex = 5;
+            this.btnReplyAll.Text = "Reply All Mail";
+            this.btnReplyAll.UseVisualStyleBackColor = true;
+            this.btnReplyAll.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // btnReplyMail
+            // 
+            this.btnReplyMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReplyMail.Image = ((System.Drawing.Image)(resources.GetObject("btnReplyMail.Image")));
+            this.btnReplyMail.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReplyMail.Location = new System.Drawing.Point(478, 3);
+            this.btnReplyMail.Name = "btnReplyMail";
+            this.btnReplyMail.Size = new System.Drawing.Size(147, 50);
+            this.btnReplyMail.TabIndex = 4;
+            this.btnReplyMail.Text = "Reply Mail";
+            this.btnReplyMail.UseVisualStyleBackColor = true;
+            // 
+            // btnArchiveMail
+            // 
+            this.btnArchiveMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnArchiveMail.Image = ((System.Drawing.Image)(resources.GetObject("btnArchiveMail.Image")));
+            this.btnArchiveMail.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnArchiveMail.Location = new System.Drawing.Point(318, 3);
+            this.btnArchiveMail.Name = "btnArchiveMail";
+            this.btnArchiveMail.Size = new System.Drawing.Size(154, 50);
+            this.btnArchiveMail.TabIndex = 3;
+            this.btnArchiveMail.Text = "Archive Mail";
+            this.btnArchiveMail.UseVisualStyleBackColor = true;
+            // 
+            // btnDeleteMail
+            // 
+            this.btnDeleteMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteMail.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteMail.Image")));
+            this.btnDeleteMail.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDeleteMail.Location = new System.Drawing.Point(152, 3);
+            this.btnDeleteMail.Name = "btnDeleteMail";
+            this.btnDeleteMail.Size = new System.Drawing.Size(160, 50);
+            this.btnDeleteMail.TabIndex = 2;
+            this.btnDeleteMail.Text = "Delete Mail";
+            this.btnDeleteMail.UseVisualStyleBackColor = true;
+            this.btnDeleteMail.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // btnNewMail
+            // 
+            this.btnNewMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNewMail.Image = ((System.Drawing.Image)(resources.GetObject("btnNewMail.Image")));
+            this.btnNewMail.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNewMail.Location = new System.Drawing.Point(6, 3);
+            this.btnNewMail.Name = "btnNewMail";
+            this.btnNewMail.Size = new System.Drawing.Size(140, 50);
+            this.btnNewMail.TabIndex = 1;
+            this.btnNewMail.Text = "New Mail";
+            this.btnNewMail.UseVisualStyleBackColor = true;
             // 
             // tabSend
             // 
-            this.tabSend.Controls.Add(this.button11);
-            this.tabSend.Controls.Add(this.button10);
-            this.tabSend.Controls.Add(this.button9);
-            this.tabSend.Controls.Add(this.button8);
+            this.tabSend.Controls.Add(this.btnUpdateFolder);
+            this.tabSend.Controls.Add(this.btnSendAll);
+            this.tabSend.Controls.Add(this.btnCancelAll);
+            this.tabSend.Controls.Add(this.btnSendReceive);
             this.tabSend.Location = new System.Drawing.Point(4, 22);
             this.tabSend.Name = "tabSend";
             this.tabSend.Size = new System.Drawing.Size(1072, 56);
@@ -143,11 +217,59 @@ namespace MailServer
             this.tabSend.Text = "Send/Receive";
             this.tabSend.UseVisualStyleBackColor = true;
             // 
+            // btnUpdateFolder
+            // 
+            this.btnUpdateFolder.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateFolder.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdateFolder.Image")));
+            this.btnUpdateFolder.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUpdateFolder.Location = new System.Drawing.Point(405, 3);
+            this.btnUpdateFolder.Name = "btnUpdateFolder";
+            this.btnUpdateFolder.Size = new System.Drawing.Size(179, 50);
+            this.btnUpdateFolder.TabIndex = 3;
+            this.btnUpdateFolder.Text = "Update Folder";
+            this.btnUpdateFolder.UseVisualStyleBackColor = true;
+            // 
+            // btnSendAll
+            // 
+            this.btnSendAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSendAll.Image = ((System.Drawing.Image)(resources.GetObject("btnSendAll.Image")));
+            this.btnSendAll.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSendAll.Location = new System.Drawing.Point(249, 3);
+            this.btnSendAll.Name = "btnSendAll";
+            this.btnSendAll.Size = new System.Drawing.Size(150, 50);
+            this.btnSendAll.TabIndex = 2;
+            this.btnSendAll.Text = "Send All";
+            this.btnSendAll.UseVisualStyleBackColor = true;
+            // 
+            // btnCancelAll
+            // 
+            this.btnCancelAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelAll.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelAll.Image")));
+            this.btnCancelAll.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancelAll.Location = new System.Drawing.Point(590, 3);
+            this.btnCancelAll.Name = "btnCancelAll";
+            this.btnCancelAll.Size = new System.Drawing.Size(142, 50);
+            this.btnCancelAll.TabIndex = 4;
+            this.btnCancelAll.Text = "Cancel All";
+            this.btnCancelAll.UseVisualStyleBackColor = true;
+            // 
+            // btnSendReceive
+            // 
+            this.btnSendReceive.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSendReceive.Image = ((System.Drawing.Image)(resources.GetObject("btnSendReceive.Image")));
+            this.btnSendReceive.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSendReceive.Location = new System.Drawing.Point(6, 3);
+            this.btnSendReceive.Name = "btnSendReceive";
+            this.btnSendReceive.Size = new System.Drawing.Size(237, 50);
+            this.btnSendReceive.TabIndex = 1;
+            this.btnSendReceive.Text = "Send / Receive All Folder";
+            this.btnSendReceive.UseVisualStyleBackColor = true;
+            // 
             // tabAccount
             // 
-            this.tabAccount.Controls.Add(this.button14);
-            this.tabAccount.Controls.Add(this.button13);
-            this.tabAccount.Controls.Add(this.button12);
+            this.tabAccount.Controls.Add(this.btnLogOut);
+            this.tabAccount.Controls.Add(this.btnExit);
+            this.tabAccount.Controls.Add(this.btnEdit);
             this.tabAccount.Location = new System.Drawing.Point(4, 22);
             this.tabAccount.Name = "tabAccount";
             this.tabAccount.Size = new System.Drawing.Size(1072, 56);
@@ -155,16 +277,76 @@ namespace MailServer
             this.tabAccount.Text = "Account";
             this.tabAccount.UseVisualStyleBackColor = true;
             // 
+            // btnLogOut
+            // 
+            this.btnLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogOut.Image = ((System.Drawing.Image)(resources.GetObject("btnLogOut.Image")));
+            this.btnLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogOut.Location = new System.Drawing.Point(162, 3);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Size = new System.Drawing.Size(150, 50);
+            this.btnLogOut.TabIndex = 2;
+            this.btnLogOut.Text = "LogOut";
+            this.btnLogOut.UseVisualStyleBackColor = true;
+            // 
+            // btnExit
+            // 
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
+            this.btnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExit.Location = new System.Drawing.Point(318, 3);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(150, 50);
+            this.btnExit.TabIndex = 3;
+            this.btnExit.Text = "Exit";
+            this.btnExit.UseVisualStyleBackColor = true;
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.Image")));
+            this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEdit.Location = new System.Drawing.Point(6, 3);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(150, 50);
+            this.btnEdit.TabIndex = 4;
+            this.btnEdit.Text = "Edit";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            // 
             // tabHelp
             // 
-            this.tabHelp.Controls.Add(this.button16);
-            this.tabHelp.Controls.Add(this.button15);
+            this.tabHelp.Controls.Add(this.btnContact);
+            this.tabHelp.Controls.Add(this.btnReport);
             this.tabHelp.Location = new System.Drawing.Point(4, 22);
             this.tabHelp.Name = "tabHelp";
             this.tabHelp.Size = new System.Drawing.Size(1072, 56);
             this.tabHelp.TabIndex = 2;
             this.tabHelp.Text = "Help";
             this.tabHelp.UseVisualStyleBackColor = true;
+            // 
+            // btnContact
+            // 
+            this.btnContact.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnContact.Image = ((System.Drawing.Image)(resources.GetObject("btnContact.Image")));
+            this.btnContact.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnContact.Location = new System.Drawing.Point(6, 3);
+            this.btnContact.Name = "btnContact";
+            this.btnContact.Size = new System.Drawing.Size(150, 50);
+            this.btnContact.TabIndex = 1;
+            this.btnContact.Text = "Contact";
+            this.btnContact.UseVisualStyleBackColor = true;
+            // 
+            // btnReport
+            // 
+            this.btnReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReport.Image = ((System.Drawing.Image)(resources.GetObject("btnReport.Image")));
+            this.btnReport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReport.Location = new System.Drawing.Point(162, 3);
+            this.btnReport.Name = "btnReport";
+            this.btnReport.Size = new System.Drawing.Size(150, 50);
+            this.btnReport.TabIndex = 2;
+            this.btnReport.Text = "Report";
+            this.btnReport.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
@@ -176,9 +358,10 @@ namespace MailServer
             this.panel2.Controls.Add(this.btnInbox);
             this.panel2.Controls.Add(this.cmbEmail);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel2.Location = new System.Drawing.Point(0, 86);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(263, 475);
+            this.panel2.Size = new System.Drawing.Size(261, 475);
             this.panel2.TabIndex = 1;
             // 
             // btnGarbage
@@ -186,14 +369,13 @@ namespace MailServer
             this.btnGarbage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(208)))), ((int)(((byte)(214)))));
             this.btnGarbage.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnGarbage.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnGarbage.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGarbage.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGarbage.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnGarbage.Image = ((System.Drawing.Image)(resources.GetObject("btnGarbage.Image")));
             this.btnGarbage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGarbage.Location = new System.Drawing.Point(0, 249);
+            this.btnGarbage.Location = new System.Drawing.Point(0, 189);
             this.btnGarbage.Name = "btnGarbage";
-            this.btnGarbage.Size = new System.Drawing.Size(261, 50);
-            this.btnGarbage.TabIndex = 1;
+            this.btnGarbage.Size = new System.Drawing.Size(259, 35);
+            this.btnGarbage.TabIndex = 13;
             this.btnGarbage.Text = "Garbage can";
             this.btnGarbage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGarbage.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -204,14 +386,13 @@ namespace MailServer
             this.btnDrafts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(208)))), ((int)(((byte)(214)))));
             this.btnDrafts.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnDrafts.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnDrafts.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDrafts.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDrafts.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnDrafts.Image = ((System.Drawing.Image)(resources.GetObject("btnDrafts.Image")));
             this.btnDrafts.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDrafts.Location = new System.Drawing.Point(0, 199);
+            this.btnDrafts.Location = new System.Drawing.Point(0, 154);
             this.btnDrafts.Name = "btnDrafts";
-            this.btnDrafts.Size = new System.Drawing.Size(261, 50);
-            this.btnDrafts.TabIndex = 1;
+            this.btnDrafts.Size = new System.Drawing.Size(259, 35);
+            this.btnDrafts.TabIndex = 12;
             this.btnDrafts.Text = "Drafts";
             this.btnDrafts.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDrafts.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -222,14 +403,13 @@ namespace MailServer
             this.btnStarred.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(208)))), ((int)(((byte)(214)))));
             this.btnStarred.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnStarred.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnStarred.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStarred.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStarred.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnStarred.Image = ((System.Drawing.Image)(resources.GetObject("btnStarred.Image")));
             this.btnStarred.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnStarred.Location = new System.Drawing.Point(0, 149);
+            this.btnStarred.Location = new System.Drawing.Point(0, 119);
             this.btnStarred.Name = "btnStarred";
-            this.btnStarred.Size = new System.Drawing.Size(261, 50);
-            this.btnStarred.TabIndex = 1;
+            this.btnStarred.Size = new System.Drawing.Size(259, 35);
+            this.btnStarred.TabIndex = 11;
             this.btnStarred.Text = "Starred";
             this.btnStarred.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnStarred.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -240,14 +420,13 @@ namespace MailServer
             this.btnAllMail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(208)))), ((int)(((byte)(214)))));
             this.btnAllMail.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnAllMail.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAllMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAllMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAllMail.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnAllMail.Image = ((System.Drawing.Image)(resources.GetObject("btnAllMail.Image")));
             this.btnAllMail.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAllMail.Location = new System.Drawing.Point(0, 99);
+            this.btnAllMail.Location = new System.Drawing.Point(0, 84);
             this.btnAllMail.Name = "btnAllMail";
-            this.btnAllMail.Size = new System.Drawing.Size(261, 50);
-            this.btnAllMail.TabIndex = 1;
+            this.btnAllMail.Size = new System.Drawing.Size(259, 35);
+            this.btnAllMail.TabIndex = 10;
             this.btnAllMail.Text = "All mail";
             this.btnAllMail.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAllMail.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -258,14 +437,13 @@ namespace MailServer
             this.btnInbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(208)))), ((int)(((byte)(214)))));
             this.btnInbox.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnInbox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnInbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInbox.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnInbox.Image = ((System.Drawing.Image)(resources.GetObject("btnInbox.Image")));
             this.btnInbox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnInbox.Location = new System.Drawing.Point(0, 49);
             this.btnInbox.Name = "btnInbox";
-            this.btnInbox.Size = new System.Drawing.Size(261, 50);
-            this.btnInbox.TabIndex = 1;
+            this.btnInbox.Size = new System.Drawing.Size(259, 35);
+            this.btnInbox.TabIndex = 9;
             this.btnInbox.Text = "Inbox";
             this.btnInbox.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnInbox.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -281,7 +459,7 @@ namespace MailServer
             this.cmbEmail.DropDownHeight = 174;
             this.cmbEmail.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEmail.DropDownWidth = 121;
-            this.cmbEmail.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.cmbEmail.FormattingEnabled = true;
             this.cmbEmail.IntegralHeight = false;
@@ -292,29 +470,29 @@ namespace MailServer
             this.cmbEmail.MaxDropDownItems = 4;
             this.cmbEmail.MouseState = MaterialSkin.MouseState.OUT;
             this.cmbEmail.Name = "cmbEmail";
-            this.cmbEmail.Size = new System.Drawing.Size(261, 49);
+            this.cmbEmail.Size = new System.Drawing.Size(259, 49);
             this.cmbEmail.StartIndex = 0;
-            this.cmbEmail.TabIndex = 0;
+            this.cmbEmail.TabIndex = 8;
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.richTextBox1);
+            this.panel3.Controls.Add(this.rtxtBodyMail);
             this.panel3.Controls.Add(this.panel5);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel3.Location = new System.Drawing.Point(550, 86);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(534, 475);
-            this.panel3.TabIndex = 2;
+            this.panel3.TabIndex = 3;
             // 
-            // richTextBox1
+            // rtxtBodyMail
             // 
-            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox1.Location = new System.Drawing.Point(0, 0);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(534, 401);
-            this.richTextBox1.TabIndex = 1;
-            this.richTextBox1.Text = "";
+            this.rtxtBodyMail.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtxtBodyMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtxtBodyMail.Location = new System.Drawing.Point(0, 0);
+            this.rtxtBodyMail.Name = "rtxtBodyMail";
+            this.rtxtBodyMail.Size = new System.Drawing.Size(534, 401);
+            this.rtxtBodyMail.TabIndex = 15;
+            this.rtxtBodyMail.Text = "";
             // 
             // panel5
             // 
@@ -323,31 +501,31 @@ namespace MailServer
             this.panel5.Location = new System.Drawing.Point(0, 401);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(534, 74);
-            this.panel5.TabIndex = 0;
+            this.panel5.TabIndex = 4;
             // 
             // panel4
             // 
             this.panel4.AutoScroll = true;
-            this.panel4.Controls.Add(this.dataGridView1);
+            this.panel4.Controls.Add(this.dgvListMail);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(263, 86);
+            this.panel4.Location = new System.Drawing.Point(261, 86);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(287, 475);
-            this.panel4.TabIndex = 3;
+            this.panel4.Size = new System.Drawing.Size(289, 475);
+            this.panel4.TabIndex = 2;
             // 
-            // dataGridView1
+            // dgvListMail
             // 
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvListMail.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvListMail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListMail.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.drvTo,
             this.drvSubject,
             this.drvContent});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(287, 475);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvListMail.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvListMail.Location = new System.Drawing.Point(0, 0);
+            this.dgvListMail.Name = "dgvListMail";
+            this.dgvListMail.Size = new System.Drawing.Size(289, 475);
+            this.dgvListMail.TabIndex = 14;
             // 
             // drvTo
             // 
@@ -370,188 +548,6 @@ namespace MailServer
             this.drvContent.Name = "drvContent";
             this.drvContent.Width = 82;
             // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(152, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(160, 50);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Delete Mail";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(318, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(154, 50);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Archive Mail";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(478, 3);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(147, 50);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Reply Mail";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
-            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(631, 3);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(168, 50);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "Reply All Mail";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // button6
-            // 
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
-            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.Location = new System.Drawing.Point(805, 3);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(131, 50);
-            this.button6.TabIndex = 5;
-            this.button6.Text = "Forward";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // button7
-            // 
-            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Image = ((System.Drawing.Image)(resources.GetObject("button7.Image")));
-            this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button7.Location = new System.Drawing.Point(942, 3);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(124, 50);
-            this.button7.TabIndex = 6;
-            this.button7.Text = "Back";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // button8
-            // 
-            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.Image = ((System.Drawing.Image)(resources.GetObject("button8.Image")));
-            this.button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button8.Location = new System.Drawing.Point(6, 3);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(237, 50);
-            this.button8.TabIndex = 1;
-            this.button8.Text = "Send / Receive All Folder";
-            this.button8.UseVisualStyleBackColor = true;
-            // 
-            // button9
-            // 
-            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.Image = ((System.Drawing.Image)(resources.GetObject("button9.Image")));
-            this.button9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button9.Location = new System.Drawing.Point(590, 3);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(142, 50);
-            this.button9.TabIndex = 2;
-            this.button9.Text = "Cancel All";
-            this.button9.UseVisualStyleBackColor = true;
-            // 
-            // button10
-            // 
-            this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button10.Image = ((System.Drawing.Image)(resources.GetObject("button10.Image")));
-            this.button10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button10.Location = new System.Drawing.Point(249, 3);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(150, 50);
-            this.button10.TabIndex = 3;
-            this.button10.Text = "Send All";
-            this.button10.UseVisualStyleBackColor = true;
-            // 
-            // button11
-            // 
-            this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button11.Image = ((System.Drawing.Image)(resources.GetObject("button11.Image")));
-            this.button11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button11.Location = new System.Drawing.Point(405, 3);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(179, 50);
-            this.button11.TabIndex = 4;
-            this.button11.Text = "Update Folder";
-            this.button11.UseVisualStyleBackColor = true;
-            // 
-            // button12
-            // 
-            this.button12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button12.Image = ((System.Drawing.Image)(resources.GetObject("button12.Image")));
-            this.button12.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button12.Location = new System.Drawing.Point(6, 3);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(150, 50);
-            this.button12.TabIndex = 4;
-            this.button12.Text = "Edit";
-            this.button12.UseVisualStyleBackColor = true;
-            // 
-            // button13
-            // 
-            this.button13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button13.Image = ((System.Drawing.Image)(resources.GetObject("button13.Image")));
-            this.button13.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button13.Location = new System.Drawing.Point(318, 3);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(150, 50);
-            this.button13.TabIndex = 5;
-            this.button13.Text = "Exit";
-            this.button13.UseVisualStyleBackColor = true;
-            // 
-            // button14
-            // 
-            this.button14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button14.Image = ((System.Drawing.Image)(resources.GetObject("button14.Image")));
-            this.button14.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button14.Location = new System.Drawing.Point(162, 3);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(150, 50);
-            this.button14.TabIndex = 6;
-            this.button14.Text = "LogOut";
-            this.button14.UseVisualStyleBackColor = true;
-            // 
-            // button15
-            // 
-            this.button15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button15.Image = ((System.Drawing.Image)(resources.GetObject("button15.Image")));
-            this.button15.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button15.Location = new System.Drawing.Point(6, 3);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(150, 50);
-            this.button15.TabIndex = 4;
-            this.button15.Text = "Report";
-            this.button15.UseVisualStyleBackColor = true;
-            // 
-            // button16
-            // 
-            this.button16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button16.Image = ((System.Drawing.Image)(resources.GetObject("button16.Image")));
-            this.button16.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button16.Location = new System.Drawing.Point(162, 3);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(150, 50);
-            this.button16.TabIndex = 5;
-            this.button16.Text = "Contact";
-            this.button16.UseVisualStyleBackColor = true;
-            // 
             // fShowMail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -561,6 +557,7 @@ namespace MailServer
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "fShowMail";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inbox";
@@ -573,7 +570,7 @@ namespace MailServer
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListMail)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -590,8 +587,8 @@ namespace MailServer
         private System.Windows.Forms.Button btnStarred;
         private System.Windows.Forms.Button btnAllMail;
         private System.Windows.Forms.Button btnInbox;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.DataGridView dgvListMail;
+        private System.Windows.Forms.RichTextBox rtxtBodyMail;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.DataGridViewTextBoxColumn drvTo;
         private System.Windows.Forms.DataGridViewTextBoxColumn drvSubject;
@@ -601,21 +598,21 @@ namespace MailServer
         private System.Windows.Forms.TabPage tabSend;
         private System.Windows.Forms.TabPage tabHelp;
         private System.Windows.Forms.TabPage tabAccount;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button14;
-        private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button16;
-        private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.Button btnNewMail;
+        private System.Windows.Forms.Button btnReplyAll;
+        private System.Windows.Forms.Button btnReplyMail;
+        private System.Windows.Forms.Button btnArchiveMail;
+        private System.Windows.Forms.Button btnDeleteMail;
+        private System.Windows.Forms.Button btnForward;
+        private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Button btnUpdateFolder;
+        private System.Windows.Forms.Button btnSendAll;
+        private System.Windows.Forms.Button btnCancelAll;
+        private System.Windows.Forms.Button btnSendReceive;
+        private System.Windows.Forms.Button btnLogOut;
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.Button btnContact;
+        private System.Windows.Forms.Button btnReport;
     }
 }
