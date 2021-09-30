@@ -44,27 +44,27 @@ namespace MailServer
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.tàiKhoảnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thưĐãNhậnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thưĐãGửiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thưNhápToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thưRácToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.thưĐãNhậnToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.thưChưaĐọcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thưQuanTrọngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.thưĐãNhậnToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.thưĐãGửiToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.thưRácToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.thưNhápToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.thưQuanTrọngToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.thưChưaĐọcToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -75,9 +75,9 @@ namespace MailServer
             this.toolStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.menuStrip2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.statusStrip1.SuspendLayout();
-            this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -214,46 +214,6 @@ namespace MailServer
             this.panel5.Size = new System.Drawing.Size(163, 71);
             this.panel5.TabIndex = 0;
             // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.flowLayoutPanel1);
-            this.panel3.Location = new System.Drawing.Point(175, 76);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(194, 434);
-            this.panel3.TabIndex = 4;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.panel4.Location = new System.Drawing.Point(375, 76);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(658, 434);
-            this.panel4.TabIndex = 5;
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 513);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1033, 22);
-            this.statusStrip1.TabIndex = 6;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // toolStripStatusLabel1
-            // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(52, 17);
-            this.toolStripStatusLabel1.Text = "0 Tập tin";
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 6);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(188, 428);
-            this.flowLayoutPanel1.TabIndex = 1;
-            // 
             // menuStrip2
             // 
             this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -283,8 +243,44 @@ namespace MailServer
             this.thưChưaĐọcToolStripMenuItem,
             this.thưQuanTrọngToolStripMenuItem});
             this.aToolStripMenuItem.Name = "aToolStripMenuItem";
-            this.aToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.aToolStripMenuItem.Text = "Toan123@gmail";
+            // 
+            // thưĐãNhậnToolStripMenuItem
+            // 
+            this.thưĐãNhậnToolStripMenuItem.Name = "thưĐãNhậnToolStripMenuItem";
+            this.thưĐãNhậnToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.thưĐãNhậnToolStripMenuItem.Text = "Thư đã nhận";
+            // 
+            // thưĐãGửiToolStripMenuItem
+            // 
+            this.thưĐãGửiToolStripMenuItem.Name = "thưĐãGửiToolStripMenuItem";
+            this.thưĐãGửiToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.thưĐãGửiToolStripMenuItem.Text = "Thư đã gửi";
+            // 
+            // thưNhápToolStripMenuItem
+            // 
+            this.thưNhápToolStripMenuItem.Name = "thưNhápToolStripMenuItem";
+            this.thưNhápToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.thưNhápToolStripMenuItem.Text = "Thư Nháp";
+            // 
+            // thưRácToolStripMenuItem
+            // 
+            this.thưRácToolStripMenuItem.Name = "thưRácToolStripMenuItem";
+            this.thưRácToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.thưRácToolStripMenuItem.Text = "Thư Rác";
+            // 
+            // thưChưaĐọcToolStripMenuItem
+            // 
+            this.thưChưaĐọcToolStripMenuItem.Name = "thưChưaĐọcToolStripMenuItem";
+            this.thưChưaĐọcToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.thưChưaĐọcToolStripMenuItem.Text = "Thư Chưa Đọc";
+            // 
+            // thưQuanTrọngToolStripMenuItem
+            // 
+            this.thưQuanTrọngToolStripMenuItem.Name = "thưQuanTrọngToolStripMenuItem";
+            this.thưQuanTrọngToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.thưQuanTrọngToolStripMenuItem.Text = "Thư Quan Trọng";
             // 
             // bToolStripMenuItem
             // 
@@ -296,81 +292,85 @@ namespace MailServer
             this.thưQuanTrọngToolStripMenuItem1,
             this.thưChưaĐọcToolStripMenuItem1});
             this.bToolStripMenuItem.Name = "bToolStripMenuItem";
-            this.bToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.bToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.bToolStripMenuItem.Text = "Toan123@Yahoo";
             this.bToolStripMenuItem.Click += new System.EventHandler(this.bToolStripMenuItem_Click);
-            // 
-            // thưĐãNhậnToolStripMenuItem
-            // 
-            this.thưĐãNhậnToolStripMenuItem.Name = "thưĐãNhậnToolStripMenuItem";
-            this.thưĐãNhậnToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.thưĐãNhậnToolStripMenuItem.Text = "Thư đã nhận";
-            // 
-            // thưĐãGửiToolStripMenuItem
-            // 
-            this.thưĐãGửiToolStripMenuItem.Name = "thưĐãGửiToolStripMenuItem";
-            this.thưĐãGửiToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.thưĐãGửiToolStripMenuItem.Text = "Thư đã gửi";
-            // 
-            // thưNhápToolStripMenuItem
-            // 
-            this.thưNhápToolStripMenuItem.Name = "thưNhápToolStripMenuItem";
-            this.thưNhápToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.thưNhápToolStripMenuItem.Text = "Thư Nháp";
-            // 
-            // thưRácToolStripMenuItem
-            // 
-            this.thưRácToolStripMenuItem.Name = "thưRácToolStripMenuItem";
-            this.thưRácToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.thưRácToolStripMenuItem.Text = "Thư Rác";
             // 
             // thưĐãNhậnToolStripMenuItem1
             // 
             this.thưĐãNhậnToolStripMenuItem1.Name = "thưĐãNhậnToolStripMenuItem1";
-            this.thưĐãNhậnToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.thưĐãNhậnToolStripMenuItem1.Size = new System.Drawing.Size(159, 22);
             this.thưĐãNhậnToolStripMenuItem1.Text = "Thư Đã Nhận";
-            // 
-            // thưChưaĐọcToolStripMenuItem
-            // 
-            this.thưChưaĐọcToolStripMenuItem.Name = "thưChưaĐọcToolStripMenuItem";
-            this.thưChưaĐọcToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.thưChưaĐọcToolStripMenuItem.Text = "Thư Chưa Đọc";
-            // 
-            // thưQuanTrọngToolStripMenuItem
-            // 
-            this.thưQuanTrọngToolStripMenuItem.Name = "thưQuanTrọngToolStripMenuItem";
-            this.thưQuanTrọngToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.thưQuanTrọngToolStripMenuItem.Text = "Thư Quan Trọng";
             // 
             // thưĐãGửiToolStripMenuItem1
             // 
             this.thưĐãGửiToolStripMenuItem1.Name = "thưĐãGửiToolStripMenuItem1";
-            this.thưĐãGửiToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.thưĐãGửiToolStripMenuItem1.Size = new System.Drawing.Size(159, 22);
             this.thưĐãGửiToolStripMenuItem1.Text = "Thư Đã Gửi";
             // 
             // thưRácToolStripMenuItem1
             // 
             this.thưRácToolStripMenuItem1.Name = "thưRácToolStripMenuItem1";
-            this.thưRácToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.thưRácToolStripMenuItem1.Size = new System.Drawing.Size(159, 22);
             this.thưRácToolStripMenuItem1.Text = "Thư Rác";
             // 
             // thưNhápToolStripMenuItem1
             // 
             this.thưNhápToolStripMenuItem1.Name = "thưNhápToolStripMenuItem1";
-            this.thưNhápToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.thưNhápToolStripMenuItem1.Size = new System.Drawing.Size(159, 22);
             this.thưNhápToolStripMenuItem1.Text = "Thư Nháp";
             // 
             // thưQuanTrọngToolStripMenuItem1
             // 
             this.thưQuanTrọngToolStripMenuItem1.Name = "thưQuanTrọngToolStripMenuItem1";
-            this.thưQuanTrọngToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.thưQuanTrọngToolStripMenuItem1.Size = new System.Drawing.Size(159, 22);
             this.thưQuanTrọngToolStripMenuItem1.Text = "Thư Quan Trọng";
             // 
             // thưChưaĐọcToolStripMenuItem1
             // 
             this.thưChưaĐọcToolStripMenuItem1.Name = "thưChưaĐọcToolStripMenuItem1";
-            this.thưChưaĐọcToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.thưChưaĐọcToolStripMenuItem1.Size = new System.Drawing.Size(159, 22);
             this.thưChưaĐọcToolStripMenuItem1.Text = "Thư Chưa Đọc";
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.flowLayoutPanel1);
+            this.panel3.Location = new System.Drawing.Point(175, 76);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(194, 434);
+            this.panel3.TabIndex = 4;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 6);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(188, 428);
+            this.flowLayoutPanel1.TabIndex = 1;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.panel4.Location = new System.Drawing.Point(375, 76);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(658, 434);
+            this.panel4.TabIndex = 5;
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 513);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1033, 22);
+            this.statusStrip1.TabIndex = 6;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(52, 17);
+            this.toolStripStatusLabel1.Text = "0 Tập tin";
             // 
             // fDocMail
             // 
@@ -402,11 +402,11 @@ namespace MailServer
             this.panel2.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.menuStrip2.ResumeLayout(false);
+            this.menuStrip2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            this.menuStrip2.ResumeLayout(false);
-            this.menuStrip2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

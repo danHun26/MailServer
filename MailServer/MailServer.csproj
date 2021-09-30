@@ -157,10 +157,15 @@
     <Content Include="icon\align.png" />
     <Content Include="icon\back.png" />
     <Content Include="icon\bold-text-option.png" />
+    <Content Include="icon\call.png" />
+    <Content Include="icon\cancel.png" />
     <Content Include="icon\close.png" />
     <Content Include="icon\draft %282%29.png" />
+    <Content Include="icon\edit.png" />
     <Content Include="icon\email.png" />
     <Content Include="icon\emailShow.png" />
+    <Content Include="icon\exit.png" />
+    <Content Include="icon\forward.png" />
     <Content Include="icon\icons8-close-window-16.png" />
     <Content Include="icon\icons8-delete-16.png" />
     <Content Include="icon\icons8-email-16.png" />
@@ -170,18 +175,29 @@
     <Content Include="icon\job-offer.png" />
     <Content Include="icon\justify.png" />
     <Content Include="icon\login.ico" />
+    <Content Include="icon\logout.png" />
+    <Content Include="icon\luutru1.png" />
+    <Content Include="icon\mail-delete.png" />
     <Content Include="icon\mailbox.png" />
+    <Content Include="icon\new-email.png" />
     <Content Include="icon\padlock.png" />
     <Content Include="icon\paper-plane.png" />
+    <Content Include="icon\receive.png" />
+    <Content Include="icon\reply-all.png" />
+    <Content Include="icon\reply.png" />
     <Content Include="icon\restore.png" />
     <Content Include="icon\RP.png" />
     <Content Include="icon\send %281%29.ico" />
+    <Content Include="icon\send all.png" />
     <Content Include="icon\send.ico" />
     <Content Include="icon\star %281%29.png" />
     <Content Include="icon\star %282%29.png" />
     <Content Include="icon\trash.png" />
     <Content Include="icon\underlined-text.png" />
+    <Content Include="icon\undo.png" />
+    <Content Include="icon\update.png" />
     <Content Include="icon\user.png" />
+    <Content Include="icon\warning-sign.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
