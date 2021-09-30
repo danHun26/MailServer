@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MaterialSkin, Version=2.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialSkin.2.2.2.1\lib\net461\MaterialSkin.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
@@ -99,6 +102,9 @@
     <EmbeddedResource Include="fDocMail.resx">
       <DependentUpon>fDocMail.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="fShowMail.resx">
+      <DependentUpon>fShowMail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fThemmail.resx">
       <DependentUpon>fThemmail.cs</DependentUpon>
     </EmbeddedResource>
@@ -118,6 +124,7 @@
     <None Include="dbMailServer.dbml.layout">
       <DependentUpon>dbMailServer.dbml</DependentUpon>
     </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -140,11 +147,20 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="background\anh-background-cuc-dep_110341116.jpg" />
+    <Content Include="background\customer.png" />
+    <Content Include="background\document.png" />
+    <Content Include="background\hinh-nen-powerpoint-mau-xanh-27.jpg" />
+    <Content Include="background\register.png" />
     <Content Include="icon\align %281%29.png" />
     <Content Include="icon\align %282%29.png" />
     <Content Include="icon\align.png" />
+    <Content Include="icon\back.png" />
     <Content Include="icon\bold-text-option.png" />
+    <Content Include="icon\close.png" />
+    <Content Include="icon\draft %282%29.png" />
     <Content Include="icon\email.png" />
+    <Content Include="icon\emailShow.png" />
     <Content Include="icon\icons8-close-window-16.png" />
     <Content Include="icon\icons8-delete-16.png" />
     <Content Include="icon\icons8-email-16.png" />
@@ -154,10 +170,16 @@
     <Content Include="icon\job-offer.png" />
     <Content Include="icon\justify.png" />
     <Content Include="icon\login.ico" />
+    <Content Include="icon\mailbox.png" />
     <Content Include="icon\padlock.png" />
     <Content Include="icon\paper-plane.png" />
+    <Content Include="icon\restore.png" />
+    <Content Include="icon\RP.png" />
     <Content Include="icon\send %281%29.ico" />
     <Content Include="icon\send.ico" />
+    <Content Include="icon\star %281%29.png" />
+    <Content Include="icon\star %282%29.png" />
+    <Content Include="icon\trash.png" />
     <Content Include="icon\underlined-text.png" />
     <Content Include="icon\user.png" />
   </ItemGroup>

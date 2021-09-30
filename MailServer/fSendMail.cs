@@ -83,31 +83,21 @@ namespace MailServer
 
                 if (txtPathAttach.Text.Contains(".png") || txtPathAttach.Text.Contains(".jpg") || txtPathAttach.Text.Contains(".jpeg"))
                 {
-                    if (txtPathAttach.Text.Contains(".png"))
+                     if (txtPathAttach.Text.Contains(".png"))
                         txtIdentification.Text = "File kèm là: ẢNH RAW";
-                    if (txtPathAttach.Text.Contains(".jpg") || txtPathAttach.Text.Contains(".jpeg"))
+                    else if (txtPathAttach.Text.Contains(".jpg") || txtPathAttach.Text.Contains(".jpeg"))
                         txtIdentification.Text = "File kèm: ẢNH";
-                }
+                }    
                 else if (txtPathAttach.Text.Contains(".doc") || txtPathAttach.Text.Contains(".docx"))
-                {
                     txtIdentification.Text = "File kèm: WORD";
-                }
                 else if (txtPathAttach.Text.Contains(".xls") || txtPathAttach.Text.Contains(".xlsx") || txtPathAttach.Text.Contains(".xlsm"))
-                {
                     txtIdentification.Text = "File kèm: EXCEL";
-                }
                 else if (txtPathAttach.Text.Contains(".pptx"))
-                {
                     txtIdentification.Text = "File kèm: POWER PORINT";
-                }
                 else if (txtPathAttach.Text.Contains(".pdf"))
-                {
                     txtIdentification.Text = "File kèm: PDF ";
-                }
                 else if (txtPathAttach.Text.Contains(".txt"))
-                {
                     txtIdentification.Text = "File kèm: TEXT";
-                }
                 else
                     txtIdentification.Text = "File kèm: KHÔNG XÁC ĐỊNH";
             }
@@ -222,6 +212,11 @@ namespace MailServer
 
         //Lưu thư vào nháp
         private void lưuThưToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rTxtContent_TextChanged(object sender, EventArgs e)
         {
 
         }
