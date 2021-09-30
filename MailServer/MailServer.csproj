@@ -99,6 +99,9 @@
     <EmbeddedResource Include="fDocMail.resx">
       <DependentUpon>fDocMail.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="fShowMail.resx">
+      <DependentUpon>fShowMail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fThemmail.resx">
       <DependentUpon>fThemmail.cs</DependentUpon>
     </EmbeddedResource>
@@ -140,10 +143,13 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="icon\-.png" />
     <Content Include="icon\align %281%29.png" />
     <Content Include="icon\align %282%29.png" />
     <Content Include="icon\align.png" />
+    <Content Include="icon\back.png" />
     <Content Include="icon\bold-text-option.png" />
+    <Content Include="icon\close.png" />
     <Content Include="icon\email.png" />
     <Content Include="icon\icons8-close-window-16.png" />
     <Content Include="icon\icons8-delete-16.png" />
@@ -156,6 +162,8 @@
     <Content Include="icon\login.ico" />
     <Content Include="icon\padlock.png" />
     <Content Include="icon\paper-plane.png" />
+    <Content Include="icon\restore.png" />
+    <Content Include="icon\RP.png" />
     <Content Include="icon\send %281%29.ico" />
     <Content Include="icon\send.ico" />
     <Content Include="icon\underlined-text.png" />

@@ -225,5 +225,10 @@ namespace MailServer
         {
 
         }
+
+        private void rTxtContent_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

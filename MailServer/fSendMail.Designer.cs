@@ -366,6 +366,7 @@ namespace MailServer
             this.rTxtContent.Size = new System.Drawing.Size(765, 245);
             this.rTxtContent.TabIndex = 5;
             this.rTxtContent.Text = "Nội dung email!";
+            this.rTxtContent.TextChanged += new System.EventHandler(this.rTxtContent_TextChanged);
             // 
             // openFileDialog
             // 
