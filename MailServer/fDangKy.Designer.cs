@@ -29,30 +29,30 @@ namespace MailServer
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fDangKy));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.cbShowPass = new MaterialSkin.Controls.MaterialCheckbox();
+            this.txtFirstName = new MaterialSkin.Controls.MaterialTextBox();
+            this.cmdSex = new MaterialSkin.Controls.MaterialComboBox();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.btnSignUp = new System.Windows.Forms.Button();
+            this.txtReEnter = new MaterialSkin.Controls.MaterialTextBox();
+            this.txtPassword = new MaterialSkin.Controls.MaterialTextBox();
+            this.txtUserName = new MaterialSkin.Controls.MaterialTextBox();
+            this.dTBirth = new System.Windows.Forms.DateTimePicker();
+            this.txtEmail = new MaterialSkin.Controls.MaterialTextBox();
+            this.txtLastName = new MaterialSkin.Controls.MaterialTextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.materialTextBox1 = new MaterialSkin.Controls.MaterialTextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.materialTextBox2 = new MaterialSkin.Controls.MaterialTextBox();
-            this.materialTextBox3 = new MaterialSkin.Controls.MaterialTextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.materialTextBox4 = new MaterialSkin.Controls.MaterialTextBox();
-            this.materialTextBox5 = new MaterialSkin.Controls.MaterialTextBox();
-            this.materialTextBox6 = new MaterialSkin.Controls.MaterialTextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.materialComboBox1 = new MaterialSkin.Controls.MaterialComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lDate = new MaterialSkin.Controls.MaterialLabel();
+            this.lTime = new MaterialSkin.Controls.MaterialLabel();
+            this.timer = new System.Windows.Forms.Timer(this.components);
+            this.lBackLogin = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -65,80 +65,247 @@ namespace MailServer
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(500, 100);
-            this.panel1.TabIndex = 0;
+            this.panel1.Size = new System.Drawing.Size(480, 100);
+            this.panel1.TabIndex = 1;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
-            // 
-            // panel2
-            // 
-            this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
-            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panel2.Location = new System.Drawing.Point(26, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(88, 94);
-            this.panel2.TabIndex = 0;
-            this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(120, 26);
+            this.label1.Location = new System.Drawing.Point(106, 26);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(362, 49);
             this.label1.TabIndex = 1;
             this.label1.Text = "REGISTER SERVICE";
             this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
+            // panel2
+            // 
+            this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
+            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel2.Location = new System.Drawing.Point(16, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(88, 94);
+            this.panel2.TabIndex = 0;
+            this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.materialComboBox1);
-            this.panel3.Controls.Add(this.button2);
-            this.panel3.Controls.Add(this.button1);
-            this.panel3.Controls.Add(this.materialTextBox6);
-            this.panel3.Controls.Add(this.materialTextBox5);
-            this.panel3.Controls.Add(this.materialTextBox4);
-            this.panel3.Controls.Add(this.dateTimePicker1);
-            this.panel3.Controls.Add(this.materialTextBox3);
-            this.panel3.Controls.Add(this.materialTextBox2);
-            this.panel3.Controls.Add(this.materialTextBox1);
-            this.panel3.Controls.Add(this.label9);
-            this.panel3.Controls.Add(this.label8);
-            this.panel3.Controls.Add(this.label10);
-            this.panel3.Controls.Add(this.label7);
+            this.panel3.Controls.Add(this.lBackLogin);
+            this.panel3.Controls.Add(this.lTime);
+            this.panel3.Controls.Add(this.lDate);
+            this.panel3.Controls.Add(this.cbShowPass);
+            this.panel3.Controls.Add(this.txtFirstName);
+            this.panel3.Controls.Add(this.cmdSex);
+            this.panel3.Controls.Add(this.btnExit);
+            this.panel3.Controls.Add(this.btnSignUp);
+            this.panel3.Controls.Add(this.txtReEnter);
+            this.panel3.Controls.Add(this.txtPassword);
+            this.panel3.Controls.Add(this.txtUserName);
+            this.panel3.Controls.Add(this.dTBirth);
+            this.panel3.Controls.Add(this.txtEmail);
+            this.panel3.Controls.Add(this.txtLastName);
             this.panel3.Controls.Add(this.label6);
-            this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.label4);
-            this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.label2);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 103);
+            this.panel3.Location = new System.Drawing.Point(0, 100);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(500, 713);
-            this.panel3.TabIndex = 1;
+            this.panel3.Size = new System.Drawing.Size(480, 566);
+            this.panel3.TabIndex = 0;
             // 
-            // label2
+            // cbShowPass
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(26)))), ((int)(((byte)(74)))));
-            this.label2.Location = new System.Drawing.Point(12, 10);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(101, 30);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Sign Up";
+            this.cbShowPass.AutoSize = true;
+            this.cbShowPass.Depth = 0;
+            this.cbShowPass.Location = new System.Drawing.Point(5, 457);
+            this.cbShowPass.Margin = new System.Windows.Forms.Padding(0);
+            this.cbShowPass.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.cbShowPass.MouseState = MaterialSkin.MouseState.HOVER;
+            this.cbShowPass.Name = "cbShowPass";
+            this.cbShowPass.Ripple = true;
+            this.cbShowPass.Size = new System.Drawing.Size(148, 37);
+            this.cbShowPass.TabIndex = 11;
+            this.cbShowPass.Text = "Show password";
+            this.cbShowPass.UseVisualStyleBackColor = true;
+            this.cbShowPass.CheckedChanged += new System.EventHandler(this.cbShowPass_CheckedChanged);
             // 
-            // label3
+            // txtFirstName
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(26)))), ((int)(((byte)(74)))));
-            this.label3.Location = new System.Drawing.Point(26, 42);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(108, 22);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "First Name:";
+            this.txtFirstName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtFirstName.Depth = 0;
+            this.txtFirstName.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtFirstName.Hint = "First Name:";
+            this.txtFirstName.LeadingIcon = ((System.Drawing.Image)(resources.GetObject("txtFirstName.LeadingIcon")));
+            this.txtFirstName.Location = new System.Drawing.Point(0, 43);
+            this.txtFirstName.MaxLength = 50;
+            this.txtFirstName.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtFirstName.Multiline = false;
+            this.txtFirstName.Name = "txtFirstName";
+            this.txtFirstName.Size = new System.Drawing.Size(480, 50);
+            this.txtFirstName.TabIndex = 1;
+            this.txtFirstName.Text = "";
+            this.txtFirstName.TrailingIcon = null;
+            // 
+            // cmdSex
+            // 
+            this.cmdSex.AutoResize = false;
+            this.cmdSex.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cmdSex.Depth = 0;
+            this.cmdSex.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cmdSex.DropDownHeight = 174;
+            this.cmdSex.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmdSex.DropDownWidth = 121;
+            this.cmdSex.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.cmdSex.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.cmdSex.FormattingEnabled = true;
+            this.cmdSex.Hint = "Sex";
+            this.cmdSex.IntegralHeight = false;
+            this.cmdSex.ItemHeight = 43;
+            this.cmdSex.Items.AddRange(new object[] {
+            "Male",
+            "Female",
+            "Other"});
+            this.cmdSex.Location = new System.Drawing.Point(0, 237);
+            this.cmdSex.MaxDropDownItems = 4;
+            this.cmdSex.MouseState = MaterialSkin.MouseState.OUT;
+            this.cmdSex.Name = "cmdSex";
+            this.cmdSex.Size = new System.Drawing.Size(480, 49);
+            this.cmdSex.StartIndex = 0;
+            this.cmdSex.TabIndex = 5;
+            // 
+            // btnExit
+            // 
+            this.btnExit.BackColor = System.Drawing.Color.White;
+            this.btnExit.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(26)))), ((int)(((byte)(74)))));
+            this.btnExit.Location = new System.Drawing.Point(346, 497);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(122, 49);
+            this.btnExit.TabIndex = 10;
+            this.btnExit.Text = "Exit";
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // btnSignUp
+            // 
+            this.btnSignUp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(26)))), ((int)(((byte)(74)))));
+            this.btnSignUp.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSignUp.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnSignUp.Location = new System.Drawing.Point(218, 497);
+            this.btnSignUp.Name = "btnSignUp";
+            this.btnSignUp.Size = new System.Drawing.Size(122, 49);
+            this.btnSignUp.TabIndex = 9;
+            this.btnSignUp.Text = "Sign Up";
+            this.btnSignUp.UseVisualStyleBackColor = false;
+            this.btnSignUp.Click += new System.EventHandler(this.btnSignUp_Click);
+            // 
+            // txtReEnter
+            // 
+            this.txtReEnter.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtReEnter.Depth = 0;
+            this.txtReEnter.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtReEnter.Hint = "Re-Enter password:";
+            this.txtReEnter.LeadingIcon = ((System.Drawing.Image)(resources.GetObject("txtReEnter.LeadingIcon")));
+            this.txtReEnter.Location = new System.Drawing.Point(0, 404);
+            this.txtReEnter.MaxLength = 50;
+            this.txtReEnter.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtReEnter.Multiline = false;
+            this.txtReEnter.Name = "txtReEnter";
+            this.txtReEnter.Password = true;
+            this.txtReEnter.Size = new System.Drawing.Size(480, 50);
+            this.txtReEnter.TabIndex = 8;
+            this.txtReEnter.Text = "";
+            this.txtReEnter.TrailingIcon = null;
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPassword.Depth = 0;
+            this.txtPassword.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtPassword.Hint = "Password:";
+            this.txtPassword.LeadingIcon = ((System.Drawing.Image)(resources.GetObject("txtPassword.LeadingIcon")));
+            this.txtPassword.Location = new System.Drawing.Point(0, 348);
+            this.txtPassword.MaxLength = 50;
+            this.txtPassword.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtPassword.Multiline = false;
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Password = true;
+            this.txtPassword.Size = new System.Drawing.Size(480, 50);
+            this.txtPassword.TabIndex = 7;
+            this.txtPassword.Text = "";
+            this.txtPassword.TrailingIcon = null;
+            // 
+            // txtUserName
+            // 
+            this.txtUserName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtUserName.Depth = 0;
+            this.txtUserName.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtUserName.Hint = "Username:";
+            this.txtUserName.LeadingIcon = ((System.Drawing.Image)(resources.GetObject("txtUserName.LeadingIcon")));
+            this.txtUserName.Location = new System.Drawing.Point(0, 292);
+            this.txtUserName.MaxLength = 50;
+            this.txtUserName.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtUserName.Multiline = false;
+            this.txtUserName.Name = "txtUserName";
+            this.txtUserName.Size = new System.Drawing.Size(480, 50);
+            this.txtUserName.TabIndex = 6;
+            this.txtUserName.Text = "";
+            this.txtUserName.TrailingIcon = null;
+            // 
+            // dTBirth
+            // 
+            this.dTBirth.Location = new System.Drawing.Point(148, 211);
+            this.dTBirth.Name = "dTBirth";
+            this.dTBirth.Size = new System.Drawing.Size(226, 20);
+            this.dTBirth.TabIndex = 4;
+            this.dTBirth.Value = new System.DateTime(2021, 10, 4, 17, 53, 52, 0);
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtEmail.Depth = 0;
+            this.txtEmail.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtEmail.Hint = "Email:";
+            this.txtEmail.LeadingIcon = ((System.Drawing.Image)(resources.GetObject("txtEmail.LeadingIcon")));
+            this.txtEmail.Location = new System.Drawing.Point(0, 155);
+            this.txtEmail.MaxLength = 50;
+            this.txtEmail.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtEmail.Multiline = false;
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(480, 50);
+            this.txtEmail.TabIndex = 3;
+            this.txtEmail.Text = "";
+            this.txtEmail.TrailingIcon = null;
+            // 
+            // txtLastName
+            // 
+            this.txtLastName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtLastName.Depth = 0;
+            this.txtLastName.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtLastName.Hint = "Last Name:";
+            this.txtLastName.LeadingIcon = ((System.Drawing.Image)(resources.GetObject("txtLastName.LeadingIcon")));
+            this.txtLastName.Location = new System.Drawing.Point(0, 99);
+            this.txtLastName.MaxLength = 50;
+            this.txtLastName.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtLastName.Multiline = false;
+            this.txtLastName.Name = "txtLastName";
+            this.txtLastName.Size = new System.Drawing.Size(480, 50);
+            this.txtLastName.TabIndex = 2;
+            this.txtLastName.Text = "";
+            this.txtLastName.TrailingIcon = null;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(26)))), ((int)(((byte)(74)))));
+            this.label6.Location = new System.Drawing.Point(12, 208);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(130, 22);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Date of birth:";
             // 
             // label4
             // 
@@ -147,241 +314,77 @@ namespace MailServer
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(26)))), ((int)(((byte)(74)))));
             this.label4.Location = new System.Drawing.Point(22, 120);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(112, 22);
+            this.label4.Size = new System.Drawing.Size(0, 22);
             this.label4.TabIndex = 0;
-            this.label4.Text = "Last Name:";
             // 
-            // label5
+            // label2
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(26)))), ((int)(((byte)(74)))));
-            this.label5.Location = new System.Drawing.Point(22, 198);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 22);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Email:";
+            this.label2.AutoSize = true;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(26)))), ((int)(((byte)(74)))));
+            this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(101, 30);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Sign Up";
             // 
-            // label6
+            // lDate
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(26)))), ((int)(((byte)(74)))));
-            this.label6.Location = new System.Drawing.Point(22, 277);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(130, 22);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Date of birth:";
+            this.lDate.AutoSize = true;
+            this.lDate.Depth = 0;
+            this.lDate.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lDate.Location = new System.Drawing.Point(12, 527);
+            this.lDate.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lDate.Name = "lDate";
+            this.lDate.Size = new System.Drawing.Size(34, 19);
+            this.lDate.TabIndex = 12;
+            this.lDate.Text = "Date";
             // 
-            // label7
+            // lTime
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(26)))), ((int)(((byte)(74)))));
-            this.label7.Location = new System.Drawing.Point(22, 325);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(45, 22);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Sex:";
+            this.lTime.AutoSize = true;
+            this.lTime.Depth = 0;
+            this.lTime.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lTime.Location = new System.Drawing.Point(12, 508);
+            this.lTime.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lTime.Name = "lTime";
+            this.lTime.Size = new System.Drawing.Size(37, 19);
+            this.lTime.TabIndex = 13;
+            this.lTime.Text = "Time";
             // 
-            // label8
+            // timer
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(26)))), ((int)(((byte)(74)))));
-            this.label8.Location = new System.Drawing.Point(22, 402);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(106, 22);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Username:";
+            this.timer.Enabled = true;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
-            // label9
+            // lBackLogin
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(26)))), ((int)(((byte)(74)))));
-            this.label9.Location = new System.Drawing.Point(22, 481);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(100, 22);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "Password:";
-            // 
-            // materialTextBox1
-            // 
-            this.materialTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.materialTextBox1.Depth = 0;
-            this.materialTextBox1.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialTextBox1.LeadingIcon = null;
-            this.materialTextBox1.Location = new System.Drawing.Point(26, 67);
-            this.materialTextBox1.MaxLength = 50;
-            this.materialTextBox1.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialTextBox1.Multiline = false;
-            this.materialTextBox1.Name = "materialTextBox1";
-            this.materialTextBox1.Size = new System.Drawing.Size(456, 50);
-            this.materialTextBox1.TabIndex = 2;
-            this.materialTextBox1.Text = "";
-            this.materialTextBox1.TrailingIcon = null;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(26)))), ((int)(((byte)(74)))));
-            this.label10.Location = new System.Drawing.Point(22, 559);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(184, 22);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "Re-Enter password:";
-            // 
-            // materialTextBox2
-            // 
-            this.materialTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.materialTextBox2.Depth = 0;
-            this.materialTextBox2.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialTextBox2.LeadingIcon = null;
-            this.materialTextBox2.Location = new System.Drawing.Point(26, 145);
-            this.materialTextBox2.MaxLength = 50;
-            this.materialTextBox2.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialTextBox2.Multiline = false;
-            this.materialTextBox2.Name = "materialTextBox2";
-            this.materialTextBox2.Size = new System.Drawing.Size(456, 50);
-            this.materialTextBox2.TabIndex = 3;
-            this.materialTextBox2.Text = "";
-            this.materialTextBox2.TrailingIcon = null;
-            // 
-            // materialTextBox3
-            // 
-            this.materialTextBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.materialTextBox3.Depth = 0;
-            this.materialTextBox3.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialTextBox3.LeadingIcon = null;
-            this.materialTextBox3.Location = new System.Drawing.Point(26, 224);
-            this.materialTextBox3.MaxLength = 50;
-            this.materialTextBox3.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialTextBox3.Multiline = false;
-            this.materialTextBox3.Name = "materialTextBox3";
-            this.materialTextBox3.Size = new System.Drawing.Size(456, 50);
-            this.materialTextBox3.TabIndex = 4;
-            this.materialTextBox3.Text = "";
-            this.materialTextBox3.TrailingIcon = null;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(62, 302);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(254, 20);
-            this.dateTimePicker1.TabIndex = 5;
-            // 
-            // materialTextBox4
-            // 
-            this.materialTextBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.materialTextBox4.Depth = 0;
-            this.materialTextBox4.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialTextBox4.LeadingIcon = null;
-            this.materialTextBox4.Location = new System.Drawing.Point(26, 428);
-            this.materialTextBox4.MaxLength = 50;
-            this.materialTextBox4.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialTextBox4.Multiline = false;
-            this.materialTextBox4.Name = "materialTextBox4";
-            this.materialTextBox4.Size = new System.Drawing.Size(456, 50);
-            this.materialTextBox4.TabIndex = 8;
-            this.materialTextBox4.Text = "";
-            this.materialTextBox4.TrailingIcon = null;
-            // 
-            // materialTextBox5
-            // 
-            this.materialTextBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.materialTextBox5.Depth = 0;
-            this.materialTextBox5.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialTextBox5.LeadingIcon = null;
-            this.materialTextBox5.Location = new System.Drawing.Point(26, 506);
-            this.materialTextBox5.MaxLength = 50;
-            this.materialTextBox5.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialTextBox5.Multiline = false;
-            this.materialTextBox5.Name = "materialTextBox5";
-            this.materialTextBox5.Size = new System.Drawing.Size(456, 50);
-            this.materialTextBox5.TabIndex = 9;
-            this.materialTextBox5.Text = "";
-            this.materialTextBox5.TrailingIcon = null;
-            // 
-            // materialTextBox6
-            // 
-            this.materialTextBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.materialTextBox6.Depth = 0;
-            this.materialTextBox6.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialTextBox6.LeadingIcon = null;
-            this.materialTextBox6.Location = new System.Drawing.Point(26, 584);
-            this.materialTextBox6.MaxLength = 50;
-            this.materialTextBox6.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialTextBox6.Multiline = false;
-            this.materialTextBox6.Name = "materialTextBox6";
-            this.materialTextBox6.Size = new System.Drawing.Size(456, 50);
-            this.materialTextBox6.TabIndex = 10;
-            this.materialTextBox6.Text = "";
-            this.materialTextBox6.TrailingIcon = null;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(26)))), ((int)(((byte)(74)))));
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(232, 640);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(122, 49);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Sign Up";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.White;
-            this.button2.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(26)))), ((int)(((byte)(74)))));
-            this.button2.Location = new System.Drawing.Point(360, 640);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(122, 49);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "Exit";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // materialComboBox1
-            // 
-            this.materialComboBox1.AutoResize = false;
-            this.materialComboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialComboBox1.Depth = 0;
-            this.materialComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.materialComboBox1.DropDownHeight = 174;
-            this.materialComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.materialComboBox1.DropDownWidth = 121;
-            this.materialComboBox1.Font = new System.Drawing.Font("Roboto Medium", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialComboBox1.FormattingEnabled = true;
-            this.materialComboBox1.IntegralHeight = false;
-            this.materialComboBox1.ItemHeight = 43;
-            this.materialComboBox1.Items.AddRange(new object[] {
-            "Male",
-            "Female",
-            "Other"});
-            this.materialComboBox1.Location = new System.Drawing.Point(26, 350);
-            this.materialComboBox1.MaxDropDownItems = 4;
-            this.materialComboBox1.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialComboBox1.Name = "materialComboBox1";
-            this.materialComboBox1.Size = new System.Drawing.Size(456, 49);
-            this.materialComboBox1.StartIndex = 0;
-            this.materialComboBox1.TabIndex = 12;
+            this.lBackLogin.AutoSize = true;
+            this.lBackLogin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lBackLogin.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lBackLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(26)))), ((int)(((byte)(74)))));
+            this.lBackLogin.Location = new System.Drawing.Point(336, 9);
+            this.lBackLogin.Name = "lBackLogin";
+            this.lBackLogin.Size = new System.Drawing.Size(132, 20);
+            this.lBackLogin.TabIndex = 0;
+            this.lBackLogin.Text = "Go back to login";
+            this.lBackLogin.Click += new System.EventHandler(this.lBackLogin_Click);
             // 
             // fDangKy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(500, 816);
+            this.ClientSize = new System.Drawing.Size(480, 666);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "fDangKy";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fDangKy";
+            this.Load += new System.EventHandler(this.fDangKy_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -396,24 +399,23 @@ namespace MailServer
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private MaterialSkin.Controls.MaterialTextBox materialTextBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private MaterialSkin.Controls.MaterialTextBox materialTextBox3;
-        private MaterialSkin.Controls.MaterialTextBox materialTextBox2;
-        private System.Windows.Forms.Label label10;
-        private MaterialSkin.Controls.MaterialTextBox materialTextBox6;
-        private MaterialSkin.Controls.MaterialTextBox materialTextBox5;
-        private MaterialSkin.Controls.MaterialTextBox materialTextBox4;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private MaterialSkin.Controls.MaterialComboBox materialComboBox1;
+        private System.Windows.Forms.DateTimePicker dTBirth;
+        private MaterialSkin.Controls.MaterialTextBox txtEmail;
+        private MaterialSkin.Controls.MaterialTextBox txtLastName;
+        private MaterialSkin.Controls.MaterialTextBox txtReEnter;
+        private MaterialSkin.Controls.MaterialTextBox txtPassword;
+        private MaterialSkin.Controls.MaterialTextBox txtUserName;
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Button btnSignUp;
+        private MaterialSkin.Controls.MaterialComboBox cmdSex;
+        private MaterialSkin.Controls.MaterialTextBox txtFirstName;
+        private MaterialSkin.Controls.MaterialCheckbox cbShowPass;
+        private MaterialSkin.Controls.MaterialLabel lTime;
+        private MaterialSkin.Controls.MaterialLabel lDate;
+        private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.Label lBackLogin;
     }
 }
