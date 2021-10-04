@@ -35,6 +35,9 @@ namespace MailServer
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.lBackLogin = new System.Windows.Forms.Label();
+            this.lTime = new MaterialSkin.Controls.MaterialLabel();
+            this.lDate = new MaterialSkin.Controls.MaterialLabel();
             this.cbShowPass = new MaterialSkin.Controls.MaterialCheckbox();
             this.txtFirstName = new MaterialSkin.Controls.MaterialTextBox();
             this.cmdSex = new MaterialSkin.Controls.MaterialComboBox();
@@ -49,10 +52,7 @@ namespace MailServer
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.lDate = new MaterialSkin.Controls.MaterialLabel();
-            this.lTime = new MaterialSkin.Controls.MaterialLabel();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.lBackLogin = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -114,6 +114,44 @@ namespace MailServer
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(480, 566);
             this.panel3.TabIndex = 0;
+            this.panel3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            // 
+            // lBackLogin
+            // 
+            this.lBackLogin.AutoSize = true;
+            this.lBackLogin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lBackLogin.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lBackLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(26)))), ((int)(((byte)(74)))));
+            this.lBackLogin.Location = new System.Drawing.Point(336, 9);
+            this.lBackLogin.Name = "lBackLogin";
+            this.lBackLogin.Size = new System.Drawing.Size(132, 20);
+            this.lBackLogin.TabIndex = 0;
+            this.lBackLogin.Text = "Go back to login";
+            this.lBackLogin.Click += new System.EventHandler(this.lBackLogin_Click);
+            // 
+            // lTime
+            // 
+            this.lTime.AutoSize = true;
+            this.lTime.Depth = 0;
+            this.lTime.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lTime.Location = new System.Drawing.Point(12, 508);
+            this.lTime.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lTime.Name = "lTime";
+            this.lTime.Size = new System.Drawing.Size(37, 19);
+            this.lTime.TabIndex = 13;
+            this.lTime.Text = "Time";
+            // 
+            // lDate
+            // 
+            this.lDate.AutoSize = true;
+            this.lDate.Depth = 0;
+            this.lDate.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lDate.Location = new System.Drawing.Point(12, 527);
+            this.lDate.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lDate.Name = "lDate";
+            this.lDate.Size = new System.Drawing.Size(34, 19);
+            this.lDate.TabIndex = 12;
+            this.lDate.Text = "Date";
             // 
             // cbShowPass
             // 
@@ -178,7 +216,7 @@ namespace MailServer
             // btnExit
             // 
             this.btnExit.BackColor = System.Drawing.Color.White;
-            this.btnExit.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(26)))), ((int)(((byte)(74)))));
             this.btnExit.Location = new System.Drawing.Point(346, 497);
             this.btnExit.Name = "btnExit";
@@ -191,7 +229,7 @@ namespace MailServer
             // btnSignUp
             // 
             this.btnSignUp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(26)))), ((int)(((byte)(74)))));
-            this.btnSignUp.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSignUp.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSignUp.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnSignUp.Location = new System.Drawing.Point(218, 497);
             this.btnSignUp.Name = "btnSignUp";
@@ -329,47 +367,10 @@ namespace MailServer
             this.label2.TabIndex = 0;
             this.label2.Text = "Sign Up";
             // 
-            // lDate
-            // 
-            this.lDate.AutoSize = true;
-            this.lDate.Depth = 0;
-            this.lDate.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lDate.Location = new System.Drawing.Point(12, 527);
-            this.lDate.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lDate.Name = "lDate";
-            this.lDate.Size = new System.Drawing.Size(34, 19);
-            this.lDate.TabIndex = 12;
-            this.lDate.Text = "Date";
-            // 
-            // lTime
-            // 
-            this.lTime.AutoSize = true;
-            this.lTime.Depth = 0;
-            this.lTime.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lTime.Location = new System.Drawing.Point(12, 508);
-            this.lTime.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lTime.Name = "lTime";
-            this.lTime.Size = new System.Drawing.Size(37, 19);
-            this.lTime.TabIndex = 13;
-            this.lTime.Text = "Time";
-            // 
             // timer
             // 
             this.timer.Enabled = true;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
-            // 
-            // lBackLogin
-            // 
-            this.lBackLogin.AutoSize = true;
-            this.lBackLogin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lBackLogin.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lBackLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(26)))), ((int)(((byte)(74)))));
-            this.lBackLogin.Location = new System.Drawing.Point(336, 9);
-            this.lBackLogin.Name = "lBackLogin";
-            this.lBackLogin.Size = new System.Drawing.Size(132, 20);
-            this.lBackLogin.TabIndex = 0;
-            this.lBackLogin.Text = "Go back to login";
-            this.lBackLogin.Click += new System.EventHandler(this.lBackLogin_Click);
             // 
             // fDangKy
             // 

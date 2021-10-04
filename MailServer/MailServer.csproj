@@ -191,6 +191,7 @@
     <Content Include="icon\justify.png" />
     <Content Include="icon\key.png" />
     <Content Include="icon\login.ico" />
+    <Content Include="icon\loginDN.ico" />
     <Content Include="icon\logout.png" />
     <Content Include="icon\luutru1.png" />
     <Content Include="icon\mail-delete.png" />

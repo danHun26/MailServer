@@ -87,8 +87,9 @@
       <Column Name="TEN" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
       <Column Name="EMAIL" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="NTNS" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="GIOITINH" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="NGAYTAOTK" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="GIOITINH" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NGAYTAOTK" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="MAPIN" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="FK_id_MATKHAU_LOCAL" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="MATKHAU_LOCAL_THONGTIN_CLIENT" Member="MATKHAU_LOCAL" ThisKey="FK_id_MATKHAU_LOCAL" OtherKey="id" Type="MATKHAU_LOCAL" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>

@@ -38,8 +38,8 @@ namespace MailServer
             {
                 try
                 {
-                    if (txtUserName.Text == "" || txtReEnter.Text == "" || txtPassword.Text == "" ||
-                    txtLastName.Text == "" || txtFirstName.Text == "" || txtEmail.Text == "")
+                    if (txtUserName.Text == "" && txtReEnter.Text == "" && txtPassword.Text == "" &&
+                    txtLastName.Text == "" && txtFirstName.Text == "" && txtEmail.Text == "")
                         throw new Exception("Nhập đầy đủ thông tin cho quá trình đăng kí!");
                     else
                     {
@@ -154,6 +154,7 @@ namespace MailServer
             }       
         }
 
+        //Sự kiện load form đầu tiên
         private void fDangKy_Load(object sender, EventArgs e)
         {
             cmdSex.Text = "Male";
@@ -167,6 +168,7 @@ namespace MailServer
 
         }
 
+        //Đồng hồ
         private void timer_Tick(object sender, EventArgs e)
         {
             lTime.Text = DateTime.Now.ToLongTimeString();
@@ -174,6 +176,7 @@ namespace MailServer
             timer.Start();
         }
 
+        //Đi đến đang nhập
         private void lBackLogin_Click(object sender, EventArgs e)
         {
             fDangNhap login = new fDangNhap();
