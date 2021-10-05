@@ -85,7 +85,10 @@ namespace MailServer
                             {
                                 temp++;
                                 fDangNhap_Load(sender, e);
-                                throw new Exception("Đăng nhập thành công!");
+                                fShowMail fSM = new fShowMail();
+                                this.Hide();
+                                fSM.ShowDialog();
+                                this.Close();
                             }
                         }
                         if (temp == 0)
