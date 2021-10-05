@@ -84,11 +84,19 @@ namespace MailServer
                                 && txtPassword.Text == Eramake.eCryptography.Decrypt(item.PASSWORD_LOCAL))
                             {
                                 temp++;
-                                fDangNhap_Load(sender, e);
-                                fShowMail fSM = new fShowMail();
-                                this.Hide();
-                                fSM.ShowDialog();
-                                this.Close();
+                                foreach (var item2 in db.THONGTIN_CLIENTs.ToList())
+                                {
+                                    if(item2.FK_id_MATKHAU_LOCAL == item.id)
+                                    {
+                                        fDangNhap_Load(sender, e);
+                                        fShowMail fSM = new fShowMail();
+                                        //fShowMail fSM = new fShowMail(item2.id);
+                                        this.Hide();
+                                        fSM.ShowDialog();
+                                        this.Close();
+                                    }
+                                }
+                     
                             }
                         }
                         if (temp == 0)
