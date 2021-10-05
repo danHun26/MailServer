@@ -40,7 +40,7 @@ namespace MailServer
                 {
                     if (txtUserName.Text == "" && txtReEnter.Text == "" && txtPassword.Text == "" &&
                     txtLastName.Text == "" && txtFirstName.Text == "" && txtEmail.Text == "")
-                        throw new Exception("Nhập đầy đủ thông tin cho quá trình đăng kí!");
+                        throw new Exception("Enter complete information!");
                     else
                     {
                         using (dbMailServerDataContext db = new dbMailServerDataContext())
@@ -51,27 +51,28 @@ namespace MailServer
                             //Kiểm tra tên dăng nhập và email
                             foreach (var item in db.MATKHAU_LOCALs.ToList())
                                 if (item.USERNAME_LOCAL == txtUserName.Text)
-                                    throw new Exception("Tên đăng nhập này đã tồn tại");
+                                    throw new Exception("This username already exists!");
                             foreach (var item in db.THONGTIN_CLIENTs.ToList())
                                 if (item.EMAIL == txtEmail.Text)
-                                    throw new Exception("Email này đã được đăng ký!");
+                                    throw new Exception("This email already registered!");
          
                             //Insert dữ liệu vào MATKHAU_LOCAL
                             mkLocal.USERNAME_LOCAL = txtUserName.Text;
                             if (txtPassword.Text == txtReEnter.Text)
                             {
-                                using (MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider())
-                                {
-                                    UTF8Encoding utf8 = new UTF8Encoding();
-                                    byte[] data = md5.ComputeHash(utf8.GetBytes(txtPassword.Text));
-                                    mkLocal.PASSWORD_LOCAL = Convert.ToBase64String(data);
-                                }
+                                //using (MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider())
+                                //{
+                                //    UTF8Encoding utf8 = new UTF8Encoding();
+                                //    byte[] data = md5.ComputeHash(utf8.GetBytes(txtPassword.Text));
+                                //    mkLocal.PASSWORD_LOCAL = Convert.ToBase64String(data);
+                                //}
+                                mkLocal.PASSWORD_LOCAL = Eramake.eCryptography.Encrypt(txtPassword.Text);
                             }
                             else
                             {
                                 txtPassword.Text = "";
                                 txtReEnter.Text = "";
-                                throw new Exception("Sai mật khẩu, xin hãy nhập lại!");
+                                throw new Exception("Wrong password, please re-enter!");
                             }
                             //Lưu vào MATKHAU_LOCAL
                             db.MATKHAU_LOCALs.InsertOnSubmit(mkLocal);
@@ -101,7 +102,7 @@ namespace MailServer
                             db.THONGTIN_CLIENTs.InsertOnSubmit(infoClient);
                             db.SubmitChanges();
                             //Thông báo thành công   
-                            MessageBox.Show("Thông tin đăng kí thành công!", "Thông báo",
+                            MessageBox.Show("Successful registration information!", "Information",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
@@ -109,12 +110,12 @@ namespace MailServer
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(ex.Message, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception)
             {
-                MessageBox.Show("Đã có lỗi xảy ra vui lòng liên hệ nhà phát triển!.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Something went wrong, please contact the developer!.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

@@ -42,24 +42,78 @@ namespace MailServer
             }
         }
 
+        //Sự kiện đồng hồ
         private void timer_Tick(object sender, EventArgs e)
         {
             lTime.Text = DateTime.Now.ToLongTimeString();
             timer.Start();
         }
 
+        //Sự kiện di chuyên form
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
+        //Sự kiên đăng kí
         private void label2_Click(object sender, EventArgs e)
         {
             fDangKy signup = new fDangKy();
             this.Hide();
             signup.ShowDialog();
             this.Close();
+        }
+
+        //Sự kiện đăng nhập
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                try
+                {
+                    using(dbMailServerDataContext db = new dbMailServerDataContext())
+                    {
+                        if (txtPassword.Text == "" || txtUsername.Text == "") throw new Exception("Enter complete information!");
+                        int temp = 0;
+                        foreach (var item in db.MATKHAU_LOCALs.ToList())
+                        {
+                            if (item.USERNAME_LOCAL == txtUsername.Text 
+                                && txtPassword.Text == Eramake.eCryptography.Decrypt(item.PASSWORD_LOCAL))
+                            {
+                                temp++;
+                                fDangNhap_Load(sender, e);
+                                throw new Exception("Đăng nhập thành công!");
+                            }
+                        }
+                        if (temp == 0)
+                        {
+                            txtUsername.Text = "";
+                            txtPassword.Text = "";
+                            txtUsername.Hint = "Re-enter username";
+                            txtPassword.Hint = "Re-enter password";
+                            throw new Exception("Username or password is incorrect!");
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Something went wrong, please contact the developer!.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        //Sự kiện đăng nhập
+        private void fDangNhap_Load(object sender, EventArgs e)
+        {
+            txtUsername.Text = "";
+            txtPassword.Text = "";
+            txtUsername.Hint = "Username:";
+            txtPassword.Hint = "Password:";
         }
     }
 }
