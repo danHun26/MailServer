@@ -23,6 +23,8 @@ namespace MailServer
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+        
+        //Sự kiện thoát
         private void btnExit_Click(object sender, EventArgs e)
         {
             try
