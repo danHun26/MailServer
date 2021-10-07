@@ -1768,9 +1768,11 @@ namespace MailServer
 		
 		private System.DateTime _NTNS;
 		
-		private System.Nullable<bool> _GIOITINH;
+		private System.Nullable<int> _GIOITINH;
 		
-		private System.Nullable<System.DateTime> _NGAYTAOTK;
+		private System.DateTime _NGAYTAOTK;
+		
+		private int _MAPIN;
 		
 		private System.Nullable<int> _FK_id_MATKHAU_LOCAL;
 		
@@ -1792,10 +1794,12 @@ namespace MailServer
     partial void OnEMAILChanged();
     partial void OnNTNSChanging(System.DateTime value);
     partial void OnNTNSChanged();
-    partial void OnGIOITINHChanging(System.Nullable<bool> value);
+    partial void OnGIOITINHChanging(System.Nullable<int> value);
     partial void OnGIOITINHChanged();
-    partial void OnNGAYTAOTKChanging(System.Nullable<System.DateTime> value);
+    partial void OnNGAYTAOTKChanging(System.DateTime value);
     partial void OnNGAYTAOTKChanged();
+    partial void OnMAPINChanging(int value);
+    partial void OnMAPINChanged();
     partial void OnFK_id_MATKHAU_LOCALChanging(System.Nullable<int> value);
     partial void OnFK_id_MATKHAU_LOCALChanged();
     #endregion
@@ -1926,8 +1930,8 @@ namespace MailServer
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GIOITINH", DbType="Bit")]
-		public System.Nullable<bool> GIOITINH
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GIOITINH", DbType="Int")]
+		public System.Nullable<int> GIOITINH
 		{
 			get
 			{
@@ -1946,8 +1950,8 @@ namespace MailServer
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NGAYTAOTK", DbType="Date")]
-		public System.Nullable<System.DateTime> NGAYTAOTK
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NGAYTAOTK", DbType="Date NOT NULL")]
+		public System.DateTime NGAYTAOTK
 		{
 			get
 			{
@@ -1962,6 +1966,26 @@ namespace MailServer
 					this._NGAYTAOTK = value;
 					this.SendPropertyChanged("NGAYTAOTK");
 					this.OnNGAYTAOTKChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MAPIN", DbType="Int NOT NULL")]
+		public int MAPIN
+		{
+			get
+			{
+				return this._MAPIN;
+			}
+			set
+			{
+				if ((this._MAPIN != value))
+				{
+					this.OnMAPINChanging(value);
+					this.SendPropertyChanging();
+					this._MAPIN = value;
+					this.SendPropertyChanged("MAPIN");
+					this.OnMAPINChanged();
 				}
 			}
 		}
