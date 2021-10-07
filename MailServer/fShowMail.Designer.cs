@@ -431,6 +431,7 @@ namespace MailServer
             this.btnAllMail.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAllMail.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAllMail.UseVisualStyleBackColor = false;
+            this.btnAllMail.Click += new System.EventHandler(this.btnAllMail_Click);
             // 
             // btnInbox
             // 
@@ -569,6 +570,7 @@ namespace MailServer
             this.Name = "fShowMail";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mailbox";
+            this.Load += new System.EventHandler(this.fShowMail_Load);
             this.panel1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabHome.ResumeLayout(false);
