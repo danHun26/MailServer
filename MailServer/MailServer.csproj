@@ -73,6 +73,12 @@
     <Compile Include="fDocMail.Designer.cs">
       <DependentUpon>fDocMail.cs</DependentUpon>
     </Compile>
+    <Compile Include="fFeedBack.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fFeedBack.Designer.cs">
+      <DependentUpon>fFeedBack.cs</DependentUpon>
+    </Compile>
     <Compile Include="fShowMail.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +107,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fDocMail.resx">
       <DependentUpon>fDocMail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fFeedBack.resx">
+      <DependentUpon>fFeedBack.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fShowMail.resx">
       <DependentUpon>fShowMail.cs</DependentUpon>
