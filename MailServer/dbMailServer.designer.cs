@@ -57,7 +57,7 @@ namespace MailServer
     #endregion
 		
 		public dbMailServerDataContext() : 
-				base(global::MailServer.Properties.Settings.Default.XAY_DUNG_MAIL_SERVERConnectionString, mappingSource)
+				base(global::MailServer.Properties.Settings.Default.XAY_DUNG_MAIL_SERVERConnectionString2, mappingSource)
 		{
 			OnCreated();
 		}
