@@ -140,6 +140,7 @@ namespace MailServer
             this.lTime.Size = new System.Drawing.Size(37, 19);
             this.lTime.TabIndex = 13;
             this.lTime.Text = "Time";
+            this.lTime.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
             // lDate
             // 
@@ -152,10 +153,12 @@ namespace MailServer
             this.lDate.Size = new System.Drawing.Size(34, 19);
             this.lDate.TabIndex = 12;
             this.lDate.Text = "Date";
+            this.lDate.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
             // cbShowPass
             // 
             this.cbShowPass.AutoSize = true;
+            this.cbShowPass.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbShowPass.Depth = 0;
             this.cbShowPass.Location = new System.Drawing.Point(5, 457);
             this.cbShowPass.Margin = new System.Windows.Forms.Padding(0);
@@ -216,6 +219,7 @@ namespace MailServer
             // btnExit
             // 
             this.btnExit.BackColor = System.Drawing.Color.White;
+            this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnExit.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(26)))), ((int)(((byte)(74)))));
             this.btnExit.Location = new System.Drawing.Point(346, 497);
@@ -229,6 +233,7 @@ namespace MailServer
             // btnSignUp
             // 
             this.btnSignUp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(26)))), ((int)(((byte)(74)))));
+            this.btnSignUp.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSignUp.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSignUp.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnSignUp.Location = new System.Drawing.Point(218, 497);
@@ -344,6 +349,7 @@ namespace MailServer
             this.label6.Size = new System.Drawing.Size(130, 22);
             this.label6.TabIndex = 0;
             this.label6.Text = "Date of birth:";
+            this.label6.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
             // label4
             // 
@@ -366,6 +372,7 @@ namespace MailServer
             this.label2.Size = new System.Drawing.Size(101, 30);
             this.label2.TabIndex = 0;
             this.label2.Text = "Sign Up";
+            this.label2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
             // timer
             // 

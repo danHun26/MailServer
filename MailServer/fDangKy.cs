@@ -40,7 +40,7 @@ namespace MailServer
                 {
                     if (txtUserName.Text == "" && txtReEnter.Text == "" && txtPassword.Text == "" &&
                     txtLastName.Text == "" && txtFirstName.Text == "" && txtEmail.Text == "")
-                        throw new Exception("Enter complete information!");
+                        throw new Exception("Enter completed information!");
                     else
                     {
                         using (dbMailServerDataContext db = new dbMailServerDataContext())
@@ -58,7 +58,9 @@ namespace MailServer
          
                             //Insert dữ liệu vào MATKHAU_LOCAL
                             mkLocal.USERNAME_LOCAL = txtUserName.Text;
-                            if (txtPassword.Text == txtReEnter.Text)
+                            if (txtPassword.Text == "" && txtReEnter.Text == "")
+                                throw new Exception("Enter completed information!");
+                            else if (txtPassword.Text == txtReEnter.Text)
                             {
                                 //using (MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider())
                                 //{
@@ -125,14 +127,26 @@ namespace MailServer
             try
             {
                 //Kiểm tra trước khi thoát form
-                if (txtUserName.Text == "" || txtReEnter.Text == "" || txtPassword.Text == "" || 
-                    txtLastName.Text == "" || txtFirstName.Text == "" || txtEmail.Text == "") this.Close();
+                if (txtUserName.Text == "" && txtReEnter.Text == "" && txtPassword.Text == "" && 
+                    txtLastName.Text == "" && txtFirstName.Text == "" && txtEmail.Text == "")
+                {
+                    fDangNhap dn = new fDangNhap();
+                    this.Hide();
+                    dn.ShowDialog();
+                    this.Close();
+                }
                 else
                 {
                     DialogResult check = MessageBox.Show("Bạn có muốn thoát không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (check == DialogResult.Yes)
+                    {
+                        fDangNhap dn = new fDangNhap();
+                        this.Hide();
+                        dn.ShowDialog();
                         this.Close();
+                    }
                 }
+                        
             }
             catch (Exception)
             {

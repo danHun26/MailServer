@@ -76,6 +76,12 @@
     <Compile Include="fDocMail.Designer.cs">
       <DependentUpon>fDocMail.cs</DependentUpon>
     </Compile>
+    <Compile Include="fQuenMatKhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fQuenMatKhau.Designer.cs">
+      <DependentUpon>fQuenMatKhau.cs</DependentUpon>
+    </Compile>
     <Compile Include="fShowMail.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fDocMail.resx">
       <DependentUpon>fDocMail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fQuenMatKhau.resx">
+      <DependentUpon>fQuenMatKhau.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fShowMail.resx">
       <DependentUpon>fShowMail.cs</DependentUpon>
@@ -163,6 +172,7 @@
     <Content Include="icon\align.png" />
     <Content Include="icon\archive %281%29.png" />
     <Content Include="icon\archive.png" />
+    <Content Include="icon\arrow.png" />
     <Content Include="icon\back.png" />
     <Content Include="icon\bgmail.ico" />
     <Content Include="icon\bgmail.png" />
@@ -203,6 +213,7 @@
     <Content Include="icon\padlock.png" />
     <Content Include="icon\paper-plane.png" />
     <Content Include="icon\phone.png" />
+    <Content Include="icon\pin-number.png" />
     <Content Include="icon\receive.png" />
     <Content Include="icon\register.ico" />
     <Content Include="icon\reply %281%29.png" />
@@ -223,6 +234,7 @@
     <Content Include="icon\update.png" />
     <Content Include="icon\user.png" />
     <Content Include="icon\userDK.png" />
+    <Content Include="icon\view.png" />
     <Content Include="icon\warning-sign.png" />
   </ItemGroup>
   <ItemGroup />

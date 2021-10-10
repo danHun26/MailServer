@@ -22,7 +22,7 @@ namespace MailServer
         {
             try
             {
-                fSendMail fsm = new fSendMail();
+                fSendMail fsm = new fSendMail("smtp.gmail.com", 587, "amk1126@gmail.com", "jamk@1230");
                 fsm.ShowDialog();
             }
             catch (Exception)

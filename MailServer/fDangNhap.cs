@@ -101,9 +101,9 @@ namespace MailServer
                         }
                         if (temp == 0)
                         {
-                            txtUsername.Text = "";
+                           // txtUsername.Text = "";
                             txtPassword.Text = "";
-                            txtUsername.Hint = "Re-enter username";
+                            //txtUsername.Hint = "Re-enter username";
                             txtPassword.Hint = "Re-enter password";
                             throw new Exception("Username or password is incorrect!");
                         }
@@ -127,6 +127,11 @@ namespace MailServer
             txtPassword.Text = "";
             txtUsername.Hint = "Username:";
             txtPassword.Hint = "Password:";
+        }
+
+        private void lForgotPW_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

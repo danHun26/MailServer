@@ -32,7 +32,7 @@ namespace MailServer
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fDangNhap));
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lForgotPW = new System.Windows.Forms.Label();
             this.lTime = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtPassword = new MaterialSkin.Controls.MaterialTextBox();
@@ -49,7 +49,7 @@ namespace MailServer
             // panel2
             // 
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.lForgotPW);
             this.panel2.Controls.Add(this.lTime);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.txtPassword);
@@ -64,16 +64,17 @@ namespace MailServer
             this.panel2.TabIndex = 1;
             this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
-            // label3
+            // lForgotPW
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.label3.Location = new System.Drawing.Point(3, 134);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(172, 18);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "Forgot your password?";
+            this.lForgotPW.AutoSize = true;
+            this.lForgotPW.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lForgotPW.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.lForgotPW.Location = new System.Drawing.Point(3, 134);
+            this.lForgotPW.Name = "lForgotPW";
+            this.lForgotPW.Size = new System.Drawing.Size(172, 18);
+            this.lForgotPW.TabIndex = 9;
+            this.lForgotPW.Text = "Forgot your password?";
+            this.lForgotPW.Click += new System.EventHandler(this.lForgotPW_Click);
             // 
             // lTime
             // 
@@ -84,6 +85,7 @@ namespace MailServer
             this.lTime.Size = new System.Drawing.Size(40, 20);
             this.lTime.TabIndex = 8;
             this.lTime.Text = "Time";
+            this.lTime.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
             // label2
             // 
@@ -123,7 +125,7 @@ namespace MailServer
             this.txtUsername.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtUsername.Hint = "Username:";
             this.txtUsername.LeadingIcon = ((System.Drawing.Image)(resources.GetObject("txtUsername.LeadingIcon")));
-            this.txtUsername.Location = new System.Drawing.Point(-1, 25);
+            this.txtUsername.Location = new System.Drawing.Point(3, 25);
             this.txtUsername.MaxLength = 50;
             this.txtUsername.MouseState = MaterialSkin.MouseState.OUT;
             this.txtUsername.Multiline = false;
@@ -219,6 +221,6 @@ namespace MailServer
         private System.Windows.Forms.Label lTime;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Timer timer;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lForgotPW;
     }
 }
