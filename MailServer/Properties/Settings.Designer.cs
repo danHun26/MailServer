@@ -55,5 +55,16 @@ namespace MailServer.Properties {
                 return ((string)(this["XAY_DUNG_MAIL_SERVERConnectionString2"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-6B6ICSA\\MSSQLSERVER02;Initial Catalog=XAY_DUNG_MAIL_SERVER;In" +
+            "tegrated Security=True")]
+        public string XAY_DUNG_MAIL_SERVERConnectionString3 {
+            get {
+                return ((string)(this["XAY_DUNG_MAIL_SERVERConnectionString3"]));
+            }
+        }
     }
 }

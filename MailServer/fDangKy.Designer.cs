@@ -72,11 +72,11 @@ namespace MailServer
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(106, 26);
+            this.label1.Location = new System.Drawing.Point(96, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(362, 49);
+            this.label1.Size = new System.Drawing.Size(381, 42);
             this.label1.TabIndex = 1;
             this.label1.Text = "REGISTER SERVICE";
             this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
@@ -85,7 +85,7 @@ namespace MailServer
             // 
             this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panel2.Location = new System.Drawing.Point(16, 3);
+            this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(88, 94);
             this.panel2.TabIndex = 0;
@@ -120,11 +120,11 @@ namespace MailServer
             // 
             this.lBackLogin.AutoSize = true;
             this.lBackLogin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lBackLogin.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lBackLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lBackLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(26)))), ((int)(((byte)(74)))));
             this.lBackLogin.Location = new System.Drawing.Point(336, 9);
             this.lBackLogin.Name = "lBackLogin";
-            this.lBackLogin.Size = new System.Drawing.Size(132, 20);
+            this.lBackLogin.Size = new System.Drawing.Size(117, 18);
             this.lBackLogin.TabIndex = 0;
             this.lBackLogin.Text = "Go back to login";
             this.lBackLogin.Click += new System.EventHandler(this.lBackLogin_Click);
@@ -220,7 +220,7 @@ namespace MailServer
             // 
             this.btnExit.BackColor = System.Drawing.Color.White;
             this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnExit.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(26)))), ((int)(((byte)(74)))));
             this.btnExit.Location = new System.Drawing.Point(346, 497);
             this.btnExit.Name = "btnExit";
@@ -234,7 +234,7 @@ namespace MailServer
             // 
             this.btnSignUp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(26)))), ((int)(((byte)(74)))));
             this.btnSignUp.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSignUp.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSignUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSignUp.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnSignUp.Location = new System.Drawing.Point(218, 497);
             this.btnSignUp.Name = "btnSignUp";
@@ -342,11 +342,11 @@ namespace MailServer
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(26)))), ((int)(((byte)(74)))));
             this.label6.Location = new System.Drawing.Point(12, 208);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(130, 22);
+            this.label6.Size = new System.Drawing.Size(114, 24);
             this.label6.TabIndex = 0;
             this.label6.Text = "Date of birth:";
             this.label6.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
@@ -354,22 +354,22 @@ namespace MailServer
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(26)))), ((int)(((byte)(74)))));
             this.label4.Location = new System.Drawing.Point(22, 120);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(0, 22);
+            this.label4.Size = new System.Drawing.Size(0, 24);
             this.label4.TabIndex = 0;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(26)))), ((int)(((byte)(74)))));
             this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(101, 30);
+            this.label2.Size = new System.Drawing.Size(99, 29);
             this.label2.TabIndex = 0;
             this.label2.Text = "Sign Up";
             this.label2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);

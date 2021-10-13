@@ -138,6 +138,9 @@
     <EmbeddedResource Include="fDocMail.resx">
       <DependentUpon>fDocMail.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="fQuenMatKhau.resx">
+      <DependentUpon>fQuenMatKhau.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fShowMail.resx">
       <DependentUpon>fShowMail.cs</DependentUpon>
       <SubType>Designer</SubType>

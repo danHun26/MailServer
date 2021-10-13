@@ -131,7 +131,10 @@ namespace MailServer
 
         private void lForgotPW_Click(object sender, EventArgs e)
         {
-
+            fQuenMatKhau signup = new fQuenMatKhau();
+            this.Hide();
+            signup.ShowDialog();
+            this.Close();
         }
     }
 }

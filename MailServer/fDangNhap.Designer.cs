@@ -67,11 +67,11 @@ namespace MailServer
             // lForgotPW
             // 
             this.lForgotPW.AutoSize = true;
-            this.lForgotPW.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lForgotPW.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lForgotPW.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.lForgotPW.Location = new System.Drawing.Point(3, 134);
             this.lForgotPW.Name = "lForgotPW";
-            this.lForgotPW.Size = new System.Drawing.Size(172, 18);
+            this.lForgotPW.Size = new System.Drawing.Size(162, 18);
             this.lForgotPW.TabIndex = 9;
             this.lForgotPW.Text = "Forgot your password?";
             this.lForgotPW.Click += new System.EventHandler(this.lForgotPW_Click);
@@ -79,10 +79,10 @@ namespace MailServer
             // lTime
             // 
             this.lTime.AutoSize = true;
-            this.lTime.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lTime.Location = new System.Drawing.Point(3, 2);
             this.lTime.Name = "lTime";
-            this.lTime.Size = new System.Drawing.Size(40, 20);
+            this.lTime.Size = new System.Drawing.Size(41, 18);
             this.lTime.TabIndex = 8;
             this.lTime.Text = "Time";
             this.lTime.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
@@ -91,11 +91,11 @@ namespace MailServer
             // 
             this.label2.AutoSize = true;
             this.label2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(26)))), ((int)(((byte)(74)))));
-            this.label2.Location = new System.Drawing.Point(222, 2);
+            this.label2.Location = new System.Drawing.Point(229, 3);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(170, 20);
+            this.label2.Size = new System.Drawing.Size(156, 18);
             this.label2.TabIndex = 7;
             this.label2.Text = "Register Your Account";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -137,7 +137,7 @@ namespace MailServer
             // 
             // btnExit
             // 
-            this.btnExit.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.Location = new System.Drawing.Point(270, 157);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(122, 49);
@@ -149,7 +149,7 @@ namespace MailServer
             // btnLogin
             // 
             this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(26)))), ((int)(((byte)(74)))));
-            this.btnLogin.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnLogin.Location = new System.Drawing.Point(142, 157);
             this.btnLogin.Name = "btnLogin";
@@ -174,11 +174,11 @@ namespace MailServer
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label1.Location = new System.Drawing.Point(15, 10);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(363, 49);
+            this.label1.Size = new System.Drawing.Size(352, 46);
             this.label1.TabIndex = 0;
             this.label1.Text = "ACCOUNT LOGIN";
             this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);

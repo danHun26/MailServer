@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography;
+using System.Text.RegularExpressions;
 
 namespace MailServer
 {
@@ -38,9 +39,9 @@ namespace MailServer
             {
                 try
                 {
-                    if (txtUserName.Text == "" && txtReEnter.Text == "" && txtPassword.Text == "" &&
-                    txtLastName.Text == "" && txtFirstName.Text == "" && txtEmail.Text == "")
-                        throw new Exception("Enter completed information!");
+                    if (txtUserName.Text == "" || txtReEnter.Text == "" || txtPassword.Text == "" ||
+                        txtLastName.Text == "" || txtFirstName.Text == "" || txtEmail.Text == "")
+                        throw new Exception("Nhập đầy đủ thông tin đăng ký!");
                     else
                     {
                         using (dbMailServerDataContext db = new dbMailServerDataContext())
@@ -51,34 +52,24 @@ namespace MailServer
                             //Kiểm tra tên dăng nhập và email
                             foreach (var item in db.MATKHAU_LOCALs.ToList())
                                 if (item.USERNAME_LOCAL == txtUserName.Text)
-                                    throw new Exception("This username already exists!");
+                                    throw new Exception("Tên đăng nhập này đã có người sữ dụng!");
                             foreach (var item in db.THONGTIN_CLIENTs.ToList())
                                 if (item.EMAIL == txtEmail.Text)
-                                    throw new Exception("This email already registered!");
-         
+                                    throw new Exception("Email này đã tồn tại!");
+                            //Kiểm tra định dạng email
+                            string pattern = "^([0-9a-zA-Z]([-\\.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$";
+                            if (Regex.IsMatch(txtEmail.Text, pattern) == false)  throw new Exception("Định dạng email không đúng!");
+
                             //Insert dữ liệu vào MATKHAU_LOCAL
                             mkLocal.USERNAME_LOCAL = txtUserName.Text;
-                            if (txtPassword.Text == "" && txtReEnter.Text == "")
-                                throw new Exception("Enter completed information!");
-                            else if (txtPassword.Text == txtReEnter.Text)
-                            {
-                                //using (MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider())
-                                //{
-                                //    UTF8Encoding utf8 = new UTF8Encoding();
-                                //    byte[] data = md5.ComputeHash(utf8.GetBytes(txtPassword.Text));
-                                //    mkLocal.PASSWORD_LOCAL = Convert.ToBase64String(data);
-                                //}
-                                mkLocal.PASSWORD_LOCAL = Eramake.eCryptography.Encrypt(txtPassword.Text);
-                            }
+                            if (txtPassword.Text == txtReEnter.Text) mkLocal.PASSWORD_LOCAL = Eramake.eCryptography.Encrypt(txtPassword.Text);
                             else
                             {
                                 txtPassword.Text = "";
                                 txtReEnter.Text = "";
-                                throw new Exception("Wrong password, please re-enter!");
+                                throw new Exception("Mật khẩu nhập lại không trùng nhau!");
                             }
-                            //Lưu vào MATKHAU_LOCAL
-                            db.MATKHAU_LOCALs.InsertOnSubmit(mkLocal);
-                            db.SubmitChanges();
+                            
                             //Insert dữ liệu vào THONGTIN_CLIENT
                             infoClient.HO = txtLastName.Text;
                             infoClient.TEN = txtFirstName.Text;
@@ -100,19 +91,19 @@ namespace MailServer
                             Random rdpin = new Random();
                             infoClient.MAPIN = rdpin.Next(100000, 999999);
                             infoClient.NGAYTAOTK = DateTime.Now.ToLocalTime();
-                            //Lưu vào THONGTIN_CLIENT
+                            
+                            db.MATKHAU_LOCALs.InsertOnSubmit(mkLocal);
                             db.THONGTIN_CLIENTs.InsertOnSubmit(infoClient);
                             db.SubmitChanges();
                             //Thông báo thành công   
-                            MessageBox.Show("Successful registration information!", "Information",
-                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Đăng ký tài khoản đăng nhập ứng dụng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
                     fDangKy_Load(sender, e);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception)
@@ -126,7 +117,7 @@ namespace MailServer
         {
             try
             {
-                //Kiểm tra trước khi thoát form
+                //Kiểm tra trước khi thoát 
                 if (txtUserName.Text == "" && txtReEnter.Text == "" && txtPassword.Text == "" && 
                     txtLastName.Text == "" && txtFirstName.Text == "" && txtEmail.Text == "")
                 {
@@ -145,8 +136,7 @@ namespace MailServer
                         dn.ShowDialog();
                         this.Close();
                     }
-                }
-                        
+                }     
             }
             catch (Exception)
             {
@@ -180,7 +170,6 @@ namespace MailServer
             txtReEnter.Text = "";
             txtUserName.Text = "";
             cbShowPass.Checked = false;
-
         }
 
         //Đồng hồ
