@@ -9,6 +9,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace MailServer
 {
@@ -19,6 +20,7 @@ namespace MailServer
         private string subject = "[MailBox] Mã khôi phục tài khoản của bạn!";
         private string content = "";
         private int idMK = 0;
+        private int tempShowPass = 0;
         public fQuenMatKhau()
         {
             InitializeComponent();
@@ -117,7 +119,6 @@ namespace MailServer
                                 btnContinueStep2.Enabled = true;
                                 btnReadPw1.Enabled = true;
                                 btnReadPw2.Enabled = true;
-                                btnBackStep2.Enabled = true;
                                 throw new Exception("Xác nhận mã pin thành công" + Environment.NewLine + "Mời qua bước 2 đặt lại mật khẩu mới!");
                             }
                         }
@@ -159,9 +160,20 @@ namespace MailServer
             }
         }
 
+        //Hiển thị mật khẩu
         private void btnReadPw1_Click(object sender, EventArgs e)
         {
-
+            tempShowPass++;
+            if(tempShowPass%2 == 0)
+            {
+                txtPassword.Password = true;
+                txtReEnter.Password = true;
+            }
+            else
+            {
+                txtPassword.Password = false;
+                txtReEnter.Password = false;
+            }
         }
 
         //Thay đổi mật khẩu
@@ -171,26 +183,34 @@ namespace MailServer
             {
                 try
                 {
-                    if (txtPassword.Text == "" || txtReEnter.Text == "") throw new Exception("Nhập mật khẩu thay đổi!");
+                    if (txtPassword.Text == "" || txtReEnter.Text == "") throw new Exception("Nhập mật khẩu mới để khôi phục!");
                     else
                     {
                         using (dbMailServerDataContext db = new dbMailServerDataContext())
                         {
-                            MATKHAU_LOCAL mklocal = new MATKHAU_LOCAL();
-                            mklocal = db.MATKHAU_LOCALs.Where(s => s.id == this.idMK).Single();
+                            MATKHAU_LOCAL mkLocal = new MATKHAU_LOCAL();
+                            THONGTIN_CLIENT infoClient = new THONGTIN_CLIENT();
+                            mkLocal = db.MATKHAU_LOCALs.Where(s => s.id == this.idMK).Single();
+                            infoClient = db.THONGTIN_CLIENTs.Where(s => s.FK_id_MATKHAU_LOCAL == this.idMK).Single();
                             if (txtPassword.Text == txtReEnter.Text)
                             {
-                                mklocal.PASSWORD_LOCAL = Eramake.eCryptography.Encrypt(txtPassword.Text);
+                                mkLocal.PASSWORD_LOCAL = Eramake.eCryptography.Encrypt(txtPassword.Text);
+                                //Random mã pin mới
+                                Random rdpin = new Random();
+                                infoClient.MAPIN = rdpin.Next(100000, 999999);
+
                                 DialogResult check = MessageBox.Show("Xác nhận khôi phục mật khẩu!", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                                 if (check == DialogResult.Yes)
                                 {
                                     db.SubmitChanges();
-                                    MessageBox.Show("Khôi phục mật khẩu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    MessageBox.Show("Khôi phục mật khẩu thành công." + System.Environment.NewLine + "Quay lại cửa sổ đăng nhập.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                
                                 }
                             }
                             else
                                 throw new Exception("Nhập lại password không chính xác!");
                         }
+                        fQuenMatKhau_Load(sender, e);
                     }
                 }
                 catch (Exception ex)
@@ -202,6 +222,24 @@ namespace MailServer
             {
                 MessageBox.Show("Something went wrong, please contact the developer!.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+
+        }
+
+        //Sự kiên load lại form
+        private void fQuenMatKhau_Load(object sender, EventArgs e)
+        {
+            txtEmail.Text = "";
+            txtPassword.Text = "";
+            txtPin.Text = "";
+            txtReEnter.Text = "";
+            txtPin.Enabled = false;
+            btnAccept.Enabled = false;
+            txtPassword.Enabled = false;
+            btnContinueStep2.Enabled = false;
+            btnReadPw1.Enabled = false;
+            txtReEnter.Enabled = false;
+            btnReadPw2.Enabled = false;
         }
     }
 }

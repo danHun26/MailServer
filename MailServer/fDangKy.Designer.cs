@@ -35,6 +35,9 @@ namespace MailServer
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnConfirm = new System.Windows.Forms.Button();
+            this.btnCheckMail = new System.Windows.Forms.Button();
+            this.txtCheckMail = new MaterialSkin.Controls.MaterialTextBox();
             this.lBackLogin = new System.Windows.Forms.Label();
             this.lTime = new MaterialSkin.Controls.MaterialLabel();
             this.lDate = new MaterialSkin.Controls.MaterialLabel();
@@ -93,6 +96,9 @@ namespace MailServer
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.btnConfirm);
+            this.panel3.Controls.Add(this.btnCheckMail);
+            this.panel3.Controls.Add(this.txtCheckMail);
             this.panel3.Controls.Add(this.lBackLogin);
             this.panel3.Controls.Add(this.lTime);
             this.panel3.Controls.Add(this.lDate);
@@ -110,11 +116,53 @@ namespace MailServer
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.label2);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 100);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(480, 566);
+            this.panel3.Size = new System.Drawing.Size(480, 584);
             this.panel3.TabIndex = 0;
             this.panel3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            // 
+            // btnConfirm
+            // 
+            this.btnConfirm.BackColor = System.Drawing.Color.White;
+            this.btnConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfirm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(26)))), ((int)(((byte)(74)))));
+            this.btnConfirm.Location = new System.Drawing.Point(375, 155);
+            this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.Size = new System.Drawing.Size(99, 50);
+            this.btnConfirm.TabIndex = 16;
+            this.btnConfirm.Text = "Confirm";
+            this.btnConfirm.UseVisualStyleBackColor = false;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
+            // 
+            // btnCheckMail
+            // 
+            this.btnCheckMail.BackColor = System.Drawing.Color.White;
+            this.btnCheckMail.Image = ((System.Drawing.Image)(resources.GetObject("btnCheckMail.Image")));
+            this.btnCheckMail.Location = new System.Drawing.Point(424, 457);
+            this.btnCheckMail.Name = "btnCheckMail";
+            this.btnCheckMail.Size = new System.Drawing.Size(50, 50);
+            this.btnCheckMail.TabIndex = 15;
+            this.btnCheckMail.UseVisualStyleBackColor = false;
+            this.btnCheckMail.Click += new System.EventHandler(this.btnCheckMail_Click);
+            // 
+            // txtCheckMail
+            // 
+            this.txtCheckMail.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCheckMail.Depth = 0;
+            this.txtCheckMail.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtCheckMail.Hint = "Confirm Email";
+            this.txtCheckMail.LeadingIcon = ((System.Drawing.Image)(resources.GetObject("txtCheckMail.LeadingIcon")));
+            this.txtCheckMail.Location = new System.Drawing.Point(224, 457);
+            this.txtCheckMail.MaxLength = 50;
+            this.txtCheckMail.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtCheckMail.Multiline = false;
+            this.txtCheckMail.Name = "txtCheckMail";
+            this.txtCheckMail.Size = new System.Drawing.Size(194, 50);
+            this.txtCheckMail.TabIndex = 14;
+            this.txtCheckMail.Text = "";
+            this.txtCheckMail.TrailingIcon = null;
             // 
             // lBackLogin
             // 
@@ -122,7 +170,7 @@ namespace MailServer
             this.lBackLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lBackLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lBackLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(26)))), ((int)(((byte)(74)))));
-            this.lBackLogin.Location = new System.Drawing.Point(336, 9);
+            this.lBackLogin.Location = new System.Drawing.Point(351, 11);
             this.lBackLogin.Name = "lBackLogin";
             this.lBackLogin.Size = new System.Drawing.Size(117, 18);
             this.lBackLogin.TabIndex = 0;
@@ -134,7 +182,7 @@ namespace MailServer
             this.lTime.AutoSize = true;
             this.lTime.Depth = 0;
             this.lTime.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lTime.Location = new System.Drawing.Point(12, 508);
+            this.lTime.Location = new System.Drawing.Point(12, 524);
             this.lTime.MouseState = MaterialSkin.MouseState.HOVER;
             this.lTime.Name = "lTime";
             this.lTime.Size = new System.Drawing.Size(37, 19);
@@ -147,7 +195,7 @@ namespace MailServer
             this.lDate.AutoSize = true;
             this.lDate.Depth = 0;
             this.lDate.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lDate.Location = new System.Drawing.Point(12, 527);
+            this.lDate.Location = new System.Drawing.Point(12, 543);
             this.lDate.MouseState = MaterialSkin.MouseState.HOVER;
             this.lDate.Name = "lDate";
             this.lDate.Size = new System.Drawing.Size(34, 19);
@@ -222,7 +270,7 @@ namespace MailServer
             this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(26)))), ((int)(((byte)(74)))));
-            this.btnExit.Location = new System.Drawing.Point(346, 497);
+            this.btnExit.Location = new System.Drawing.Point(352, 513);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(122, 49);
             this.btnExit.TabIndex = 10;
@@ -236,7 +284,7 @@ namespace MailServer
             this.btnSignUp.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSignUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSignUp.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnSignUp.Location = new System.Drawing.Point(218, 497);
+            this.btnSignUp.Location = new System.Drawing.Point(224, 513);
             this.btnSignUp.Name = "btnSignUp";
             this.btnSignUp.Size = new System.Drawing.Size(122, 49);
             this.btnSignUp.TabIndex = 9;
@@ -317,7 +365,7 @@ namespace MailServer
             this.txtEmail.MouseState = MaterialSkin.MouseState.OUT;
             this.txtEmail.Multiline = false;
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(480, 50);
+            this.txtEmail.Size = new System.Drawing.Size(369, 50);
             this.txtEmail.TabIndex = 3;
             this.txtEmail.Text = "";
             this.txtEmail.TrailingIcon = null;
@@ -383,7 +431,7 @@ namespace MailServer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(480, 666);
+            this.ClientSize = new System.Drawing.Size(480, 684);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -425,5 +473,8 @@ namespace MailServer
         private MaterialSkin.Controls.MaterialLabel lDate;
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.Label lBackLogin;
+        private MaterialSkin.Controls.MaterialTextBox txtCheckMail;
+        private System.Windows.Forms.Button btnCheckMail;
+        private System.Windows.Forms.Button btnConfirm;
     }
 }

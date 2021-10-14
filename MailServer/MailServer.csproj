@@ -91,12 +91,6 @@
     <Compile Include="fDangNhap.Designer.cs">
       <DependentUpon>fDangNhap.cs</DependentUpon>
     </Compile>
-    <Compile Include="fDocMail.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="fDocMail.Designer.cs">
-      <DependentUpon>fDocMail.cs</DependentUpon>
-    </Compile>
     <Compile Include="fFeedBack.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,9 +128,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fDangNhap.resx">
       <DependentUpon>fDangNhap.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="fDocMail.resx">
-      <DependentUpon>fDocMail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fQuenMatKhau.resx">
       <DependentUpon>fQuenMatKhau.cs</DependentUpon>
@@ -207,6 +198,7 @@
     <Content Include="icon\bold-text-option.png" />
     <Content Include="icon\call.png" />
     <Content Include="icon\cancel.png" />
+    <Content Include="icon\check.png" />
     <Content Include="icon\close.png" />
     <Content Include="icon\delete-mail.png" />
     <Content Include="icon\delete-message.png" />
@@ -262,6 +254,7 @@
     <Content Include="icon\user.png" />
     <Content Include="icon\userDK.png" />
     <Content Include="icon\view.png" />
+    <Content Include="icon\vote.png" />
     <Content Include="icon\warning-sign.png" />
   </ItemGroup>
   <ItemGroup />

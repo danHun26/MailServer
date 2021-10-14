@@ -10,11 +10,19 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Text.RegularExpressions;
+using System.Net.Mail;
 
 namespace MailServer
 {
     public partial class fDangKy : Form
     {
+        private bool checkMail;
+        private bool confirmEmail;
+        private int codeRD = 0;
+        private string userMailAcc = "jamk1126@gmail.com";
+        private string userMailPass = "jamk@1230";
+        private string subject = "[MailBox] Mã xác thực tài khoản của bạn.";
+        private string content = "";
         public fDangKy()
         {
             InitializeComponent();
@@ -41,7 +49,7 @@ namespace MailServer
                 {
                     if (txtUserName.Text == "" || txtReEnter.Text == "" || txtPassword.Text == "" ||
                         txtLastName.Text == "" || txtFirstName.Text == "" || txtEmail.Text == "")
-                        throw new Exception("Nhập đầy đủ thông tin đăng ký!");
+                        throw new Exception("Nhập đầy đủ thông tin đăng ký.");
                     else
                     {
                         using (dbMailServerDataContext db = new dbMailServerDataContext())
@@ -52,13 +60,10 @@ namespace MailServer
                             //Kiểm tra tên dăng nhập và email
                             foreach (var item in db.MATKHAU_LOCALs.ToList())
                                 if (item.USERNAME_LOCAL == txtUserName.Text)
-                                    throw new Exception("Tên đăng nhập này đã có người sữ dụng!");
+                                    throw new Exception("Tên đăng nhập này đã có người sữ dụng.");
                             foreach (var item in db.THONGTIN_CLIENTs.ToList())
                                 if (item.EMAIL == txtEmail.Text)
-                                    throw new Exception("Email này đã tồn tại!");
-                            //Kiểm tra định dạng email
-                            string pattern = "^([0-9a-zA-Z]([-\\.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$";
-                            if (Regex.IsMatch(txtEmail.Text, pattern) == false)  throw new Exception("Định dạng email không đúng!");
+                                    throw new Exception("Email này đã tồn tại.");
 
                             //Insert dữ liệu vào MATKHAU_LOCAL
                             mkLocal.USERNAME_LOCAL = txtUserName.Text;
@@ -67,7 +72,7 @@ namespace MailServer
                             {
                                 txtPassword.Text = "";
                                 txtReEnter.Text = "";
-                                throw new Exception("Mật khẩu nhập lại không trùng nhau!");
+                                throw new Exception("Mật khẩu nhập lại không trùng nhau.");
                             }
                             
                             //Insert dữ liệu vào THONGTIN_CLIENT
@@ -91,24 +96,37 @@ namespace MailServer
                             Random rdpin = new Random();
                             infoClient.MAPIN = rdpin.Next(100000, 999999);
                             infoClient.NGAYTAOTK = DateTime.Now.ToLocalTime();
-                            
+
                             db.MATKHAU_LOCALs.InsertOnSubmit(mkLocal);
                             db.THONGTIN_CLIENTs.InsertOnSubmit(infoClient);
-                            db.SubmitChanges();
-                            //Thông báo thành công   
-                            MessageBox.Show("Đăng ký tài khoản đăng nhập ứng dụng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            if (this.checkMail && this.confirmEmail)
+                            {
+                                db.SubmitChanges();
+                                //Thông báo thành công   
+                                MessageBox.Show("Đăng ký tài khoản MailBox thành công." + System.Environment.NewLine + 
+                                    $" Tên đăng nhập: {txtUserName.Text}" + System.Environment.NewLine +
+                                    $" Mật khẩu: {txtPassword.Text}" + System.Environment.NewLine + 
+                                    $" Email khôi phục: {txtEmail.Text.ToLower()}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                fDangKy_Load(sender, e);
+                            }
+                            else
+                            {
+                                btnConfirm.BackColor = Color.Navy;
+                                btnCheckMail.BackColor = Color.Navy;
+                                throw new Exception("Bạn cần xác thực email trước.");
+                            }
                         }
                     }
-                    fDangKy_Load(sender, e);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             catch (Exception)
             {
-                MessageBox.Show("Something went wrong, please contact the developer!.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Đã có lỗi xảy ra vui lòng liên hệ nhà phát triển.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -140,7 +158,7 @@ namespace MailServer
             }
             catch (Exception)
             {
-                MessageBox.Show("Đã có lỗi xảy ra vui lòng liên hệ nhà phát triển!.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Đã có lỗi xảy ra vui lòng liên hệ nhà phát triển.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -187,6 +205,59 @@ namespace MailServer
             this.Hide();
             login.ShowDialog();
             this.Close();
+        }
+
+        //Sự xác thực mail
+        private void btnCheckMail_Click(object sender, EventArgs e)
+        {
+            btnCheckMail.BackColor = Color.White;
+            if (this.codeRD.ToString() == txtCheckMail.Text)
+            {
+                this.checkMail = true;
+                MessageBox.Show("Xác thực mail thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else MessageBox.Show("Xác thực mail thất bại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        //Sự kiện kiểm email
+        private void btnConfirm_Click(object sender, EventArgs e)
+        {
+            btnConfirm.BackColor = Color.White;
+            //Kiểm tra định dạng email
+            string pattern = "^([0-9a-zA-Z]([-\\.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$";
+            if (Regex.IsMatch(txtEmail.Text, pattern) == false)
+                MessageBox.Show("Định dạng email không đúng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (!txtEmail.Text.Contains("@gmail.com"))
+                MessageBox.Show("MailBox chỉ hỗ trợ xác thực qua Gmail.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+            {
+                try
+                {
+                    Random rdpin = new Random();
+                    //Kiểm tra email có thực
+                    this.codeRD = rdpin.Next(10000, 99999);
+                    this.content = $"Chào {txtLastName.Text}." + System.Environment.NewLine +
+                                    $"Vui lòng sử dụng mã bảo mật sau cho tài khoản MailBox: {txtEmail.Text}." + System.Environment.NewLine +
+                                    $"Mã xác thực bảo mật: {this.codeRD}" + System.Environment.NewLine +
+                                    $"Hãy nhập mã xác thực tải khoản đăng ký MailBox." + System.Environment.NewLine +
+                                    $"Xin cảm ơn!";
+                    MailMessage mail = new MailMessage(this.userMailAcc, txtEmail.Text.ToLower(), this.subject.ToString(), this.content.ToString());
+                    mail.IsBodyHtml = true;
+                    SmtpClient client = new SmtpClient("smtp.gmail.com");
+                    client.UseDefaultCredentials = false;
+                    client.Port = 587;
+                    client.Credentials = new System.Net.NetworkCredential(this.userMailAcc, this.userMailPass);
+                    client.EnableSsl = true;
+                    client.Send(mail);
+
+                    this.confirmEmail = true;
+                    MessageBox.Show("Gửi mail xác thực thành công." + System.Environment.NewLine + "Vui lòng nhập mã để xác thực tài khoản.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Đã có lỗi xảy ra vui lòng liên hệ nhà phát triển.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }

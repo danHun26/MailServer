@@ -255,7 +255,6 @@ namespace MailServer
             // btnBackStep2
             // 
             this.btnBackStep2.BackColor = System.Drawing.SystemColors.Control;
-            this.btnBackStep2.Enabled = false;
             this.btnBackStep2.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBackStep2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(26)))), ((int)(((byte)(74)))));
             this.btnBackStep2.Location = new System.Drawing.Point(307, 118);
@@ -276,6 +275,7 @@ namespace MailServer
             this.btnReadPw2.Size = new System.Drawing.Size(53, 50);
             this.btnReadPw2.TabIndex = 8;
             this.btnReadPw2.UseVisualStyleBackColor = false;
+            this.btnReadPw2.Click += new System.EventHandler(this.btnReadPw1_Click);
             // 
             // btnReadPw1
             // 
@@ -389,6 +389,7 @@ namespace MailServer
             this.Name = "fQuenMatKhau";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fQuenMatKhau";
+            this.Load += new System.EventHandler(this.fQuenMatKhau_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.fQuenMatKhau_MouseDown);
             this.panel1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
