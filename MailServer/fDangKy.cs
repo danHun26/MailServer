@@ -86,7 +86,7 @@ namespace MailServer
                             else infoClient.GIOITINH = -1;
                             //Lấy khóa chính
                             int temp = 0;
-                            foreach (var item in db.MATKHAU_LOCALs)
+                            foreach (var item in db.MATKHAU_LOCALs.ToList())
                             {
                                 if (temp < item.id)
                                     temp = item.id;

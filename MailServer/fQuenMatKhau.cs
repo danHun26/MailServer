@@ -45,8 +45,7 @@ namespace MailServer
             {
                 try
                 {
-                    if (txtEmail.Text == "")
-                        throw new Exception("Nhập email để khôi phục tài khoản!");
+                    if (txtEmail.Text == "") throw new Exception("Nhập email để khôi phục tài khoản!");
                     else
                     {
                         using (dbMailServerDataContext db = new dbMailServerDataContext())

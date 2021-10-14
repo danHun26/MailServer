@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Drawing;
 
 namespace MailServer
 {
@@ -47,6 +46,11 @@ namespace MailServer
         private void pictureBox3_MosueUp(object sender, MouseEventArgs e)
         {
             textBox2.UseSystemPasswordChar = true;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

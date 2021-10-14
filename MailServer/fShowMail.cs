@@ -39,8 +39,10 @@ namespace MailServer
         {
             try
             {
-                fSendMail fsm = new fSendMail("smtp.gmail.com", 587, "amk1126@gmail.com", "jamk@1230");
+                fSendMail fsm = new fSendMail("smtp.gmail.com", 587, "jamk1126@gmail.com",
+                    "jamk@1230", 18, 1, 10);;
                 fsm.ShowDialog();
+                this.Close();
             }
             catch (Exception)
             {
