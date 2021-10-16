@@ -75,7 +75,7 @@ namespace MailServer
             this.panel1.Controls.Add(this.txtFromMail);
             this.panel1.Controls.Add(this.btnSend);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 24);
+            this.panel1.Location = new System.Drawing.Point(0, 25);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 169);
             this.panel1.TabIndex = 0;
@@ -174,7 +174,7 @@ namespace MailServer
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(800, 25);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.menuStrip1_MouseDown);
@@ -185,15 +185,17 @@ namespace MailServer
             this.lưuThưToolStripMenuItem,
             this.gửiMailToolStripMenuItem,
             this.thoátToolStripMenuItem});
+            this.fileToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fileToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(39, 21);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // lưuThưToolStripMenuItem
             // 
             this.lưuThưToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("lưuThưToolStripMenuItem.Image")));
             this.lưuThưToolStripMenuItem.Name = "lưuThưToolStripMenuItem";
-            this.lưuThưToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.lưuThưToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.lưuThưToolStripMenuItem.Text = "Save drafts";
             this.lưuThưToolStripMenuItem.Click += new System.EventHandler(this.lưuThưToolStripMenuItem_Click);
             // 
@@ -201,7 +203,7 @@ namespace MailServer
             // 
             this.gửiMailToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("gửiMailToolStripMenuItem.Image")));
             this.gửiMailToolStripMenuItem.Name = "gửiMailToolStripMenuItem";
-            this.gửiMailToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.gửiMailToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.gửiMailToolStripMenuItem.Text = "Send mail";
             this.gửiMailToolStripMenuItem.Click += new System.EventHandler(this.btnSend_Click);
             // 
@@ -209,7 +211,7 @@ namespace MailServer
             // 
             this.thoátToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("thoátToolStripMenuItem.Image")));
             this.thoátToolStripMenuItem.Name = "thoátToolStripMenuItem";
-            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.thoátToolStripMenuItem.Text = "Exit";
             this.thoátToolStripMenuItem.Click += new System.EventHandler(this.thoátToolStripMenuItem_Click);
             // 
@@ -219,15 +221,17 @@ namespace MailServer
             this.chữĐậmToolStripMenuItem,
             this.chữNghiênToolStripMenuItem,
             this.chữGạchChânToolStripMenuItem});
+            this.editToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(42, 21);
             this.editToolStripMenuItem.Text = "Edit";
             // 
             // chữĐậmToolStripMenuItem
             // 
             this.chữĐậmToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("chữĐậmToolStripMenuItem.Image")));
             this.chữĐậmToolStripMenuItem.Name = "chữĐậmToolStripMenuItem";
-            this.chữĐậmToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.chữĐậmToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.chữĐậmToolStripMenuItem.Text = "Bold";
             this.chữĐậmToolStripMenuItem.Click += new System.EventHandler(this.chữĐậmToolStripMenuItem_Click);
             // 
@@ -235,7 +239,7 @@ namespace MailServer
             // 
             this.chữNghiênToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("chữNghiênToolStripMenuItem.Image")));
             this.chữNghiênToolStripMenuItem.Name = "chữNghiênToolStripMenuItem";
-            this.chữNghiênToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.chữNghiênToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.chữNghiênToolStripMenuItem.Text = "Italicized";
             this.chữNghiênToolStripMenuItem.Click += new System.EventHandler(this.chữNghiênToolStripMenuItem_Click);
             // 
@@ -243,7 +247,7 @@ namespace MailServer
             // 
             this.chữGạchChânToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("chữGạchChânToolStripMenuItem.Image")));
             this.chữGạchChânToolStripMenuItem.Name = "chữGạchChânToolStripMenuItem";
-            this.chữGạchChânToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.chữGạchChânToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.chữGạchChânToolStripMenuItem.Text = "Underline";
             this.chữGạchChânToolStripMenuItem.Click += new System.EventHandler(this.chữGạchChânToolStripMenuItem_Click);
             // 
@@ -252,15 +256,17 @@ namespace MailServer
             this.mailToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.xóaNộiDungToolStripMenuItem,
             this.tạoThưMớiToolStripMenuItem});
+            this.mailToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mailToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.mailToolStripMenuItem.Name = "mailToolStripMenuItem";
-            this.mailToolStripMenuItem.Size = new System.Drawing.Size(42, 20);
+            this.mailToolStripMenuItem.Size = new System.Drawing.Size(45, 21);
             this.mailToolStripMenuItem.Text = "Mail";
             // 
             // xóaNộiDungToolStripMenuItem
             // 
             this.xóaNộiDungToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("xóaNộiDungToolStripMenuItem.Image")));
             this.xóaNộiDungToolStripMenuItem.Name = "xóaNộiDungToolStripMenuItem";
-            this.xóaNộiDungToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.xóaNộiDungToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.xóaNộiDungToolStripMenuItem.Text = "Delete content";
             this.xóaNộiDungToolStripMenuItem.Click += new System.EventHandler(this.xóaNộiDungToolStripMenuItem_Click);
             // 
@@ -268,7 +274,7 @@ namespace MailServer
             // 
             this.tạoThưMớiToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("tạoThưMớiToolStripMenuItem.Image")));
             this.tạoThưMớiToolStripMenuItem.Name = "tạoThưMớiToolStripMenuItem";
-            this.tạoThưMớiToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.tạoThưMớiToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.tạoThưMớiToolStripMenuItem.Text = "Create new mail";
             this.tạoThưMớiToolStripMenuItem.Click += new System.EventHandler(this.tạoThưMớiToolStripMenuItem_Click);
             // 
@@ -353,9 +359,9 @@ namespace MailServer
             this.panel5.BackColor = System.Drawing.SystemColors.Control;
             this.panel5.Controls.Add(this.rTxtContent);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(0, 193);
+            this.panel5.Location = new System.Drawing.Point(0, 194);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(800, 198);
+            this.panel5.Size = new System.Drawing.Size(800, 197);
             this.panel5.TabIndex = 4;
             // 
             // rTxtContent
@@ -364,7 +370,7 @@ namespace MailServer
             this.rTxtContent.Location = new System.Drawing.Point(0, 0);
             this.rTxtContent.Name = "rTxtContent";
             this.rTxtContent.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
-            this.rTxtContent.Size = new System.Drawing.Size(800, 198);
+            this.rTxtContent.Size = new System.Drawing.Size(800, 197);
             this.rTxtContent.TabIndex = 0;
             this.rTxtContent.Text = "";
             // 
@@ -375,11 +381,12 @@ namespace MailServer
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(26)))), ((int)(((byte)(74)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.button1.Location = new System.Drawing.Point(758, 0);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(30, 21);
+            this.button1.Size = new System.Drawing.Size(39, 23);
             this.button1.TabIndex = 6;
             this.button1.Text = "X";
             this.button1.UseVisualStyleBackColor = false;

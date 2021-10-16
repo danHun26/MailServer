@@ -601,15 +601,11 @@ namespace MailServer
 		
 		private string _id_DANHSACH_MAIL;
 		
-		private System.DateTime _THOIGIAN_GUI;
-		
-		private System.Nullable<int> _FK_id_MATKHAU_LOCAL;
+		private System.Nullable<System.DateTime> _THOIGIAN_GUI;
 		
 		private System.Nullable<int> _FK_id_MATKHAU_MAIL;
 		
 		private System.Nullable<int> _FK_id_NOIDUNG_MAIL;
-		
-		private EntityRef<MATKHAU_LOCAL> _MATKHAU_LOCAL;
 		
 		private EntityRef<MATKHAU_MAIL> _MATKHAU_MAIL;
 		
@@ -623,10 +619,8 @@ namespace MailServer
     partial void OnidChanged();
     partial void Onid_DANHSACH_MAILChanging(string value);
     partial void Onid_DANHSACH_MAILChanged();
-    partial void OnTHOIGIAN_GUIChanging(System.DateTime value);
+    partial void OnTHOIGIAN_GUIChanging(System.Nullable<System.DateTime> value);
     partial void OnTHOIGIAN_GUIChanged();
-    partial void OnFK_id_MATKHAU_LOCALChanging(System.Nullable<int> value);
-    partial void OnFK_id_MATKHAU_LOCALChanged();
     partial void OnFK_id_MATKHAU_MAILChanging(System.Nullable<int> value);
     partial void OnFK_id_MATKHAU_MAILChanged();
     partial void OnFK_id_NOIDUNG_MAILChanging(System.Nullable<int> value);
@@ -635,7 +629,6 @@ namespace MailServer
 		
 		public DANHSACH_MAIL()
 		{
-			this._MATKHAU_LOCAL = default(EntityRef<MATKHAU_LOCAL>);
 			this._MATKHAU_MAIL = default(EntityRef<MATKHAU_MAIL>);
 			this._NOIDUNG_MAIL = default(EntityRef<NOIDUNG_MAIL>);
 			OnCreated();
@@ -681,8 +674,8 @@ namespace MailServer
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_THOIGIAN_GUI", DbType="Date NOT NULL")]
-		public System.DateTime THOIGIAN_GUI
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_THOIGIAN_GUI", DbType="Date")]
+		public System.Nullable<System.DateTime> THOIGIAN_GUI
 		{
 			get
 			{
@@ -697,30 +690,6 @@ namespace MailServer
 					this._THOIGIAN_GUI = value;
 					this.SendPropertyChanged("THOIGIAN_GUI");
 					this.OnTHOIGIAN_GUIChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_id_MATKHAU_LOCAL", DbType="Int")]
-		public System.Nullable<int> FK_id_MATKHAU_LOCAL
-		{
-			get
-			{
-				return this._FK_id_MATKHAU_LOCAL;
-			}
-			set
-			{
-				if ((this._FK_id_MATKHAU_LOCAL != value))
-				{
-					if (this._MATKHAU_LOCAL.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnFK_id_MATKHAU_LOCALChanging(value);
-					this.SendPropertyChanging();
-					this._FK_id_MATKHAU_LOCAL = value;
-					this.SendPropertyChanged("FK_id_MATKHAU_LOCAL");
-					this.OnFK_id_MATKHAU_LOCALChanged();
 				}
 			}
 		}
@@ -769,40 +738,6 @@ namespace MailServer
 					this._FK_id_NOIDUNG_MAIL = value;
 					this.SendPropertyChanged("FK_id_NOIDUNG_MAIL");
 					this.OnFK_id_NOIDUNG_MAILChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MATKHAU_LOCAL_DANHSACH_MAIL", Storage="_MATKHAU_LOCAL", ThisKey="FK_id_MATKHAU_LOCAL", OtherKey="id", IsForeignKey=true, DeleteRule="CASCADE")]
-		public MATKHAU_LOCAL MATKHAU_LOCAL
-		{
-			get
-			{
-				return this._MATKHAU_LOCAL.Entity;
-			}
-			set
-			{
-				MATKHAU_LOCAL previousValue = this._MATKHAU_LOCAL.Entity;
-				if (((previousValue != value) 
-							|| (this._MATKHAU_LOCAL.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._MATKHAU_LOCAL.Entity = null;
-						previousValue.DANHSACH_MAILs.Remove(this);
-					}
-					this._MATKHAU_LOCAL.Entity = value;
-					if ((value != null))
-					{
-						value.DANHSACH_MAILs.Add(this);
-						this._FK_id_MATKHAU_LOCAL = value.id;
-					}
-					else
-					{
-						this._FK_id_MATKHAU_LOCAL = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("MATKHAU_LOCAL");
 				}
 			}
 		}
@@ -1072,7 +1007,7 @@ namespace MailServer
 		
 		private string _PASSWORD_LOCAL;
 		
-		private EntitySet<DANHSACH_MAIL> _DANHSACH_MAILs;
+		private EntitySet<MATKHAU_MAIL> _MATKHAU_MAILs;
 		
 		private EntitySet<THONGTIN_CLIENT> _THONGTIN_CLIENTs;
 		
@@ -1092,7 +1027,7 @@ namespace MailServer
 		
 		public MATKHAU_LOCAL()
 		{
-			this._DANHSACH_MAILs = new EntitySet<DANHSACH_MAIL>(new Action<DANHSACH_MAIL>(this.attach_DANHSACH_MAILs), new Action<DANHSACH_MAIL>(this.detach_DANHSACH_MAILs));
+			this._MATKHAU_MAILs = new EntitySet<MATKHAU_MAIL>(new Action<MATKHAU_MAIL>(this.attach_MATKHAU_MAILs), new Action<MATKHAU_MAIL>(this.detach_MATKHAU_MAILs));
 			this._THONGTIN_CLIENTs = new EntitySet<THONGTIN_CLIENT>(new Action<THONGTIN_CLIENT>(this.attach_THONGTIN_CLIENTs), new Action<THONGTIN_CLIENT>(this.detach_THONGTIN_CLIENTs));
 			OnCreated();
 		}
@@ -1177,16 +1112,16 @@ namespace MailServer
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MATKHAU_LOCAL_DANHSACH_MAIL", Storage="_DANHSACH_MAILs", ThisKey="id", OtherKey="FK_id_MATKHAU_LOCAL")]
-		public EntitySet<DANHSACH_MAIL> DANHSACH_MAILs
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MATKHAU_LOCAL_MATKHAU_MAIL", Storage="_MATKHAU_MAILs", ThisKey="id", OtherKey="FK_id_MATKHAU_LOCAL")]
+		public EntitySet<MATKHAU_MAIL> MATKHAU_MAILs
 		{
 			get
 			{
-				return this._DANHSACH_MAILs;
+				return this._MATKHAU_MAILs;
 			}
 			set
 			{
-				this._DANHSACH_MAILs.Assign(value);
+				this._MATKHAU_MAILs.Assign(value);
 			}
 		}
 		
@@ -1223,13 +1158,13 @@ namespace MailServer
 			}
 		}
 		
-		private void attach_DANHSACH_MAILs(DANHSACH_MAIL entity)
+		private void attach_MATKHAU_MAILs(MATKHAU_MAIL entity)
 		{
 			this.SendPropertyChanging();
 			entity.MATKHAU_LOCAL = this;
 		}
 		
-		private void detach_DANHSACH_MAILs(DANHSACH_MAIL entity)
+		private void detach_MATKHAU_MAILs(MATKHAU_MAIL entity)
 		{
 			this.SendPropertyChanging();
 			entity.MATKHAU_LOCAL = null;
@@ -1264,9 +1199,13 @@ namespace MailServer
 		
 		private System.Nullable<int> _FK_id_DOMAIN_MAIL;
 		
+		private System.Nullable<int> _FK_id_MATKHAU_LOCAL;
+		
 		private EntitySet<DANHSACH_MAIL> _DANHSACH_MAILs;
 		
 		private EntityRef<DOMAIN_MAIL> _DOMAIN_MAIL;
+		
+		private EntityRef<MATKHAU_LOCAL> _MATKHAU_LOCAL;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1282,12 +1221,15 @@ namespace MailServer
     partial void OnPASSWORD_MAILChanged();
     partial void OnFK_id_DOMAIN_MAILChanging(System.Nullable<int> value);
     partial void OnFK_id_DOMAIN_MAILChanged();
+    partial void OnFK_id_MATKHAU_LOCALChanging(System.Nullable<int> value);
+    partial void OnFK_id_MATKHAU_LOCALChanged();
     #endregion
 		
 		public MATKHAU_MAIL()
 		{
 			this._DANHSACH_MAILs = new EntitySet<DANHSACH_MAIL>(new Action<DANHSACH_MAIL>(this.attach_DANHSACH_MAILs), new Action<DANHSACH_MAIL>(this.detach_DANHSACH_MAILs));
 			this._DOMAIN_MAIL = default(EntityRef<DOMAIN_MAIL>);
+			this._MATKHAU_LOCAL = default(EntityRef<MATKHAU_LOCAL>);
 			OnCreated();
 		}
 		
@@ -1395,6 +1337,30 @@ namespace MailServer
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK_id_MATKHAU_LOCAL", DbType="Int")]
+		public System.Nullable<int> FK_id_MATKHAU_LOCAL
+		{
+			get
+			{
+				return this._FK_id_MATKHAU_LOCAL;
+			}
+			set
+			{
+				if ((this._FK_id_MATKHAU_LOCAL != value))
+				{
+					if (this._MATKHAU_LOCAL.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnFK_id_MATKHAU_LOCALChanging(value);
+					this.SendPropertyChanging();
+					this._FK_id_MATKHAU_LOCAL = value;
+					this.SendPropertyChanged("FK_id_MATKHAU_LOCAL");
+					this.OnFK_id_MATKHAU_LOCALChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MATKHAU_MAIL_DANHSACH_MAIL", Storage="_DANHSACH_MAILs", ThisKey="id", OtherKey="FK_id_MATKHAU_MAIL")]
 		public EntitySet<DANHSACH_MAIL> DANHSACH_MAILs
 		{
@@ -1438,6 +1404,40 @@ namespace MailServer
 						this._FK_id_DOMAIN_MAIL = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("DOMAIN_MAIL");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MATKHAU_LOCAL_MATKHAU_MAIL", Storage="_MATKHAU_LOCAL", ThisKey="FK_id_MATKHAU_LOCAL", OtherKey="id", IsForeignKey=true, DeleteRule="CASCADE")]
+		public MATKHAU_LOCAL MATKHAU_LOCAL
+		{
+			get
+			{
+				return this._MATKHAU_LOCAL.Entity;
+			}
+			set
+			{
+				MATKHAU_LOCAL previousValue = this._MATKHAU_LOCAL.Entity;
+				if (((previousValue != value) 
+							|| (this._MATKHAU_LOCAL.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._MATKHAU_LOCAL.Entity = null;
+						previousValue.MATKHAU_MAILs.Remove(this);
+					}
+					this._MATKHAU_LOCAL.Entity = value;
+					if ((value != null))
+					{
+						value.MATKHAU_MAILs.Add(this);
+						this._FK_id_MATKHAU_LOCAL = value.id;
+					}
+					else
+					{
+						this._FK_id_MATKHAU_LOCAL = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("MATKHAU_LOCAL");
 				}
 			}
 		}
@@ -1493,6 +1493,8 @@ namespace MailServer
 		
 		private string _CONTENT_MAIL;
 		
+		private string _PATH_ATTACH;
+		
 		private System.Nullable<int> _FK_id_TRANG_THAI;
 		
 		private EntitySet<DANHSACH_MAIL> _DANHSACH_MAILs;
@@ -1515,6 +1517,8 @@ namespace MailServer
     partial void OnSUBJECT_MAILChanged();
     partial void OnCONTENT_MAILChanging(string value);
     partial void OnCONTENT_MAILChanged();
+    partial void OnPATH_ATTACHChanging(string value);
+    partial void OnPATH_ATTACHChanged();
     partial void OnFK_id_TRANG_THAIChanging(System.Nullable<int> value);
     partial void OnFK_id_TRANG_THAIChanged();
     #endregion
@@ -1626,7 +1630,7 @@ namespace MailServer
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CONTENT_MAIL", AutoSync=AutoSync.Always, DbType="VarChar(9)", IsDbGenerated=true, UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CONTENT_MAIL", DbType="NVarChar(2000) NOT NULL", CanBeNull=false)]
 		public string CONTENT_MAIL
 		{
 			get
@@ -1642,6 +1646,26 @@ namespace MailServer
 					this._CONTENT_MAIL = value;
 					this.SendPropertyChanged("CONTENT_MAIL");
 					this.OnCONTENT_MAILChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PATH_ATTACH", DbType="NVarChar(300)")]
+		public string PATH_ATTACH
+		{
+			get
+			{
+				return this._PATH_ATTACH;
+			}
+			set
+			{
+				if ((this._PATH_ATTACH != value))
+				{
+					this.OnPATH_ATTACHChanging(value);
+					this.SendPropertyChanging();
+					this._PATH_ATTACH = value;
+					this.SendPropertyChanged("PATH_ATTACH");
+					this.OnPATH_ATTACHChanged();
 				}
 			}
 		}
@@ -1770,7 +1794,7 @@ namespace MailServer
 		
 		private System.Nullable<int> _GIOITINH;
 		
-		private System.DateTime _NGAYTAOTK;
+		private System.Nullable<System.DateTime> _NGAYTAOTK;
 		
 		private int _MAPIN;
 		
@@ -1796,7 +1820,7 @@ namespace MailServer
     partial void OnNTNSChanged();
     partial void OnGIOITINHChanging(System.Nullable<int> value);
     partial void OnGIOITINHChanged();
-    partial void OnNGAYTAOTKChanging(System.DateTime value);
+    partial void OnNGAYTAOTKChanging(System.Nullable<System.DateTime> value);
     partial void OnNGAYTAOTKChanged();
     partial void OnMAPINChanging(int value);
     partial void OnMAPINChanged();
@@ -1950,8 +1974,8 @@ namespace MailServer
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NGAYTAOTK", DbType="Date NOT NULL")]
-		public System.DateTime NGAYTAOTK
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NGAYTAOTK", DbType="Date")]
+		public System.Nullable<System.DateTime> NGAYTAOTK
 		{
 			get
 			{

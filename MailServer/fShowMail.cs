@@ -40,7 +40,7 @@ namespace MailServer
             try
             {
                 fSendMail fsm = new fSendMail("smtp.gmail.com", 587, "jamk1126@gmail.com",
-                    "jamk@1230", 18, 1, 10);;
+                    "jamk@1230", 2, 2);;
                 fsm.ShowDialog();
                 this.Close();
             }

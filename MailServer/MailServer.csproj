@@ -236,6 +236,7 @@
     <Content Include="icon\paper-plane.png" />
     <Content Include="icon\phone.png" />
     <Content Include="icon\pin-number.png" />
+    <Content Include="icon\plus.png" />
     <Content Include="icon\receive.png" />
     <Content Include="icon\register.ico" />
     <Content Include="icon\reply %281%29.png" />
@@ -250,6 +251,7 @@
     <Content Include="icon\send.ico" />
     <Content Include="icon\star %281%29.png" />
     <Content Include="icon\star %282%29.png" />
+    <Content Include="icon\them.png" />
     <Content Include="icon\tomail.png" />
     <Content Include="icon\trash.png" />
     <Content Include="icon\underlined-text.png" />

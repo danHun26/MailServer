@@ -65,48 +65,48 @@ namespace MailServer
                                 if (item.EMAIL == txtEmail.Text)
                                     throw new Exception("Email này đã tồn tại.");
 
-                            //Insert dữ liệu vào MATKHAU_LOCAL
-                            mkLocal.USERNAME_LOCAL = txtUserName.Text;
-                            if (txtPassword.Text == txtReEnter.Text) mkLocal.PASSWORD_LOCAL = Eramake.eCryptography.Encrypt(txtPassword.Text);
-                            else
-                            {
-                                txtPassword.Text = "";
-                                txtReEnter.Text = "";
-                                throw new Exception("Mật khẩu nhập lại không trùng nhau.");
-                            }
-                            
-                            //Insert dữ liệu vào THONGTIN_CLIENT
-                            infoClient.HO = txtLastName.Text;
-                            infoClient.TEN = txtFirstName.Text;
-                            infoClient.EMAIL = txtEmail.Text;
-                            infoClient.NTNS = dTBirth.Value;
-                            //Lưu giá trị số giới tính
-                            if (cmdSex.Text == "Male") infoClient.GIOITINH = 1;
-                            else if (cmdSex.Text == "Female") infoClient.GIOITINH = 0;
-                            else infoClient.GIOITINH = -1;
-                            //Lấy khóa chính
-                            int temp = 0;
-                            foreach (var item in db.MATKHAU_LOCALs.ToList())
-                            {
-                                if (temp < item.id)
-                                    temp = item.id;
-                                    infoClient.FK_id_MATKHAU_LOCAL = item.id;
-                            }
-                            //Random mã pin
-                            Random rdpin = new Random();
-                            infoClient.MAPIN = rdpin.Next(100000, 999999);
-                            infoClient.NGAYTAOTK = DateTime.Now.ToLocalTime();
-
-                            db.MATKHAU_LOCALs.InsertOnSubmit(mkLocal);
-                            db.THONGTIN_CLIENTs.InsertOnSubmit(infoClient);
-
                             if (this.checkMail && this.confirmEmail)
                             {
+                                //Insert dữ liệu vào MATKHAU_LOCAL
+                                mkLocal.USERNAME_LOCAL = txtUserName.Text;
+                                if (txtPassword.Text == txtReEnter.Text) mkLocal.PASSWORD_LOCAL = Eramake.eCryptography.Encrypt(txtPassword.Text);
+                                else
+                                {
+                                    txtPassword.Text = "";
+                                    txtReEnter.Text = "";
+                                    throw new Exception("Mật khẩu nhập lại không trùng nhau.");
+                                }
+                                db.MATKHAU_LOCALs.InsertOnSubmit(mkLocal);
+                                db.SubmitChanges();
+
+                                //Insert dữ liệu vào THONGTIN_CLIENT
+                                infoClient.HO = txtLastName.Text;
+                                infoClient.TEN = txtFirstName.Text;
+                                infoClient.EMAIL = txtEmail.Text;
+                                infoClient.NTNS = dTBirth.Value;
+                                //Lưu giá trị số giới tính
+                                if (cmdSex.Text == "Male") infoClient.GIOITINH = 1;
+                                else if (cmdSex.Text == "Female") infoClient.GIOITINH = 0;
+                                else infoClient.GIOITINH = -1;
+                                //Lấy khóa chính
+                                int temp = 0;
+                                foreach (var item in db.MATKHAU_LOCALs.ToList())
+                                {
+                                    if (temp <= item.id)
+                                        temp = item.id;
+                                    infoClient.FK_id_MATKHAU_LOCAL = item.id;
+                                }
+                                //Random mã pin
+                                Random rdpin = new Random();
+                                infoClient.MAPIN = rdpin.Next(100000, 999999);
+                                infoClient.NGAYTAOTK = DateTime.Now.ToLocalTime();
+
+                                db.THONGTIN_CLIENTs.InsertOnSubmit(infoClient);
                                 db.SubmitChanges();
                                 //Thông báo thành công   
-                                MessageBox.Show("Đăng ký tài khoản MailBox thành công." + System.Environment.NewLine + 
+                                MessageBox.Show("Đăng ký tài khoản MailBox thành công." + System.Environment.NewLine +
                                     $" Tên đăng nhập: {txtUserName.Text}" + System.Environment.NewLine +
-                                    $" Mật khẩu: {txtPassword.Text}" + System.Environment.NewLine + 
+                                    $" Mật khẩu: {txtPassword.Text}" + System.Environment.NewLine +
                                     $" Email khôi phục: {txtEmail.Text.ToLower()}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 fDangKy_Load(sender, e);
                             }
@@ -235,7 +235,7 @@ namespace MailServer
                 {
                     Random rdpin = new Random();
                     //Kiểm tra email có thực
-                    this.codeRD = rdpin.Next(10000, 99999);
+                    this.codeRD = rdpin.Next(100000, 999999);
                     this.content = $"Chào {txtLastName.Text}." + System.Environment.NewLine +
                                     $"Vui lòng sử dụng mã bảo mật sau cho tài khoản MailBox: {txtEmail.Text}." + System.Environment.NewLine +
                                     $"Mã xác thực bảo mật: {this.codeRD}" + System.Environment.NewLine +

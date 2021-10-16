@@ -27,11 +27,9 @@
     <Type Name="DANHSACH_MAIL">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="id_DANHSACH_MAIL" Type="System.String" DbType="VarChar(7)" IsDbGenerated="true" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="THOIGIAN_GUI" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="FK_id_MATKHAU_LOCAL" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="THOIGIAN_GUI" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="FK_id_MATKHAU_MAIL" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="FK_id_NOIDUNG_MAIL" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="MATKHAU_LOCAL_DANHSACH_MAIL" Member="MATKHAU_LOCAL" ThisKey="FK_id_MATKHAU_LOCAL" OtherKey="id" Type="MATKHAU_LOCAL" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="MATKHAU_MAIL_DANHSACH_MAIL" Member="MATKHAU_MAIL" ThisKey="FK_id_MATKHAU_MAIL" OtherKey="id" Type="MATKHAU_MAIL" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="NOIDUNG_MAIL_DANHSACH_MAIL" Member="NOIDUNG_MAIL" ThisKey="FK_id_NOIDUNG_MAIL" OtherKey="id" Type="NOIDUNG_MAIL" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
@@ -51,7 +49,7 @@
       <Column Name="id_MATKHAU_LOCAL" Type="System.String" DbType="VarChar(7)" IsDbGenerated="true" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="USERNAME_LOCAL" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="PASSWORD_LOCAL" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="MATKHAU_LOCAL_DANHSACH_MAIL" Member="DANHSACH_MAILs" ThisKey="id" OtherKey="FK_id_MATKHAU_LOCAL" Type="DANHSACH_MAIL" />
+      <Association Name="MATKHAU_LOCAL_MATKHAU_MAIL" Member="MATKHAU_MAILs" ThisKey="id" OtherKey="FK_id_MATKHAU_LOCAL" Type="MATKHAU_MAIL" />
       <Association Name="MATKHAU_LOCAL_THONGTIN_CLIENT" Member="THONGTIN_CLIENTs" ThisKey="id" OtherKey="FK_id_MATKHAU_LOCAL" Type="THONGTIN_CLIENT" />
     </Type>
   </Table>
@@ -62,8 +60,10 @@
       <Column Name="USERNAME_MAIL" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="PASSWORD_MAIL" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="FK_id_DOMAIN_MAIL" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FK_id_MATKHAU_LOCAL" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="MATKHAU_MAIL_DANHSACH_MAIL" Member="DANHSACH_MAILs" ThisKey="id" OtherKey="FK_id_MATKHAU_MAIL" Type="DANHSACH_MAIL" />
       <Association Name="DOMAIN_MAIL_MATKHAU_MAIL" Member="DOMAIN_MAIL" ThisKey="FK_id_DOMAIN_MAIL" OtherKey="id" Type="DOMAIN_MAIL" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="MATKHAU_LOCAL_MATKHAU_MAIL" Member="MATKHAU_LOCAL" ThisKey="FK_id_MATKHAU_LOCAL" OtherKey="id" Type="MATKHAU_LOCAL" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
   <Table Name="dbo.NOIDUNG_MAIL" Member="NOIDUNG_MAILs">
@@ -73,7 +73,8 @@
       <Column Name="TO_MAIL" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="FROM_MAIL" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="SUBJECT_MAIL" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="CONTENT_MAIL" Type="System.String" DbType="VarChar(9)" IsDbGenerated="true" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CONTENT_MAIL" Type="System.String" DbType="NVarChar(2000) NOT NULL" CanBeNull="false" />
+      <Column Name="PATH_ATTACH" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
       <Column Name="FK_id_TRANG_THAI" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="NOIDUNG_MAIL_DANHSACH_MAIL" Member="DANHSACH_MAILs" ThisKey="id" OtherKey="FK_id_NOIDUNG_MAIL" Type="DANHSACH_MAIL" />
       <Association Name="TRANG_THAI_NOIDUNG_MAIL" Member="TRANG_THAI" ThisKey="FK_id_TRANG_THAI" OtherKey="id" Type="TRANG_THAI" IsForeignKey="true" DeleteRule="CASCADE" />
@@ -88,7 +89,7 @@
       <Column Name="EMAIL" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="NTNS" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="GIOITINH" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="NGAYTAOTK" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="NGAYTAOTK" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="MAPIN" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="FK_id_MATKHAU_LOCAL" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="MATKHAU_LOCAL_THONGTIN_CLIENT" Member="MATKHAU_LOCAL" ThisKey="FK_id_MATKHAU_LOCAL" OtherKey="id" Type="MATKHAU_LOCAL" IsForeignKey="true" DeleteRule="CASCADE" />

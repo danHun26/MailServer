@@ -12,6 +12,7 @@ using System.Net;
 using System.IO;
 using System.Threading;
 using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
 
 namespace MailServer
 {
@@ -21,7 +22,6 @@ namespace MailServer
         private int portServerMail = 0;
         private string userMailAcc = "";
         private string passMailAcc = "";
-        private int idpassLocal = 0;
         private int idpassMail = 0;
         private int idTempMail = 0;
         private int classifyMail = 0;
@@ -40,7 +40,7 @@ namespace MailServer
 
         //Constructor có tham số cho mail mới
         public fSendMail(string serverMail, int portServerMail, string userMailAcc, 
-            string passMailAcc, int idpassLocal, int idpassMail) : this()
+            string passMailAcc, int idpassMail) : this()
         {
             txtFromMail.Text = userMailAcc;
 
@@ -48,19 +48,17 @@ namespace MailServer
             this.portServerMail = portServerMail;
             this.userMailAcc = userMailAcc;
             this.passMailAcc = passMailAcc;
-            this.idpassLocal = idpassLocal;
             this.idpassMail = idpassMail;
         }
 
         ////Constructor có tham số mở mail nháp
         public fSendMail(string serverMail, int portServerMail, string userMailAcc, 
-            string passMailAcc, int idpassLocal, int idpassMail, int idTempMail) : this()
+            string passMailAcc, int idpassMail, int idTempMail) : this()
         {
             this.serverMail = serverMail;
             this.portServerMail = portServerMail;
             this.userMailAcc = userMailAcc;
             this.passMailAcc = passMailAcc;
-            this.idpassLocal = idpassLocal;
             this.idpassMail = idpassMail;
             this.idTempMail = idTempMail;
             this.classifyMail = 1;
@@ -73,6 +71,10 @@ namespace MailServer
             {
                 try
                 {
+                    string pattern = "^([0-9a-zA-Z]([-\\.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$";
+                    if (Regex.IsMatch(txtToMail.Text, pattern) == false)
+                        throw new Exception("Định dạng email gửi không đúng.");
+
                     MailMessage mail = new MailMessage(this.userMailAcc, txtToMail.Text, txtSubjectMail.Text, rTxtContent.Text);
                     mail.IsBodyHtml = true;
                     if (File.Exists(txtPathAttach.Text))
@@ -86,74 +88,83 @@ namespace MailServer
                     client.Port = this.portServerMail;
                     client.Credentials = new System.Net.NetworkCredential(this.userMailAcc, this.passMailAcc);
                     client.EnableSsl = true;
-                    client.Send(mail);
+                    try
+                    {
+                        client.Send(mail);
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Gửi mail thất bại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
 
                     MessageBox.Show("Gửi mail thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Gửi mail thất bại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                if (this.classifyMail == 0)
-                {
-                    //Lưu vào database
-                    using (dbMailServerDataContext db = new dbMailServerDataContext())
+                    if (this.classifyMail == 0)
                     {
-                        int tempIDNDMail = 0;
-                        int tempIDStatus = 0;
-
-                        DANHSACH_MAIL dsMail = new DANHSACH_MAIL();
-                        NOIDUNG_MAIL ndMail = new NOIDUNG_MAIL();
-                        TRANG_THAI status = new TRANG_THAI();
-
-                        //TRẠNG THÁI
-                        status.DANHDAU = false;
-                        status.XOATHU = false;
-                        status.STATUS_MAIL = false;
-                        status.UPDATE_TIME_MAIL = DateTime.Now.ToLocalTime();
-                        db.TRANG_THAIs.InsertOnSubmit(status);
-                        db.SubmitChanges();
-
-                        //NỘI DUNG MAIL
-                        ndMail.FROM_MAIL = txtFromMail.Text;
-                        ndMail.TO_MAIL = txtToMail.Text;
-                        ndMail.SUBJECT_MAIL = txtSubjectMail.Text;
-                        ndMail.CONTENT_MAIL = rTxtContent.Text;
-                        foreach (var item in db.TRANG_THAIs.ToList())
+                        //Lưu vào database
+                        using (dbMailServerDataContext db = new dbMailServerDataContext())
                         {
-                            if (tempIDStatus < item.id)
-                                tempIDStatus = item.id;
-                            ndMail.FK_id_TRANG_THAI = tempIDStatus;
-                        }
-                        db.NOIDUNG_MAILs.InsertOnSubmit(ndMail);
-                        db.SubmitChanges();
+                            int tempIDNDMail = 0;
+                            int tempIDStatus = 0;
 
-                        //DANH SÁCH MAIL
-                        dsMail.THOIGIAN_GUI = DateTime.Now.ToLocalTime();
-                        dsMail.FK_id_MATKHAU_LOCAL = this.idpassLocal;
-                        dsMail.FK_id_MATKHAU_MAIL = this.idpassMail;
-                        foreach (var item in db.NOIDUNG_MAILs.ToList())
-                        {
-                            if (tempIDNDMail < item.id)
-                                tempIDNDMail = item.id;
-                            dsMail.FK_id_NOIDUNG_MAIL = tempIDNDMail;
+                            DANHSACH_MAIL dsMail = new DANHSACH_MAIL();
+                            NOIDUNG_MAIL ndMail = new NOIDUNG_MAIL();
+                            TRANG_THAI status = new TRANG_THAI();
+
+                            //TRẠNG THÁI
+                            status.DANHDAU = false;
+                            status.XOATHU = false;
+                            status.STATUS_MAIL = false;
+                            status.UPDATE_TIME_MAIL = DateTime.Now.ToLocalTime();
+                            db.TRANG_THAIs.InsertOnSubmit(status);
+                            db.SubmitChanges();
+
+                            //NỘI DUNG MAIL
+                            ndMail.FROM_MAIL = txtFromMail.Text;
+                            ndMail.TO_MAIL = txtToMail.Text;
+                            ndMail.SUBJECT_MAIL = txtSubjectMail.Text;
+                            ndMail.CONTENT_MAIL = rTxtContent.Text;
+                            ndMail.PATH_ATTACH = txtPathAttach.Text;
+
+                            foreach (var item in db.TRANG_THAIs.ToList())
+                            {
+                                if (tempIDStatus < item.id)
+                                    tempIDStatus = item.id;
+                                ndMail.FK_id_TRANG_THAI = tempIDStatus;
+                            }
+                            db.NOIDUNG_MAILs.InsertOnSubmit(ndMail);
+                            db.SubmitChanges();
+
+                            //DANH SÁCH MAIL
+                            dsMail.THOIGIAN_GUI = DateTime.Now.ToLocalTime();
+                            dsMail.FK_id_MATKHAU_MAIL = this.idpassMail;
+                            foreach (var item in db.NOIDUNG_MAILs.ToList())
+                            {
+                                if (tempIDNDMail < item.id)
+                                    tempIDNDMail = item.id;
+                                dsMail.FK_id_NOIDUNG_MAIL = tempIDNDMail;
+                            }
+                            db.DANHSACH_MAILs.InsertOnSubmit(dsMail);
+                            db.SubmitChanges();
                         }
-                        db.DANHSACH_MAILs.InsertOnSubmit(dsMail);
-                        db.SubmitChanges();
-                    }  
-                }
-                else
-                {
-                    using (dbMailServerDataContext db = new dbMailServerDataContext())
-                    {
-                        NOIDUNG_MAIL ndMail = new NOIDUNG_MAIL();
-                        ndMail = db.NOIDUNG_MAILs.Where(s => s.id == this.idTempMail).Single();
-                        ndMail.TRANG_THAI.STATUS_MAIL = false;
-                        ndMail.TO_MAIL = txtToMail.Text;
-                        ndMail.SUBJECT_MAIL = txtSubjectMail.Text;
-                        ndMail.CONTENT_MAIL = rTxtContent.Text;
-                        db.SubmitChanges();
                     }
+                    else
+                    {
+                        using (dbMailServerDataContext db = new dbMailServerDataContext())
+                        {
+                            NOIDUNG_MAIL ndMail = new NOIDUNG_MAIL();
+                            ndMail = db.NOIDUNG_MAILs.Where(s => s.id == this.idTempMail).Single();
+                            ndMail.TRANG_THAI.STATUS_MAIL = false;
+                            ndMail.TO_MAIL = txtToMail.Text;
+                            ndMail.SUBJECT_MAIL = txtSubjectMail.Text;
+                            ndMail.CONTENT_MAIL = rTxtContent.Text;
+                            ndMail.PATH_ATTACH = txtPathAttach.Text;
+                            db.SubmitChanges();
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             catch (Exception)
@@ -277,6 +288,7 @@ namespace MailServer
                     ndMail.TO_MAIL = txtToMail.Text;
                     ndMail.SUBJECT_MAIL = txtSubjectMail.Text;
                     ndMail.CONTENT_MAIL = rTxtContent.Text;
+                    ndMail.PATH_ATTACH = txtPathAttach.Text;
                     foreach (var item in db.TRANG_THAIs.ToList())
                     {
                         if (tempIDStatus < item.id)
@@ -288,7 +300,6 @@ namespace MailServer
 
                     //DANH SÁCH MAIL
                     dsMail.THOIGIAN_GUI = DateTime.Now.ToLocalTime();
-                    dsMail.FK_id_MATKHAU_LOCAL = this.idpassLocal;
                     dsMail.FK_id_MATKHAU_MAIL = this.idpassMail;
                     foreach (var item in db.NOIDUNG_MAILs.ToList())
                     {
@@ -376,6 +387,7 @@ namespace MailServer
                             txtToMail.Text = item.TO_MAIL;
                             txtSubjectMail.Text = item.SUBJECT_MAIL;
                             rTxtContent.Text = item.CONTENT_MAIL;
+                            txtPathAttach.Text = item.PATH_ATTACH;
                         }
                     }
                 }

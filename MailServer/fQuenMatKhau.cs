@@ -58,6 +58,7 @@ namespace MailServer
                                     emailClient = item.EMAIL.ToString();
                                     this.content =  $"Chào {item.TEN}." + System.Environment.NewLine + 
                                                     $"Vui lòng sử dụng mã bảo mật sau cho tài khoản MailBox: {item.EMAIL}." + System.Environment.NewLine + 
+                                                    $"Tên đăng nhập: {item.MATKHAU_LOCAL.USERNAME_LOCAL}" +
                                                     $"Mã bảo mật: {item.MAPIN}" + Environment.NewLine + 
                                                     $"Hãy nhập mã trên để khôi phục tải khoản MailBox." + System.Environment.NewLine + 
                                                     $"Xin cảm ơn!";
