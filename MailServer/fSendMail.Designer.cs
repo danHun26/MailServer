@@ -195,7 +195,7 @@ namespace MailServer
             // 
             this.lưuThưToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("lưuThưToolStripMenuItem.Image")));
             this.lưuThưToolStripMenuItem.Name = "lưuThưToolStripMenuItem";
-            this.lưuThưToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.lưuThưToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.lưuThưToolStripMenuItem.Text = "Save drafts";
             this.lưuThưToolStripMenuItem.Click += new System.EventHandler(this.lưuThưToolStripMenuItem_Click);
             // 
@@ -203,7 +203,7 @@ namespace MailServer
             // 
             this.gửiMailToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("gửiMailToolStripMenuItem.Image")));
             this.gửiMailToolStripMenuItem.Name = "gửiMailToolStripMenuItem";
-            this.gửiMailToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gửiMailToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.gửiMailToolStripMenuItem.Text = "Send mail";
             this.gửiMailToolStripMenuItem.Click += new System.EventHandler(this.btnSend_Click);
             // 
@@ -211,7 +211,7 @@ namespace MailServer
             // 
             this.thoátToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("thoátToolStripMenuItem.Image")));
             this.thoátToolStripMenuItem.Name = "thoátToolStripMenuItem";
-            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.thoátToolStripMenuItem.Text = "Exit";
             this.thoátToolStripMenuItem.Click += new System.EventHandler(this.thoátToolStripMenuItem_Click);
             // 
@@ -231,7 +231,7 @@ namespace MailServer
             // 
             this.chữĐậmToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("chữĐậmToolStripMenuItem.Image")));
             this.chữĐậmToolStripMenuItem.Name = "chữĐậmToolStripMenuItem";
-            this.chữĐậmToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.chữĐậmToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.chữĐậmToolStripMenuItem.Text = "Bold";
             this.chữĐậmToolStripMenuItem.Click += new System.EventHandler(this.chữĐậmToolStripMenuItem_Click);
             // 
@@ -239,7 +239,7 @@ namespace MailServer
             // 
             this.chữNghiênToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("chữNghiênToolStripMenuItem.Image")));
             this.chữNghiênToolStripMenuItem.Name = "chữNghiênToolStripMenuItem";
-            this.chữNghiênToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.chữNghiênToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.chữNghiênToolStripMenuItem.Text = "Italicized";
             this.chữNghiênToolStripMenuItem.Click += new System.EventHandler(this.chữNghiênToolStripMenuItem_Click);
             // 
@@ -247,7 +247,7 @@ namespace MailServer
             // 
             this.chữGạchChânToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("chữGạchChânToolStripMenuItem.Image")));
             this.chữGạchChânToolStripMenuItem.Name = "chữGạchChânToolStripMenuItem";
-            this.chữGạchChânToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.chữGạchChânToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.chữGạchChânToolStripMenuItem.Text = "Underline";
             this.chữGạchChânToolStripMenuItem.Click += new System.EventHandler(this.chữGạchChânToolStripMenuItem_Click);
             // 
@@ -266,7 +266,7 @@ namespace MailServer
             // 
             this.xóaNộiDungToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("xóaNộiDungToolStripMenuItem.Image")));
             this.xóaNộiDungToolStripMenuItem.Name = "xóaNộiDungToolStripMenuItem";
-            this.xóaNộiDungToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.xóaNộiDungToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.xóaNộiDungToolStripMenuItem.Text = "Delete content";
             this.xóaNộiDungToolStripMenuItem.Click += new System.EventHandler(this.xóaNộiDungToolStripMenuItem_Click);
             // 
@@ -274,7 +274,7 @@ namespace MailServer
             // 
             this.tạoThưMớiToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("tạoThưMớiToolStripMenuItem.Image")));
             this.tạoThưMớiToolStripMenuItem.Name = "tạoThưMớiToolStripMenuItem";
-            this.tạoThưMớiToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.tạoThưMớiToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.tạoThưMớiToolStripMenuItem.Text = "Create new mail";
             this.tạoThưMớiToolStripMenuItem.Click += new System.EventHandler(this.tạoThưMớiToolStripMenuItem_Click);
             // 
@@ -408,7 +408,7 @@ namespace MailServer
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "fSendMail";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Không có tiêu đề - Gửi mail";
+            this.Text = "No subject - Send mail";
             this.Load += new System.EventHandler(this.fSendMail_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

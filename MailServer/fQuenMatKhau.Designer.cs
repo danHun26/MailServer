@@ -386,9 +386,10 @@ namespace MailServer
             this.ClientSize = new System.Drawing.Size(436, 344);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "fQuenMatKhau";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "fQuenMatKhau";
+            this.Text = "Forgot Password - MailBox";
             this.Load += new System.EventHandler(this.fQuenMatKhau_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.fQuenMatKhau_MouseDown);
             this.panel1.ResumeLayout(false);

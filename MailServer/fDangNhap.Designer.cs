@@ -199,7 +199,7 @@ namespace MailServer
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "fDangNhap";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Đăng nhập hệ thống";
+            this.Text = "MailBox Login";
             this.Load += new System.EventHandler(this.fDangNhap_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
