@@ -1,7 +1,7 @@
 ﻿
 namespace MailServer
 {
-    partial class fShowMail
+    partial class fMailBox
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace MailServer
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fShowMail));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fMailBox));
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabHome = new System.Windows.Forms.TabPage();
@@ -53,7 +53,7 @@ namespace MailServer
             this.btnContact = new System.Windows.Forms.Button();
             this.btnReport = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAddEmail = new System.Windows.Forms.Button();
             this.btnGarbage = new System.Windows.Forms.Button();
             this.btnDrafts = new System.Windows.Forms.Button();
             this.btnStarred = new System.Windows.Forms.Button();
@@ -66,6 +66,7 @@ namespace MailServer
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.dgvListMail = new System.Windows.Forms.DataGridView();
+            this.drvID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.drvTo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.drvSubject = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.drvContent = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -356,7 +357,7 @@ namespace MailServer
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.btnAddEmail);
             this.panel2.Controls.Add(this.btnGarbage);
             this.panel2.Controls.Add(this.btnDrafts);
             this.panel2.Controls.Add(this.btnStarred);
@@ -370,16 +371,17 @@ namespace MailServer
             this.panel2.Size = new System.Drawing.Size(261, 475);
             this.panel2.TabIndex = 1;
             // 
-            // button1
+            // btnAddEmail
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(26)))), ((int)(((byte)(74)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(211, 425);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(49, 49);
-            this.button1.TabIndex = 14;
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnAddEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(26)))), ((int)(((byte)(74)))));
+            this.btnAddEmail.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAddEmail.Image = ((System.Drawing.Image)(resources.GetObject("btnAddEmail.Image")));
+            this.btnAddEmail.Location = new System.Drawing.Point(211, 425);
+            this.btnAddEmail.Name = "btnAddEmail";
+            this.btnAddEmail.Size = new System.Drawing.Size(49, 49);
+            this.btnAddEmail.TabIndex = 14;
+            this.btnAddEmail.UseVisualStyleBackColor = false;
+            this.btnAddEmail.Click += new System.EventHandler(this.btnAddEmail_Click);
             // 
             // btnGarbage
             // 
@@ -546,6 +548,7 @@ namespace MailServer
             this.dgvListMail.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvListMail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListMail.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.drvID,
             this.drvTo,
             this.drvSubject,
             this.drvContent});
@@ -554,6 +557,13 @@ namespace MailServer
             this.dgvListMail.Name = "dgvListMail";
             this.dgvListMail.Size = new System.Drawing.Size(289, 475);
             this.dgvListMail.TabIndex = 14;
+            this.dgvListMail.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListMail_CellClick);
+            // 
+            // drvID
+            // 
+            this.drvID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.drvID.HeaderText = "ID";
+            this.drvID.Name = "drvID";
             // 
             // drvTo
             // 
@@ -637,10 +647,11 @@ namespace MailServer
         private System.Windows.Forms.Button btnContact;
         private System.Windows.Forms.Button btnReport;
         private System.Windows.Forms.DataGridView dgvListMail;
+        private System.Windows.Forms.DateTimePicker dtpMail;
+        private System.Windows.Forms.Button btnAddEmail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn drvID;
         private System.Windows.Forms.DataGridViewTextBoxColumn drvTo;
         private System.Windows.Forms.DataGridViewTextBoxColumn drvSubject;
         private System.Windows.Forms.DataGridViewTextBoxColumn drvContent;
-        private System.Windows.Forms.DateTimePicker dtpMail;
-        private System.Windows.Forms.Button button1;
     }
 }

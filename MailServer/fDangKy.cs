@@ -19,8 +19,8 @@ namespace MailServer
         private bool checkMail;
         private bool confirmEmail;
         private int codeRD = 0;
-        private string userMailAcc = "jamk1126@gmail.com";
-        private string userMailPass = "jamk@1230";
+        private string userMailAccAdmin  = "appmailboxnhom8@gmail.com";
+        private string userMailPassAdmin = "mailbox#nhom8";
         private string subject = "[MailBox] Mã xác thực tài khoản của bạn.";
         private string content = "";
         public fDangKy()
@@ -62,7 +62,7 @@ namespace MailServer
                                 if (item.USERNAME_LOCAL == txtUserName.Text)
                                     throw new Exception("Tên đăng nhập này đã có người sữ dụng.");
                             foreach (var item in db.THONGTIN_CLIENTs.ToList())
-                                if (item.EMAIL == txtEmail.Text)
+                                if (item.EMAIL == txtEmail.Text.ToLower())
                                     throw new Exception("Email này đã tồn tại.");
 
                             if (this.checkMail && this.confirmEmail)
@@ -82,7 +82,7 @@ namespace MailServer
                                 //Insert dữ liệu vào THONGTIN_CLIENT
                                 infoClient.HO = txtLastName.Text;
                                 infoClient.TEN = txtFirstName.Text;
-                                infoClient.EMAIL = txtEmail.Text;
+                                infoClient.EMAIL = txtEmail.Text.ToLower();
                                 infoClient.NTNS = dTBirth.Value;
                                 //Lưu giá trị số giới tính
                                 if (cmdSex.Text == "Male") infoClient.GIOITINH = 1;
@@ -237,16 +237,16 @@ namespace MailServer
                     //Kiểm tra email có thực
                     this.codeRD = rdpin.Next(100000, 999999);
                     this.content = $"Chào {txtLastName.Text}." + System.Environment.NewLine +
-                                    $"Vui lòng sử dụng mã bảo mật sau cho tài khoản MailBox: {txtEmail.Text}." + System.Environment.NewLine +
+                                    $"Vui lòng sử dụng mã bảo mật sau cho tài khoản MailBox: {txtEmail.Text.ToLower()}." + System.Environment.NewLine +
                                     $"Mã xác thực bảo mật: {this.codeRD}" + System.Environment.NewLine +
                                     $"Hãy nhập mã xác thực tải khoản đăng ký MailBox." + System.Environment.NewLine +
                                     $"Xin cảm ơn!";
-                    MailMessage mail = new MailMessage(this.userMailAcc, txtEmail.Text.ToLower(), this.subject.ToString(), this.content.ToString());
+                    MailMessage mail = new MailMessage(this.userMailAccAdmin, txtEmail.Text.ToLower(), this.subject.ToString(), this.content.ToString());
                     mail.IsBodyHtml = true;
                     SmtpClient client = new SmtpClient("smtp.gmail.com");
                     client.UseDefaultCredentials = false;
                     client.Port = 587;
-                    client.Credentials = new System.Net.NetworkCredential(this.userMailAcc, this.userMailPass);
+                    client.Credentials = new System.Net.NetworkCredential(this.userMailAccAdmin, this.userMailPassAdmin);
                     client.EnableSsl = true;
                     client.Send(mail);
 

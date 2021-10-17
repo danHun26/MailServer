@@ -15,8 +15,8 @@ namespace MailServer
 {
     public partial class fQuenMatKhau : Form
     {
-        private string userMailAcc = "jamk1126@gmail.com";
-        private string userMailPass = "jamk@1230";
+        private string userMailAccAdmin  = "appmailboxnhom8@gmail.com";
+        private string userMailPassAdmin = "mailbox#nhom8";
         private string subject = "[MailBox] Mã khôi phục tài khoản của bạn!";
         private string content = "";
         private int idMK = 0;
@@ -53,12 +53,12 @@ namespace MailServer
                             string emailClient = "";
                             foreach (var item in db.THONGTIN_CLIENTs.ToList())
                             {
-                                if (txtEmail.Text == item.EMAIL.ToString())
+                                if (txtEmail.Text.ToLower() == item.EMAIL.ToString())
                                 {
                                     emailClient = item.EMAIL.ToString();
                                     this.content =  $"Chào {item.TEN}." + System.Environment.NewLine + 
                                                     $"Vui lòng sử dụng mã bảo mật sau cho tài khoản MailBox: {item.EMAIL}." + System.Environment.NewLine + 
-                                                    $"Tên đăng nhập: {item.MATKHAU_LOCAL.USERNAME_LOCAL}" +
+                                                    $"Tên đăng nhập: {item.MATKHAU_LOCAL.USERNAME_LOCAL}" + System.Environment.NewLine +
                                                     $"Mã bảo mật: {item.MAPIN}" + Environment.NewLine + 
                                                     $"Hãy nhập mã trên để khôi phục tải khoản MailBox." + System.Environment.NewLine + 
                                                     $"Xin cảm ơn!";
@@ -71,12 +71,12 @@ namespace MailServer
                             if (emailClient == "") throw new Exception("Email chưa được đăng ký!");
                             else
                             {
-                                MailMessage mail = new MailMessage(this.userMailAcc, emailClient, this.subject.ToString(), this.content.ToString());
+                                MailMessage mail = new MailMessage(this.userMailAccAdmin, emailClient, this.subject.ToString(), this.content.ToString());
                                 mail.IsBodyHtml = true;
                                 SmtpClient client = new SmtpClient("smtp.gmail.com");
                                 client.UseDefaultCredentials = false;
                                 client.Port = 587;
-                                client.Credentials = new System.Net.NetworkCredential(this.userMailAcc, this.userMailPass);
+                                client.Credentials = new System.Net.NetworkCredential(this.userMailAccAdmin, this.userMailPassAdmin);
                                 client.EnableSsl = true;
                                 client.Send(mail);
 

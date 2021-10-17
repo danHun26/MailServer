@@ -103,17 +103,17 @@
     <Compile Include="fQuenMatKhau.Designer.cs">
       <DependentUpon>fQuenMatKhau.cs</DependentUpon>
     </Compile>
-    <Compile Include="fShowMail.cs">
+    <Compile Include="fMailBox.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fShowMail.Designer.cs">
-      <DependentUpon>fShowMail.cs</DependentUpon>
+    <Compile Include="fMailBox.Designer.cs">
+      <DependentUpon>fMailBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="fThemmail.cs">
+    <Compile Include="fAddEmail.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fThemmail.Designer.cs">
-      <DependentUpon>fThemmail.cs</DependentUpon>
+    <Compile Include="fAddEmail.Designer.cs">
+      <DependentUpon>fAddEmail.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -132,12 +132,12 @@
     <EmbeddedResource Include="fQuenMatKhau.resx">
       <DependentUpon>fQuenMatKhau.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="fShowMail.resx">
-      <DependentUpon>fShowMail.cs</DependentUpon>
+    <EmbeddedResource Include="fMailBox.resx">
+      <DependentUpon>fMailBox.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="fThemmail.resx">
-      <DependentUpon>fThemmail.cs</DependentUpon>
+    <EmbeddedResource Include="fAddEmail.resx">
+      <DependentUpon>fAddEmail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

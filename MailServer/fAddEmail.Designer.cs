@@ -1,7 +1,7 @@
 ﻿
 namespace MailServer
 {
-    partial class fThemmail
+    partial class fAddEmail
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace MailServer
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fThemmail));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fAddEmail));
             this.panel2 = new System.Windows.Forms.Panel();
             this.cbShowPass = new MaterialSkin.Controls.MaterialCheckbox();
             this.txtPassMail = new MaterialSkin.Controls.MaterialTextBox();
@@ -44,7 +44,7 @@ namespace MailServer
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.SystemColors.Control;
+            this.panel2.BackColor = System.Drawing.Color.LemonChiffon;
             this.panel2.Controls.Add(this.cbShowPass);
             this.panel2.Controls.Add(this.txtPassMail);
             this.panel2.Controls.Add(this.txtUserMail);
@@ -117,20 +117,20 @@ namespace MailServer
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
-            this.linkLabel1.Location = new System.Drawing.Point(153, 406);
+            this.linkLabel1.Location = new System.Drawing.Point(127, 406);
             this.linkLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(141, 16);
+            this.linkLabel1.Size = new System.Drawing.Size(195, 16);
             this.linkLabel1.TabIndex = 12;
             this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "jamk1126@gmail.com";
+            this.linkLabel1.Text = "appmailboxnhom8@gmail.com";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Gray;
-            this.label7.Location = new System.Drawing.Point(50, 406);
+            this.label7.Location = new System.Drawing.Point(24, 406);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(99, 17);
@@ -139,7 +139,7 @@ namespace MailServer
             // 
             // btnExit
             // 
-            this.btnExit.BackColor = System.Drawing.SystemColors.Control;
+            this.btnExit.BackColor = System.Drawing.Color.LemonChiffon;
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(26)))), ((int)(((byte)(74)))));
@@ -178,18 +178,18 @@ namespace MailServer
             this.label5.Size = new System.Drawing.Size(341, 33);
             this.label5.TabIndex = 5;
             this.label5.Text = "ADD EMAIL ACCOUNTS";
+            this.label5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseDown);
             // 
-            // fThemmail
+            // fAddEmail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(343, 431);
-            this.ControlBox = false;
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "fThemmail";
+            this.Name = "fAddEmail";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Mail - MailBox";
             this.Load += new System.EventHandler(this.fThemmail_Load);

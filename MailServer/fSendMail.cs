@@ -75,7 +75,7 @@ namespace MailServer
                     if (Regex.IsMatch(txtToMail.Text, pattern) == false)
                         throw new Exception("Định dạng email gửi không đúng.");
 
-                    MailMessage mail = new MailMessage(this.userMailAcc, txtToMail.Text, txtSubjectMail.Text, rTxtContent.Text);
+                    MailMessage mail = new MailMessage(this.userMailAcc, txtToMail.Text.ToLower(), txtSubjectMail.Text, rTxtContent.Text);
                     mail.IsBodyHtml = true;
                     if (File.Exists(txtPathAttach.Text))
                     {
@@ -98,6 +98,8 @@ namespace MailServer
                     }
 
                     MessageBox.Show("Gửi mail thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    //Gửi mail mới
                     if (this.classifyMail == 0)
                     {
                         //Lưu vào database
@@ -119,8 +121,8 @@ namespace MailServer
                             db.SubmitChanges();
 
                             //NỘI DUNG MAIL
-                            ndMail.FROM_MAIL = txtFromMail.Text;
-                            ndMail.TO_MAIL = txtToMail.Text;
+                            ndMail.FROM_MAIL = txtFromMail.Text.ToLower();
+                            ndMail.TO_MAIL = txtToMail.Text.ToLower();
                             ndMail.SUBJECT_MAIL = txtSubjectMail.Text;
                             ndMail.CONTENT_MAIL = rTxtContent.Text;
                             ndMail.PATH_ATTACH = txtPathAttach.Text;
@@ -147,6 +149,7 @@ namespace MailServer
                             db.SubmitChanges();
                         }
                     }
+                    //Gửi mail nháp
                     else
                     {
                         using (dbMailServerDataContext db = new dbMailServerDataContext())
@@ -154,7 +157,7 @@ namespace MailServer
                             NOIDUNG_MAIL ndMail = new NOIDUNG_MAIL();
                             ndMail = db.NOIDUNG_MAILs.Where(s => s.id == this.idTempMail).Single();
                             ndMail.TRANG_THAI.STATUS_MAIL = false;
-                            ndMail.TO_MAIL = txtToMail.Text;
+                            ndMail.TO_MAIL = txtToMail.Text.ToLower();
                             ndMail.SUBJECT_MAIL = txtSubjectMail.Text;
                             ndMail.CONTENT_MAIL = rTxtContent.Text;
                             ndMail.PATH_ATTACH = txtPathAttach.Text;
@@ -230,7 +233,7 @@ namespace MailServer
         {
             if(txtFromMail.Text == "" && txtPathAttach.Text == "" && txtSubjectMail.Text == "" && txtToMail.Text == "" && rTxtContent.Text == "")
             {
-                fShowMail fSM = new fShowMail();
+                fMailBox fSM = new fMailBox();
                 this.Hide();
                 fSM.ShowDialog();
                 this.Close();
@@ -240,7 +243,7 @@ namespace MailServer
                 DialogResult check = MessageBox.Show("Bạn có muốn thoát không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (check == DialogResult.Yes)
                 {
-                    fShowMail fSM = new fShowMail();
+                    fMailBox fSM = new fMailBox();
                     this.Hide();
                     fSM.ShowDialog();
                     this.Close();
@@ -284,8 +287,8 @@ namespace MailServer
                     db.SubmitChanges();
 
                     //NỘI DUNG MAIL
-                    ndMail.FROM_MAIL = txtFromMail.Text;
-                    ndMail.TO_MAIL = txtToMail.Text;
+                    ndMail.FROM_MAIL = txtFromMail.Text.ToLower();
+                    ndMail.TO_MAIL = txtToMail.Text.ToLower();
                     ndMail.SUBJECT_MAIL = txtSubjectMail.Text;
                     ndMail.CONTENT_MAIL = rTxtContent.Text;
                     ndMail.PATH_ATTACH = txtPathAttach.Text;
@@ -311,7 +314,7 @@ namespace MailServer
                     db.SubmitChanges();
                     MessageBox.Show("Lưu vào thư nháp thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    fShowMail fSM = new fShowMail();
+                    fMailBox fSM = new fMailBox();
                     this.Hide();
                     fSM.ShowDialog();
                     this.Close();
@@ -333,9 +336,9 @@ namespace MailServer
                 if (txtPathAttach.Text.Contains(".png") || txtPathAttach.Text.Contains(".jpg") || txtPathAttach.Text.Contains(".jpeg"))
                 {
                     if (txtPathAttach.Text.Contains(".png"))
-                        txtIdentification.Text = "File: ẢNH RAW";
+                        txtIdentification.Text = "File: RAW";
                     else if (txtPathAttach.Text.Contains(".jpg") || txtPathAttach.Text.Contains(".jpeg"))
-                        txtIdentification.Text = "File: ẢNH";
+                        txtIdentification.Text = "File: PICTURE";
                 }
                 else if (txtPathAttach.Text.Contains(".doc") || txtPathAttach.Text.Contains(".docx"))
                     txtIdentification.Text = "File: WORD";
@@ -384,10 +387,30 @@ namespace MailServer
                         if (item.id == this.idTempMail)
                         {
                             txtFromMail.Text = item.FROM_MAIL;
-                            txtToMail.Text = item.TO_MAIL;
+                            txtToMail.Text = item.TO_MAIL.ToLower();
                             txtSubjectMail.Text = item.SUBJECT_MAIL;
                             rTxtContent.Text = item.CONTENT_MAIL;
                             txtPathAttach.Text = item.PATH_ATTACH;
+
+                            if (txtPathAttach.Text.Contains(".png") || txtPathAttach.Text.Contains(".jpg") || txtPathAttach.Text.Contains(".jpeg"))
+                            {
+                                if (txtPathAttach.Text.Contains(".png"))
+                                    txtIdentification.Text = "File: RAW";
+                                else if (txtPathAttach.Text.Contains(".jpg") || txtPathAttach.Text.Contains(".jpeg"))
+                                    txtIdentification.Text = "File: PICTURE";
+                            }
+                            else if (txtPathAttach.Text.Contains(".doc") || txtPathAttach.Text.Contains(".docx"))
+                                txtIdentification.Text = "File: WORD";
+                            else if (txtPathAttach.Text.Contains(".xls") || txtPathAttach.Text.Contains(".xlsx") || txtPathAttach.Text.Contains(".xlsm"))
+                                txtIdentification.Text = "File: EXCEL";
+                            else if (txtPathAttach.Text.Contains(".pptx"))
+                                txtIdentification.Text = "File: POWER PORINT";
+                            else if (txtPathAttach.Text.Contains(".pdf"))
+                                txtIdentification.Text = "File: PDF ";
+                            else if (txtPathAttach.Text.Contains(".txt"))
+                                txtIdentification.Text = "File: TEXT";
+                            else
+                                txtIdentification.Text = "File: OTHER";
                         }
                     }
                 }
