@@ -25,6 +25,7 @@ namespace MailServer
         private int idpassMail = 0;
         private int idTempMail = 0;
         private int classifyMail = 0;
+        private int idPassLocal = 0;
 
         //Di chuyển form
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -40,27 +41,27 @@ namespace MailServer
 
         //Constructor có tham số cho mail mới
         public fSendMail(string serverMail, int portServerMail, string userMailAcc, 
-            string passMailAcc, int idpassMail) : this()
+            string passMailAcc, int idpassMail, int idPassLocal) : this()
         {
             this.serverMail = serverMail;
             this.portServerMail = portServerMail;
             this.userMailAcc = userMailAcc;
-            //this.passMailAcc = passMailAcc;
             this.passMailAcc = Eramake.eCryptography.Decrypt(passMailAcc);
             this.idpassMail = idpassMail;
+            this.idPassLocal = idPassLocal;
         }
 
         ////Constructor có tham số mở mail nháp
         public fSendMail(string serverMail, int portServerMail, string userMailAcc, 
-            string passMailAcc, int idpassMail, int idTempMail) : this()
+            string passMailAcc, int idpassMail, int idTempMail, int idPassLocal) : this()
         {
             this.serverMail = serverMail;
             this.portServerMail = portServerMail;
             this.userMailAcc = userMailAcc;
             this.passMailAcc = passMailAcc;
-            //this.idpassMail = idpassMail;
             this.passMailAcc = Eramake.eCryptography.Decrypt(passMailAcc);
             this.idTempMail = idTempMail;
+            this.idPassLocal = idPassLocal;
             this.classifyMail = 1;
         }
 
@@ -240,7 +241,7 @@ namespace MailServer
         {
             if(txtPathAttach.Text == "" && txtSubjectMail.Text == "" && txtToMail.Text == "" && rTxtContent.Text == "")
             {
-                fMail fSM = new fMail(userMailAcc);
+                fMail fSM = new fMail(this.userMailAcc, this.idPassLocal);
                 this.Hide();
                 fSM.ShowDialog();
                 this.Close();
@@ -250,7 +251,7 @@ namespace MailServer
                 DialogResult check = MessageBox.Show("Bạn có muốn thoát không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (check == DialogResult.Yes)
                 {
-                    fMail fSM = new fMail(userMailAcc);
+                    fMail fSM = new fMail(this.userMailAcc, this.idPassLocal);
                     this.Hide();
                     fSM.ShowDialog();
                     this.Close();

@@ -16,55 +16,57 @@ namespace MailServer
     {
         private int idPassLocal = 0;
         private int idDSMail = 0;
-        private string cmbUserNameEmail = "";
         public fMail()
         {
             InitializeComponent();
         }
 
-        //Nhận id mật khẩu local
+        //Nhận id mật khẩu local [AddMail]
         public fMail(int idPassLocal) : this()
         {
             this.idPassLocal = idPassLocal;
         }
 
-        //Nhận lại tên user trước đó
-        public fMail(string cmbUserNameEmail) : this()
+        //Nhận lại tên user trước đó [SendMail]
+        public fMail(string cmbUserNameEmail, int idPassLocal) : this()
         {
-            this.cmbUserNameEmail = cmbUserNameEmail;
+            cmbEmail.Text = cmbUserNameEmail;
+            this.idPassLocal = idPassLocal;
         }
-
 
         //Sự kiện chọn combobox để gửi mail mới
         private void btnNewMail_Click(object sender, EventArgs e)
         {
             try
-            {
-                
+            { 
                 using (dbMailServerDataContext db = new dbMailServerDataContext())
                 {
                     int temp = 0;
                     foreach (var item in db.DANHSACH_MAILs.ToList())
                     {
+                        //Mail nháp
                         if (item.NOIDUNG_MAIL.TRANG_THAI.STATUS_MAIL == true)
                         {
                             if (cmbEmail.Text == item.MATKHAU_MAIL.USERNAME_MAIL.ToString() && item.id == this.idDSMail)
                             {
                                 temp = 1;
                                 fSendMail fsm = new fSendMail(item.MATKHAU_MAIL.DOMAIN_MAIL.DOMAIN, item.MATKHAU_MAIL.DOMAIN_MAIL.PORT_MAIL,
-                                                            item.MATKHAU_MAIL.USERNAME_MAIL, item.MATKHAU_MAIL.PASSWORD_MAIL, item.MATKHAU_MAIL.id, item.NOIDUNG_MAIL.id);
+                                                            item.MATKHAU_MAIL.USERNAME_MAIL, item.MATKHAU_MAIL.PASSWORD_MAIL,
+                                                            item.MATKHAU_MAIL.id, item.NOIDUNG_MAIL.id, this.idPassLocal);
                                 this.Hide();
                                 fsm.ShowDialog();
                                 this.Close();
                             }
                         }
+                        //Thư mới
                         else if(item.NOIDUNG_MAIL.TRANG_THAI.STATUS_MAIL == false)
                         {
                             if (cmbEmail.Text == item.MATKHAU_MAIL.USERNAME_MAIL.ToString())
                             {
                                 temp = 1;
                                 fSendMail fsm = new fSendMail(item.MATKHAU_MAIL.DOMAIN_MAIL.DOMAIN, item.MATKHAU_MAIL.DOMAIN_MAIL.PORT_MAIL,
-                                                            item.MATKHAU_MAIL.USERNAME_MAIL, item.MATKHAU_MAIL.PASSWORD_MAIL, item.MATKHAU_MAIL.id);
+                                                            item.MATKHAU_MAIL.USERNAME_MAIL, item.MATKHAU_MAIL.PASSWORD_MAIL, 
+                                                            item.MATKHAU_MAIL.id, this.idPassLocal);
                                 this.Hide();
                                 fsm.ShowDialog();
                                 this.Close();
@@ -78,12 +80,11 @@ namespace MailServer
                             if (cmbEmail.Text == item.USERNAME_MAIL.ToString())
                             {
                                 fSendMail fsm = new fSendMail(item.DOMAIN_MAIL.DOMAIN, item.DOMAIN_MAIL.PORT_MAIL,
-                                                            item.USERNAME_MAIL, item.PASSWORD_MAIL, item.id);
+                                                            item.USERNAME_MAIL, item.PASSWORD_MAIL, item.id, this.idPassLocal);
                                 this.Hide();
                                 fsm.ShowDialog();
                                 this.Close();
                             }
-
                         }
                     }
                 }
@@ -92,39 +93,6 @@ namespace MailServer
             {
                 MessageBox.Show("Đã có lỗi xảy ra vui lòng liên hệ nhà phát triển.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void fShowMail_Load(object sender, EventArgs e)
-        {
-            if (cmbUserNameEmail != "")
-            {
-                cmbEmail.Text = this.cmbUserNameEmail;
-            }  
-        }
-
-        private void btnReport_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                fFeedBack fsm = new fFeedBack();
-                fsm.ShowDialog();
-            }
-            catch (Exception)
-            {
-
-                MessageBox.Show("Đã có lỗi xảy ra vui lòng liên hệ nhà phát triển.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Bạn đã thoát khỏi ứng dụng.");
-            this.Close();
-        }
-
-        private void btnContact_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Phiền bạn hãy liên lạc với chúng tôi qua Hotline:0123456789");
         }
 
         private void btnAddEmail_Click(object sender, EventArgs e)
@@ -154,6 +122,23 @@ namespace MailServer
             {
                 MessageBox.Show("Something went wrong, please contact the developer!.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        //Sự kiện load lại form
+        private void fMail_Load(object sender, EventArgs e)
+        {
+            if (this.idPassLocal == 0)
+            {
+                fDangNhap fLogin = new fDangNhap();
+                this.Hide();
+                fLogin.ShowDialog();
+                this.Close();
+            }
+        }
+
+        private void btnInbox_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
