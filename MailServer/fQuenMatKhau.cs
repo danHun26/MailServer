@@ -95,7 +95,7 @@ namespace MailServer
             }
             catch (Exception)
             {
-                MessageBox.Show("Something went wrong, please contact the developer!.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Đã có lỗi xảy ra vui lòng liên hệ nhà phát triển.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -190,8 +190,10 @@ namespace MailServer
                         {
                             MATKHAU_LOCAL mkLocal = new MATKHAU_LOCAL();
                             THONGTIN_CLIENT infoClient = new THONGTIN_CLIENT();
+
                             mkLocal = db.MATKHAU_LOCALs.Where(s => s.id == this.idMK).Single();
                             infoClient = db.THONGTIN_CLIENTs.Where(s => s.FK_id_MATKHAU_LOCAL == this.idMK).Single();
+
                             if (txtPassword.Text == txtReEnter.Text)
                             {
                                 mkLocal.PASSWORD_LOCAL = Eramake.eCryptography.Encrypt(txtPassword.Text);
@@ -222,8 +224,6 @@ namespace MailServer
             {
                 MessageBox.Show("Something went wrong, please contact the developer!.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-
         }
 
         //Sự kiên load lại form

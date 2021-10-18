@@ -104,6 +104,7 @@ namespace MailServer
 
                                 db.THONGTIN_CLIENTs.InsertOnSubmit(infoClient);
                                 db.SubmitChanges();
+
                                 //Thông báo thành công   
                                 MessageBox.Show("Đăng ký tài khoản MailBox thành công." + System.Environment.NewLine +
                                     $" Tên đăng nhập: {txtUserName.Text}" + System.Environment.NewLine +
@@ -237,7 +238,7 @@ namespace MailServer
                     Random rdpin = new Random();
                     //Kiểm tra email có thực
                     this.codeRD = rdpin.Next(100000, 999999);
-                    this.content = $"Chào {txtLastName.Text}." + System.Environment.NewLine +
+                    this.content =  $"Chào {txtLastName.Text}." + System.Environment.NewLine +
                                     $"Vui lòng sử dụng mã bảo mật sau cho tài khoản MailBox: {txtEmail.Text.ToLower()}." + System.Environment.NewLine +
                                     $"Mã xác thực bảo mật: {this.codeRD}" + System.Environment.NewLine +
                                     $"Hãy nhập mã xác thực tải khoản đăng ký MailBox." + System.Environment.NewLine +

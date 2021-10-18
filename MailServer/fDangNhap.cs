@@ -90,7 +90,6 @@ namespace MailServer
                                     {
                                         fDangNhap_Load(sender, e);
                                         fMail fSM = new fMail(item.id);
-                                        //fShowMail fSM = new fShowMail(item2.id);
                                         this.Hide();
                                         fSM.ShowDialog();
                                         this.Close();
