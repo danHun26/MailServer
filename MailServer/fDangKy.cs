@@ -69,7 +69,8 @@ namespace MailServer
                             {
                                 //Insert dữ liệu vào MATKHAU_LOCAL
                                 mkLocal.USERNAME_LOCAL = txtUserName.Text;
-                                if (txtPassword.Text == txtReEnter.Text) mkLocal.PASSWORD_LOCAL = Eramake.eCryptography.Encrypt(txtPassword.Text);
+                                if (txtPassword.Text == txtReEnter.Text)
+                                    mkLocal.PASSWORD_LOCAL = Eramake.eCryptography.Encrypt(txtPassword.Text);
                                 else
                                 {
                                     txtPassword.Text = "";

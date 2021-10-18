@@ -42,12 +42,11 @@ namespace MailServer
         public fSendMail(string serverMail, int portServerMail, string userMailAcc, 
             string passMailAcc, int idpassMail) : this()
         {
-            txtFromMail.Text = userMailAcc;
-
             this.serverMail = serverMail;
             this.portServerMail = portServerMail;
             this.userMailAcc = userMailAcc;
-            this.passMailAcc = passMailAcc;
+            //this.passMailAcc = passMailAcc;
+            this.passMailAcc = Eramake.eCryptography.Decrypt(passMailAcc);
             this.idpassMail = idpassMail;
         }
 
@@ -59,7 +58,8 @@ namespace MailServer
             this.portServerMail = portServerMail;
             this.userMailAcc = userMailAcc;
             this.passMailAcc = passMailAcc;
-            this.idpassMail = idpassMail;
+            //this.idpassMail = idpassMail;
+            this.passMailAcc = Eramake.eCryptography.Decrypt(passMailAcc);
             this.idTempMail = idTempMail;
             this.classifyMail = 1;
         }
@@ -155,15 +155,22 @@ namespace MailServer
                         using (dbMailServerDataContext db = new dbMailServerDataContext())
                         {
                             NOIDUNG_MAIL ndMail = new NOIDUNG_MAIL();
+                            DANHSACH_MAIL dsMail = new DANHSACH_MAIL();
                             ndMail = db.NOIDUNG_MAILs.Where(s => s.id == this.idTempMail).Single();
+                            dsMail = db.DANHSACH_MAILs.Where(s => s.FK_id_NOIDUNG_MAIL == this.idTempMail).Single();
                             ndMail.TRANG_THAI.STATUS_MAIL = false;
+                            ndMail.TRANG_THAI.UPDATE_TIME_MAIL = DateTime.Now.ToLocalTime();
+                            dsMail.THOIGIAN_GUI = DateTime.Now.ToLocalTime();
                             ndMail.TO_MAIL = txtToMail.Text.ToLower();
                             ndMail.SUBJECT_MAIL = txtSubjectMail.Text;
                             ndMail.CONTENT_MAIL = rTxtContent.Text;
                             ndMail.PATH_ATTACH = txtPathAttach.Text;
                             db.SubmitChanges();
+
+                            this.classifyMail = 0;
                         }
                     }
+                    fSendMail_Load(sender, e);
                 }
                 catch (Exception ex)
                 {
@@ -231,9 +238,9 @@ namespace MailServer
         //Thoát soạn mail
         private void thoátToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(txtFromMail.Text == "" && txtPathAttach.Text == "" && txtSubjectMail.Text == "" && txtToMail.Text == "" && rTxtContent.Text == "")
+            if(txtPathAttach.Text == "" && txtSubjectMail.Text == "" && txtToMail.Text == "" && rTxtContent.Text == "")
             {
-                fMailBox fSM = new fMailBox();
+                fMail fSM = new fMail(userMailAcc);
                 this.Hide();
                 fSM.ShowDialog();
                 this.Close();
@@ -243,7 +250,7 @@ namespace MailServer
                 DialogResult check = MessageBox.Show("Bạn có muốn thoát không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (check == DialogResult.Yes)
                 {
-                    fMailBox fSM = new fMailBox();
+                    fMail fSM = new fMail(userMailAcc);
                     this.Hide();
                     fSM.ShowDialog();
                     this.Close();
@@ -314,7 +321,7 @@ namespace MailServer
                     db.SubmitChanges();
                     MessageBox.Show("Lưu vào thư nháp thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    fMailBox fSM = new fMailBox();
+                    fMail fSM = new fMail();
                     this.Hide();
                     fSM.ShowDialog();
                     this.Close();

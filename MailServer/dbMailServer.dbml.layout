@@ -2,94 +2,88 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 13" name="dbMailServer">
   <DataContextMoniker Name="/dbMailServerDataContext" />
   <nestedChildShapes>
-    <classShape Id="66042e63-20df-4891-806e-44b6385748f7" absoluteBounds="6.75, 5.5, 2, 2.3478011067708344">
-      <DataClassMoniker Name="/dbMailServerDataContext/ADMIN_MAIL" />
-      <nestedChildShapes>
-        <elementListCompartment Id="4debe6f2-cdcc-4c0a-b4f5-e34668cacb66" absoluteBounds="6.765, 5.96, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="2e8a3e8a-178f-4d1e-962b-3fb0dbfc2d94" absoluteBounds="0.75, 10.5, 2, 1.9631982421874987">
-      <DataClassMoniker Name="/dbMailServerDataContext/TRANG_THAI" />
-      <nestedChildShapes>
-        <elementListCompartment Id="2465a0e5-7315-4cc1-82c5-b7e18f92fa3e" absoluteBounds="0.765, 10.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="91829ec6-0e58-4d1b-b87c-07db7d9c19d3" absoluteBounds="6.25, 2.625, 2, 1.7708968098958327">
+    <classShape Id="70a30784-3636-4c4a-91d5-c630d918b7e9" absoluteBounds="6.25, 2.625, 2, 1.7708968098958327">
       <DataClassMoniker Name="/dbMailServerDataContext/DANHSACH_MAIL" />
       <nestedChildShapes>
-        <elementListCompartment Id="daad0582-ad1b-49dd-bbd3-14bd1ba99fa8" absoluteBounds="6.265, 3.085, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="9474882a-d56f-4e96-a806-e7a680dabbec" absoluteBounds="6.265, 3.085, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="f02cf75a-de0f-48e3-9ce7-0026546e4030" absoluteBounds="0.75, 0.75, 2, 1.5785953776041666">
+    <classShape Id="01f6cc9a-a742-4b40-88aa-eebc14078e93" absoluteBounds="0.75, 10.5, 2, 1.9631982421874987">
+      <DataClassMoniker Name="/dbMailServerDataContext/TRANG_THAI" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4f18dd4f-fc0a-4b27-851b-6d4af535bb3c" absoluteBounds="0.765, 10.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2f46d780-cb76-4ba8-b4f3-e39c7c108ed9" absoluteBounds="0.75, 0.75, 2, 1.5785953776041666">
       <DataClassMoniker Name="/dbMailServerDataContext/DOMAIN_MAIL" />
       <nestedChildShapes>
-        <elementListCompartment Id="f4591eb6-2599-41d7-8555-f4dee7edf706" absoluteBounds="0.765, 1.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="8a136ecb-3988-4fae-bd77-7f47809fc47f" absoluteBounds="0.765, 1.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="4847c65e-dc6e-4c6e-9fe5-174d7b2f2e69" absoluteBounds="0.75, 3.75, 2, 1.578595377604167">
+    <classShape Id="5ff3e2bf-02f3-43b6-8eb0-13d929544588" absoluteBounds="0.75, 3.75, 2, 1.578595377604167">
       <DataClassMoniker Name="/dbMailServerDataContext/MATKHAU_LOCAL" />
       <nestedChildShapes>
-        <elementListCompartment Id="1891f737-d96f-4e56-8374-c889c38dcad0" absoluteBounds="0.765, 4.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="c07ef2c0-dbb4-44c1-83b7-1f5ebe70bd1a" absoluteBounds="0.765, 4.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="9bd8d288-b136-4f06-82b2-a9ca365e2554" absoluteBounds="3.5, 2.5, 2, 1.9631982421875005">
+    <classShape Id="3f97e6d5-2077-4d87-9210-c7cd957c2d84" absoluteBounds="3.5, 2.5, 2, 1.9631982421875005">
       <DataClassMoniker Name="/dbMailServerDataContext/MATKHAU_MAIL" />
       <nestedChildShapes>
-        <elementListCompartment Id="5f0adaff-90cb-49b9-928c-0af0e0379658" absoluteBounds="3.515, 2.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="1b597e5a-664d-49c4-a7f9-2166cea7e969" absoluteBounds="3.515, 2.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="832da756-ae26-490b-b425-058a728cc649" absoluteBounds="3.5, 10.375, 2, 2.3478011067708344">
+    <classShape Id="d2d1d923-14cc-4f2c-9974-aed3d3bb1d13" absoluteBounds="3.5, 10.375, 2, 2.3478011067708344">
       <DataClassMoniker Name="/dbMailServerDataContext/NOIDUNG_MAIL" />
       <nestedChildShapes>
-        <elementListCompartment Id="9d689c67-0bfa-455f-958a-65ba80c61b35" absoluteBounds="3.515, 10.835, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="64d5034a-fba7-4be2-ac83-094147b4903c" absoluteBounds="3.515, 10.835, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="528b6fbe-52ba-485d-87cd-0d7222a07953" absoluteBounds="3.5, 5.875, 2, 2.7324039713541666">
+    <classShape Id="7a21ddc5-74b7-4c2e-afab-daa860ac99d3" absoluteBounds="3.5, 5.875, 2, 2.7324039713541666">
       <DataClassMoniker Name="/dbMailServerDataContext/THONGTIN_CLIENT" />
       <nestedChildShapes>
-        <elementListCompartment Id="19297520-ffff-4836-ace6-45e831826a31" absoluteBounds="3.515, 6.335, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="e6db0831-620e-4bd8-823a-90105cb9a688" absoluteBounds="3.515, 6.335, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <associationConnector edgePoints="[(5.5 : 3.51044840494792); (6.25 : 3.51044840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/dbMailServerDataContext/MATKHAU_MAIL/MATKHAU_MAIL_DANHSACH_MAIL" />
       <nodes>
-        <classShapeMoniker Id="9bd8d288-b136-4f06-82b2-a9ca365e2554" />
-        <classShapeMoniker Id="91829ec6-0e58-4d1b-b87c-07db7d9c19d3" />
+        <classShapeMoniker Id="3f97e6d5-2077-4d87-9210-c7cd957c2d84" />
+        <classShapeMoniker Id="70a30784-3636-4c4a-91d5-c630d918b7e9" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(2.75 : 1.53929768880208); (4.5 : 1.53929768880208); (4.5 : 2.5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/dbMailServerDataContext/DOMAIN_MAIL/DOMAIN_MAIL_MATKHAU_MAIL" />
       <nodes>
-        <classShapeMoniker Id="f02cf75a-de0f-48e3-9ce7-0026546e4030" />
-        <classShapeMoniker Id="9bd8d288-b136-4f06-82b2-a9ca365e2554" />
+        <classShapeMoniker Id="2f46d780-cb76-4ba8-b4f3-e39c7c108ed9" />
+        <classShapeMoniker Id="3f97e6d5-2077-4d87-9210-c7cd957c2d84" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(2.75 : 4.10659912109375); (3.5 : 4.10659912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/dbMailServerDataContext/MATKHAU_LOCAL/MATKHAU_LOCAL_MATKHAU_MAIL" />
       <nodes>
-        <classShapeMoniker Id="4847c65e-dc6e-4c6e-9fe5-174d7b2f2e69" />
-        <classShapeMoniker Id="9bd8d288-b136-4f06-82b2-a9ca365e2554" />
+        <classShapeMoniker Id="5ff3e2bf-02f3-43b6-8eb0-13d929544588" />
+        <classShapeMoniker Id="3f97e6d5-2077-4d87-9210-c7cd957c2d84" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 11.5489005533854); (6.46875 : 11.5489005533854); (6.46875 : 4.39589680989583)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.5 : 11.5489005533854); (7.25 : 11.5489005533854); (7.25 : 4.39589680989583)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/dbMailServerDataContext/NOIDUNG_MAIL/NOIDUNG_MAIL_DANHSACH_MAIL" />
       <nodes>
-        <classShapeMoniker Id="832da756-ae26-490b-b425-058a728cc649" />
-        <classShapeMoniker Id="91829ec6-0e58-4d1b-b87c-07db7d9c19d3" />
+        <classShapeMoniker Id="d2d1d923-14cc-4f2c-9974-aed3d3bb1d13" />
+        <classShapeMoniker Id="70a30784-3636-4c4a-91d5-c630d918b7e9" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(2.75 : 11.4815991210937); (3.5 : 11.4815991210937)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/dbMailServerDataContext/TRANG_THAI/TRANG_THAI_NOIDUNG_MAIL" />
       <nodes>
-        <classShapeMoniker Id="2e8a3e8a-178f-4d1e-962b-3fb0dbfc2d94" />
-        <classShapeMoniker Id="832da756-ae26-490b-b425-058a728cc649" />
+        <classShapeMoniker Id="01f6cc9a-a742-4b40-88aa-eebc14078e93" />
+        <classShapeMoniker Id="d2d1d923-14cc-4f2c-9974-aed3d3bb1d13" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(1.75 : 5.32859537760417); (1.75 : 7.24120198567708); (3.5 : 7.24120198567708)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/dbMailServerDataContext/MATKHAU_LOCAL/MATKHAU_LOCAL_THONGTIN_CLIENT" />
       <nodes>
-        <classShapeMoniker Id="4847c65e-dc6e-4c6e-9fe5-174d7b2f2e69" />
-        <classShapeMoniker Id="528b6fbe-52ba-485d-87cd-0d7222a07953" />
+        <classShapeMoniker Id="5ff3e2bf-02f3-43b6-8eb0-13d929544588" />
+        <classShapeMoniker Id="7a21ddc5-74b7-4c2e-afab-daa860ac99d3" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

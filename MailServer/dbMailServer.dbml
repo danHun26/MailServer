@@ -1,15 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="XAY_DUNG_MAIL_SERVER" Class="dbMailServerDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-6B6ICSA\MSSQLSERVER02;Initial Catalog=XAY_DUNG_MAIL_SERVER;Integrated Security=True" SettingsObjectName="MailServer.Properties.Settings" SettingsPropertyName="XAY_DUNG_MAIL_SERVERConnectionString3" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.ADMIN_MAIL" Member="ADMIN_MAILs">
-    <Type Name="ADMIN_MAIL">
+  <Table Name="dbo.DANHSACH_MAIL" Member="DANHSACH_MAILs">
+    <Type Name="DANHSACH_MAIL">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="id_ADMIN_MAIL" Type="System.String" DbType="VarChar(7)" IsDbGenerated="true" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="USERNAMEAD" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="PASSWORDAD" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="HO" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="TEN" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="NTNS" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="CHUCVU" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="id_DANHSACH_MAIL" Type="System.String" DbType="VarChar(7)" IsDbGenerated="true" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="THOIGIAN_GUI" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="FK_id_MATKHAU_MAIL" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FK_id_NOIDUNG_MAIL" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="MATKHAU_MAIL_DANHSACH_MAIL" Member="MATKHAU_MAIL" ThisKey="FK_id_MATKHAU_MAIL" OtherKey="id" Type="MATKHAU_MAIL" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="NOIDUNG_MAIL_DANHSACH_MAIL" Member="NOIDUNG_MAIL" ThisKey="FK_id_NOIDUNG_MAIL" OtherKey="id" Type="NOIDUNG_MAIL" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
   <Table Name="dbo.TRANG_THAI" Member="TRANG_THAIs">
@@ -21,17 +20,6 @@
       <Column Name="STATUS_MAIL" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="UPDATE_TIME_MAIL" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Association Name="TRANG_THAI_NOIDUNG_MAIL" Member="NOIDUNG_MAILs" ThisKey="id" OtherKey="FK_id_TRANG_THAI" Type="NOIDUNG_MAIL" />
-    </Type>
-  </Table>
-  <Table Name="dbo.DANHSACH_MAIL" Member="DANHSACH_MAILs">
-    <Type Name="DANHSACH_MAIL">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="id_DANHSACH_MAIL" Type="System.String" DbType="VarChar(7)" IsDbGenerated="true" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="THOIGIAN_GUI" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="FK_id_MATKHAU_MAIL" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="FK_id_NOIDUNG_MAIL" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="MATKHAU_MAIL_DANHSACH_MAIL" Member="MATKHAU_MAIL" ThisKey="FK_id_MATKHAU_MAIL" OtherKey="id" Type="MATKHAU_MAIL" IsForeignKey="true" DeleteRule="CASCADE" />
-      <Association Name="NOIDUNG_MAIL_DANHSACH_MAIL" Member="NOIDUNG_MAIL" ThisKey="FK_id_NOIDUNG_MAIL" OtherKey="id" Type="NOIDUNG_MAIL" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
   <Table Name="dbo.DOMAIN_MAIL" Member="DOMAIN_MAILs">

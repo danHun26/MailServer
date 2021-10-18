@@ -89,7 +89,7 @@ namespace MailServer
                                     if(item2.FK_id_MATKHAU_LOCAL == item.id)
                                     {
                                         fDangNhap_Load(sender, e);
-                                        fMailBox fSM = new fMailBox(item.id);
+                                        fMail fSM = new fMail(item.id);
                                         //fShowMail fSM = new fShowMail(item2.id);
                                         this.Hide();
                                         fSM.ShowDialog();

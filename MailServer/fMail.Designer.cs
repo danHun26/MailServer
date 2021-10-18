@@ -1,7 +1,7 @@
 ﻿
 namespace MailServer
 {
-    partial class fMailBox
+    partial class fMail
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace MailServer
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fMailBox));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fMail));
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabHome = new System.Windows.Forms.TabPage();
@@ -450,7 +450,6 @@ namespace MailServer
             this.btnAllMail.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAllMail.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAllMail.UseVisualStyleBackColor = false;
-            this.btnAllMail.Click += new System.EventHandler(this.btnAllMail_Click);
             // 
             // btnInbox
             // 
@@ -484,7 +483,8 @@ namespace MailServer
             this.cmbEmail.IntegralHeight = false;
             this.cmbEmail.ItemHeight = 43;
             this.cmbEmail.Items.AddRange(new object[] {
-            "minhhuanpbt26@gmail.com"});
+            "jamk1126@gmail.com",
+            "atgjbmagic@gmail.com"});
             this.cmbEmail.Location = new System.Drawing.Point(-1, 425);
             this.cmbEmail.MaxDropDownItems = 4;
             this.cmbEmail.MouseState = MaterialSkin.MouseState.OUT;
@@ -583,7 +583,7 @@ namespace MailServer
             this.drvContent.HeaderText = "Content";
             this.drvContent.Name = "drvContent";
             // 
-            // fShowMail
+            // fMail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -593,7 +593,7 @@ namespace MailServer
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "fShowMail";
+            this.Name = "fMail";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MailBox";
             this.Load += new System.EventHandler(this.fShowMail_Load);

@@ -23,7 +23,7 @@ namespace MailServer
         }
 
         //Constructor truyền id mật khẩu MailBox
-        public fAddEmail(int idPassLocal)
+        public fAddEmail(int idPassLocal) : this()
         {
             this.idPassLocal = idPassLocal;
         }
@@ -63,7 +63,7 @@ namespace MailServer
                             MessageBox.Show("Thêm Mail thành công vào MailBox.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             mkMail.USERNAME_MAIL = txtUserMail.Text.ToLower();
-                            mkMail.PASSWORD_MAIL = txtPassMail.Text;
+                            mkMail.PASSWORD_MAIL = Eramake.eCryptography.Encrypt(txtPassMail.Text);
                             mkMail.FK_id_DOMAIN_MAIL = 1;
                             mkMail.FK_id_MATKHAU_LOCAL = this.idPassLocal;
                             db.MATKHAU_MAILs.InsertOnSubmit(mkMail);
@@ -83,6 +83,7 @@ namespace MailServer
 
                             mkMail.USERNAME_MAIL = txtUserMail.Text.ToLower();
                             mkMail.PASSWORD_MAIL = txtPassMail.Text;
+                            //mkMail.PASSWORD_MAIL = Eramake.eCryptography.Encrypt(txtPassMail.Text);
                             mkMail.FK_id_DOMAIN_MAIL = 2;
                             mkMail.FK_id_MATKHAU_LOCAL = this.idPassLocal;
                             db.MATKHAU_MAILs.InsertOnSubmit(mkMail);
@@ -102,6 +103,7 @@ namespace MailServer
 
                             mkMail.USERNAME_MAIL = txtUserMail.Text.ToLower();
                             mkMail.PASSWORD_MAIL = txtPassMail.Text;
+                            //mkMail.PASSWORD_MAIL = Eramake.eCryptography.Encrypt(txtPassMail.Text);
                             mkMail.FK_id_DOMAIN_MAIL = 3;
                             mkMail.FK_id_MATKHAU_LOCAL = this.idPassLocal;
                             db.MATKHAU_MAILs.InsertOnSubmit(mkMail);
@@ -147,7 +149,7 @@ namespace MailServer
                 //Kiểm tra trước khi thoát 
                 if (txtUserMail.Text == "" && txtPassMail.Text == "")
                 {
-                    fMailBox showMail = new fMailBox();
+                    fMail showMail = new fMail();
                     this.Hide();
                     showMail.ShowDialog();
                     this.Close();
@@ -157,7 +159,7 @@ namespace MailServer
                     DialogResult check = MessageBox.Show("Bạn có muốn thoát không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (check == DialogResult.Yes)
                     {
-                        fMailBox showMail = new fMailBox();
+                        fMail showMail = new fMail();
                         this.Hide();
                         showMail.ShowDialog();
                         this.Close();

@@ -30,15 +30,12 @@ namespace MailServer
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertADMIN_MAIL(ADMIN_MAIL instance);
-    partial void UpdateADMIN_MAIL(ADMIN_MAIL instance);
-    partial void DeleteADMIN_MAIL(ADMIN_MAIL instance);
-    partial void InsertTRANG_THAI(TRANG_THAI instance);
-    partial void UpdateTRANG_THAI(TRANG_THAI instance);
-    partial void DeleteTRANG_THAI(TRANG_THAI instance);
     partial void InsertDANHSACH_MAIL(DANHSACH_MAIL instance);
     partial void UpdateDANHSACH_MAIL(DANHSACH_MAIL instance);
     partial void DeleteDANHSACH_MAIL(DANHSACH_MAIL instance);
+    partial void InsertTRANG_THAI(TRANG_THAI instance);
+    partial void UpdateTRANG_THAI(TRANG_THAI instance);
+    partial void DeleteTRANG_THAI(TRANG_THAI instance);
     partial void InsertDOMAIN_MAIL(DOMAIN_MAIL instance);
     partial void UpdateDOMAIN_MAIL(DOMAIN_MAIL instance);
     partial void DeleteDOMAIN_MAIL(DOMAIN_MAIL instance);
@@ -86,11 +83,11 @@ namespace MailServer
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<ADMIN_MAIL> ADMIN_MAILs
+		public System.Data.Linq.Table<DANHSACH_MAIL> DANHSACH_MAILs
 		{
 			get
 			{
-				return this.GetTable<ADMIN_MAIL>();
+				return this.GetTable<DANHSACH_MAIL>();
 			}
 		}
 		
@@ -99,14 +96,6 @@ namespace MailServer
 			get
 			{
 				return this.GetTable<TRANG_THAI>();
-			}
-		}
-		
-		public System.Data.Linq.Table<DANHSACH_MAIL> DANHSACH_MAILs
-		{
-			get
-			{
-				return this.GetTable<DANHSACH_MAIL>();
 			}
 		}
 		
@@ -148,446 +137,6 @@ namespace MailServer
 			{
 				return this.GetTable<THONGTIN_CLIENT>();
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ADMIN_MAIL")]
-	public partial class ADMIN_MAIL : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id;
-		
-		private string _id_ADMIN_MAIL;
-		
-		private string _USERNAMEAD;
-		
-		private string _PASSWORDAD;
-		
-		private string _HO;
-		
-		private string _TEN;
-		
-		private string _NTNS;
-		
-		private string _CHUCVU;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    partial void Onid_ADMIN_MAILChanging(string value);
-    partial void Onid_ADMIN_MAILChanged();
-    partial void OnUSERNAMEADChanging(string value);
-    partial void OnUSERNAMEADChanged();
-    partial void OnPASSWORDADChanging(string value);
-    partial void OnPASSWORDADChanged();
-    partial void OnHOChanging(string value);
-    partial void OnHOChanged();
-    partial void OnTENChanging(string value);
-    partial void OnTENChanged();
-    partial void OnNTNSChanging(string value);
-    partial void OnNTNSChanged();
-    partial void OnCHUCVUChanging(string value);
-    partial void OnCHUCVUChanged();
-    #endregion
-		
-		public ADMIN_MAIL()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id
-		{
-			get
-			{
-				return this._id;
-			}
-			set
-			{
-				if ((this._id != value))
-				{
-					this.OnidChanging(value);
-					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_ADMIN_MAIL", AutoSync=AutoSync.Always, DbType="VarChar(7)", IsDbGenerated=true, UpdateCheck=UpdateCheck.Never)]
-		public string id_ADMIN_MAIL
-		{
-			get
-			{
-				return this._id_ADMIN_MAIL;
-			}
-			set
-			{
-				if ((this._id_ADMIN_MAIL != value))
-				{
-					this.Onid_ADMIN_MAILChanging(value);
-					this.SendPropertyChanging();
-					this._id_ADMIN_MAIL = value;
-					this.SendPropertyChanged("id_ADMIN_MAIL");
-					this.Onid_ADMIN_MAILChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERNAMEAD", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string USERNAMEAD
-		{
-			get
-			{
-				return this._USERNAMEAD;
-			}
-			set
-			{
-				if ((this._USERNAMEAD != value))
-				{
-					this.OnUSERNAMEADChanging(value);
-					this.SendPropertyChanging();
-					this._USERNAMEAD = value;
-					this.SendPropertyChanged("USERNAMEAD");
-					this.OnUSERNAMEADChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PASSWORDAD", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string PASSWORDAD
-		{
-			get
-			{
-				return this._PASSWORDAD;
-			}
-			set
-			{
-				if ((this._PASSWORDAD != value))
-				{
-					this.OnPASSWORDADChanging(value);
-					this.SendPropertyChanging();
-					this._PASSWORDAD = value;
-					this.SendPropertyChanged("PASSWORDAD");
-					this.OnPASSWORDADChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HO", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string HO
-		{
-			get
-			{
-				return this._HO;
-			}
-			set
-			{
-				if ((this._HO != value))
-				{
-					this.OnHOChanging(value);
-					this.SendPropertyChanging();
-					this._HO = value;
-					this.SendPropertyChanged("HO");
-					this.OnHOChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TEN", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string TEN
-		{
-			get
-			{
-				return this._TEN;
-			}
-			set
-			{
-				if ((this._TEN != value))
-				{
-					this.OnTENChanging(value);
-					this.SendPropertyChanging();
-					this._TEN = value;
-					this.SendPropertyChanged("TEN");
-					this.OnTENChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NTNS", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string NTNS
-		{
-			get
-			{
-				return this._NTNS;
-			}
-			set
-			{
-				if ((this._NTNS != value))
-				{
-					this.OnNTNSChanging(value);
-					this.SendPropertyChanging();
-					this._NTNS = value;
-					this.SendPropertyChanged("NTNS");
-					this.OnNTNSChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHUCVU", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string CHUCVU
-		{
-			get
-			{
-				return this._CHUCVU;
-			}
-			set
-			{
-				if ((this._CHUCVU != value))
-				{
-					this.OnCHUCVUChanging(value);
-					this.SendPropertyChanging();
-					this._CHUCVU = value;
-					this.SendPropertyChanged("CHUCVU");
-					this.OnCHUCVUChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TRANG_THAI")]
-	public partial class TRANG_THAI : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id;
-		
-		private string _id_TRANG_THAI;
-		
-		private System.Nullable<bool> _DANHDAU;
-		
-		private System.Nullable<bool> _XOATHU;
-		
-		private System.Nullable<bool> _STATUS_MAIL;
-		
-		private System.Nullable<System.DateTime> _UPDATE_TIME_MAIL;
-		
-		private EntitySet<NOIDUNG_MAIL> _NOIDUNG_MAILs;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    partial void Onid_TRANG_THAIChanging(string value);
-    partial void Onid_TRANG_THAIChanged();
-    partial void OnDANHDAUChanging(System.Nullable<bool> value);
-    partial void OnDANHDAUChanged();
-    partial void OnXOATHUChanging(System.Nullable<bool> value);
-    partial void OnXOATHUChanged();
-    partial void OnSTATUS_MAILChanging(System.Nullable<bool> value);
-    partial void OnSTATUS_MAILChanged();
-    partial void OnUPDATE_TIME_MAILChanging(System.Nullable<System.DateTime> value);
-    partial void OnUPDATE_TIME_MAILChanged();
-    #endregion
-		
-		public TRANG_THAI()
-		{
-			this._NOIDUNG_MAILs = new EntitySet<NOIDUNG_MAIL>(new Action<NOIDUNG_MAIL>(this.attach_NOIDUNG_MAILs), new Action<NOIDUNG_MAIL>(this.detach_NOIDUNG_MAILs));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id
-		{
-			get
-			{
-				return this._id;
-			}
-			set
-			{
-				if ((this._id != value))
-				{
-					this.OnidChanging(value);
-					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_TRANG_THAI", AutoSync=AutoSync.Always, DbType="VarChar(7)", IsDbGenerated=true, UpdateCheck=UpdateCheck.Never)]
-		public string id_TRANG_THAI
-		{
-			get
-			{
-				return this._id_TRANG_THAI;
-			}
-			set
-			{
-				if ((this._id_TRANG_THAI != value))
-				{
-					this.Onid_TRANG_THAIChanging(value);
-					this.SendPropertyChanging();
-					this._id_TRANG_THAI = value;
-					this.SendPropertyChanged("id_TRANG_THAI");
-					this.Onid_TRANG_THAIChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DANHDAU", DbType="Bit")]
-		public System.Nullable<bool> DANHDAU
-		{
-			get
-			{
-				return this._DANHDAU;
-			}
-			set
-			{
-				if ((this._DANHDAU != value))
-				{
-					this.OnDANHDAUChanging(value);
-					this.SendPropertyChanging();
-					this._DANHDAU = value;
-					this.SendPropertyChanged("DANHDAU");
-					this.OnDANHDAUChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_XOATHU", DbType="Bit")]
-		public System.Nullable<bool> XOATHU
-		{
-			get
-			{
-				return this._XOATHU;
-			}
-			set
-			{
-				if ((this._XOATHU != value))
-				{
-					this.OnXOATHUChanging(value);
-					this.SendPropertyChanging();
-					this._XOATHU = value;
-					this.SendPropertyChanged("XOATHU");
-					this.OnXOATHUChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STATUS_MAIL", DbType="Bit")]
-		public System.Nullable<bool> STATUS_MAIL
-		{
-			get
-			{
-				return this._STATUS_MAIL;
-			}
-			set
-			{
-				if ((this._STATUS_MAIL != value))
-				{
-					this.OnSTATUS_MAILChanging(value);
-					this.SendPropertyChanging();
-					this._STATUS_MAIL = value;
-					this.SendPropertyChanged("STATUS_MAIL");
-					this.OnSTATUS_MAILChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATE_TIME_MAIL", DbType="Date")]
-		public System.Nullable<System.DateTime> UPDATE_TIME_MAIL
-		{
-			get
-			{
-				return this._UPDATE_TIME_MAIL;
-			}
-			set
-			{
-				if ((this._UPDATE_TIME_MAIL != value))
-				{
-					this.OnUPDATE_TIME_MAILChanging(value);
-					this.SendPropertyChanging();
-					this._UPDATE_TIME_MAIL = value;
-					this.SendPropertyChanged("UPDATE_TIME_MAIL");
-					this.OnUPDATE_TIME_MAILChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TRANG_THAI_NOIDUNG_MAIL", Storage="_NOIDUNG_MAILs", ThisKey="id", OtherKey="FK_id_TRANG_THAI")]
-		public EntitySet<NOIDUNG_MAIL> NOIDUNG_MAILs
-		{
-			get
-			{
-				return this._NOIDUNG_MAILs;
-			}
-			set
-			{
-				this._NOIDUNG_MAILs.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_NOIDUNG_MAILs(NOIDUNG_MAIL entity)
-		{
-			this.SendPropertyChanging();
-			entity.TRANG_THAI = this;
-		}
-		
-		private void detach_NOIDUNG_MAILs(NOIDUNG_MAIL entity)
-		{
-			this.SendPropertyChanging();
-			entity.TRANG_THAI = null;
 		}
 	}
 	
@@ -828,6 +377,216 @@ namespace MailServer
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TRANG_THAI")]
+	public partial class TRANG_THAI : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private string _id_TRANG_THAI;
+		
+		private System.Nullable<bool> _DANHDAU;
+		
+		private System.Nullable<bool> _XOATHU;
+		
+		private System.Nullable<bool> _STATUS_MAIL;
+		
+		private System.Nullable<System.DateTime> _UPDATE_TIME_MAIL;
+		
+		private EntitySet<NOIDUNG_MAIL> _NOIDUNG_MAILs;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void Onid_TRANG_THAIChanging(string value);
+    partial void Onid_TRANG_THAIChanged();
+    partial void OnDANHDAUChanging(System.Nullable<bool> value);
+    partial void OnDANHDAUChanged();
+    partial void OnXOATHUChanging(System.Nullable<bool> value);
+    partial void OnXOATHUChanged();
+    partial void OnSTATUS_MAILChanging(System.Nullable<bool> value);
+    partial void OnSTATUS_MAILChanged();
+    partial void OnUPDATE_TIME_MAILChanging(System.Nullable<System.DateTime> value);
+    partial void OnUPDATE_TIME_MAILChanged();
+    #endregion
+		
+		public TRANG_THAI()
+		{
+			this._NOIDUNG_MAILs = new EntitySet<NOIDUNG_MAIL>(new Action<NOIDUNG_MAIL>(this.attach_NOIDUNG_MAILs), new Action<NOIDUNG_MAIL>(this.detach_NOIDUNG_MAILs));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_TRANG_THAI", AutoSync=AutoSync.Always, DbType="VarChar(7)", IsDbGenerated=true, UpdateCheck=UpdateCheck.Never)]
+		public string id_TRANG_THAI
+		{
+			get
+			{
+				return this._id_TRANG_THAI;
+			}
+			set
+			{
+				if ((this._id_TRANG_THAI != value))
+				{
+					this.Onid_TRANG_THAIChanging(value);
+					this.SendPropertyChanging();
+					this._id_TRANG_THAI = value;
+					this.SendPropertyChanged("id_TRANG_THAI");
+					this.Onid_TRANG_THAIChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DANHDAU", DbType="Bit")]
+		public System.Nullable<bool> DANHDAU
+		{
+			get
+			{
+				return this._DANHDAU;
+			}
+			set
+			{
+				if ((this._DANHDAU != value))
+				{
+					this.OnDANHDAUChanging(value);
+					this.SendPropertyChanging();
+					this._DANHDAU = value;
+					this.SendPropertyChanged("DANHDAU");
+					this.OnDANHDAUChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_XOATHU", DbType="Bit")]
+		public System.Nullable<bool> XOATHU
+		{
+			get
+			{
+				return this._XOATHU;
+			}
+			set
+			{
+				if ((this._XOATHU != value))
+				{
+					this.OnXOATHUChanging(value);
+					this.SendPropertyChanging();
+					this._XOATHU = value;
+					this.SendPropertyChanged("XOATHU");
+					this.OnXOATHUChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STATUS_MAIL", DbType="Bit")]
+		public System.Nullable<bool> STATUS_MAIL
+		{
+			get
+			{
+				return this._STATUS_MAIL;
+			}
+			set
+			{
+				if ((this._STATUS_MAIL != value))
+				{
+					this.OnSTATUS_MAILChanging(value);
+					this.SendPropertyChanging();
+					this._STATUS_MAIL = value;
+					this.SendPropertyChanged("STATUS_MAIL");
+					this.OnSTATUS_MAILChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATE_TIME_MAIL", DbType="Date")]
+		public System.Nullable<System.DateTime> UPDATE_TIME_MAIL
+		{
+			get
+			{
+				return this._UPDATE_TIME_MAIL;
+			}
+			set
+			{
+				if ((this._UPDATE_TIME_MAIL != value))
+				{
+					this.OnUPDATE_TIME_MAILChanging(value);
+					this.SendPropertyChanging();
+					this._UPDATE_TIME_MAIL = value;
+					this.SendPropertyChanged("UPDATE_TIME_MAIL");
+					this.OnUPDATE_TIME_MAILChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TRANG_THAI_NOIDUNG_MAIL", Storage="_NOIDUNG_MAILs", ThisKey="id", OtherKey="FK_id_TRANG_THAI")]
+		public EntitySet<NOIDUNG_MAIL> NOIDUNG_MAILs
+		{
+			get
+			{
+				return this._NOIDUNG_MAILs;
+			}
+			set
+			{
+				this._NOIDUNG_MAILs.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_NOIDUNG_MAILs(NOIDUNG_MAIL entity)
+		{
+			this.SendPropertyChanging();
+			entity.TRANG_THAI = this;
+		}
+		
+		private void detach_NOIDUNG_MAILs(NOIDUNG_MAIL entity)
+		{
+			this.SendPropertyChanging();
+			entity.TRANG_THAI = null;
 		}
 	}
 	
