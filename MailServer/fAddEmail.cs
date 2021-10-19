@@ -11,7 +11,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MailServer
+namespace MailBox
 {
     public partial class fAddEmail : Form
     {

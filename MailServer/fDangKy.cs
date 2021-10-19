@@ -12,7 +12,7 @@ using System.Security.Cryptography;
 using System.Text.RegularExpressions;
 using System.Net.Mail;
 
-namespace MailServer
+namespace MailBox
 {
     public partial class fDangKy : Form
     {

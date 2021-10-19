@@ -14,7 +14,7 @@ using System.Threading;
 using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 
-namespace MailServer
+namespace MailBox
 {
     public partial class fSendMail : Form
     {
@@ -157,8 +157,10 @@ namespace MailServer
                         {
                             NOIDUNG_MAIL ndMail = new NOIDUNG_MAIL();
                             DANHSACH_MAIL dsMail = new DANHSACH_MAIL();
+
                             ndMail = db.NOIDUNG_MAILs.Where(s => s.id == this.idTempMail).Single();
                             dsMail = db.DANHSACH_MAILs.Where(s => s.FK_id_NOIDUNG_MAIL == this.idTempMail).Single();
+
                             ndMail.TRANG_THAI.STATUS_MAIL = false;
                             ndMail.TRANG_THAI.UPDATE_TIME_MAIL = DateTime.Now.ToLocalTime();
                             dsMail.THOIGIAN_GUI = DateTime.Now.ToLocalTime();
@@ -177,40 +179,6 @@ namespace MailServer
                 {
                     MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Đã có lỗi xảy ra vui lòng liên hệ nhà phát triển.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        //Chọn file đính kèm
-        private void btnBrowser_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
-                    txtPathAttach.Text = openFileDialog.FileName;
-
-                if (txtPathAttach.Text.Contains(".png") || txtPathAttach.Text.Contains(".jpg") || txtPathAttach.Text.Contains(".jpeg"))
-                {
-                     if (txtPathAttach.Text.Contains(".png"))
-                        txtIdentification.Text = "File kèm là: ẢNH RAW";
-                    else if (txtPathAttach.Text.Contains(".jpg") || txtPathAttach.Text.Contains(".jpeg"))
-                        txtIdentification.Text = "File kèm: ẢNH";
-                }    
-                else if (txtPathAttach.Text.Contains(".doc") || txtPathAttach.Text.Contains(".docx"))
-                    txtIdentification.Text = "File kèm: WORD";
-                else if (txtPathAttach.Text.Contains(".xls") || txtPathAttach.Text.Contains(".xlsx") || txtPathAttach.Text.Contains(".xlsm"))
-                    txtIdentification.Text = "File kèm: EXCEL";
-                else if (txtPathAttach.Text.Contains(".pptx"))
-                    txtIdentification.Text = "File kèm: POWER PORINT";
-                else if (txtPathAttach.Text.Contains(".pdf"))
-                    txtIdentification.Text = "File kèm: PDF ";
-                else if (txtPathAttach.Text.Contains(".txt"))
-                    txtIdentification.Text = "File kèm: TEXT";
-                else
-                    txtIdentification.Text = "File kèm: KHÔNG XÁC ĐỊNH";
             }
             catch (Exception)
             {

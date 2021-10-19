@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MailServer
+namespace MailBox
 {
     public partial class fDangNhap : Form
     {

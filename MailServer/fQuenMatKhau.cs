@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 
-namespace MailServer
+namespace MailBox
 {
     public partial class fQuenMatKhau : Form
     {

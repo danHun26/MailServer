@@ -1,5 +1,5 @@
 ﻿
-namespace MailServer
+namespace MailBox
 {
     partial class fQuenMatKhau
     {
